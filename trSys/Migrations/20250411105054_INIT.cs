@@ -13,38 +13,17 @@ namespace trSys.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CourseRegistrations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    UserId = table.Column<int>(type: "integer", nullable: false),
-                    CourseId = table.Column<int>(type: "integer", nullable: false),
-                    Date = table.Column<DateOnly>(type: "date", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CourseRegistrations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Courses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "text", nullable: false),
-                    Descriptions = table.Column<string>(type: "text", nullable: false),
-                    CourseRegistrationId = table.Column<int>(type: "integer", nullable: true)
+                    Descriptions = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Courses", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Courses_CourseRegistrations_CourseRegistrationId",
-                        column: x => x.CourseRegistrationId,
-                        principalTable: "CourseRegistrations",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -56,17 +35,11 @@ namespace trSys.Migrations
                     Email = table.Column<string>(type: "text", nullable: false),
                     PasswordHash = table.Column<string>(type: "text", nullable: false),
                     FullName = table.Column<string>(type: "text", nullable: false),
-                    Role = table.Column<string>(type: "text", nullable: false),
-                    CourseRegistrationId = table.Column<int>(type: "integer", nullable: true)
+                    Role = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_CourseRegistrations_CourseRegistrationId",
-                        column: x => x.CourseRegistrationId,
-                        principalTable: "CourseRegistrations",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +59,33 @@ namespace trSys.Migrations
                         name: "FK_Modules_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CourseRegistrations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    CourseId = table.Column<int>(type: "integer", nullable: false),
+                    Date = table.Column<DateOnly>(type: "date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CourseRegistrations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CourseRegistrations_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CourseRegistrations_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -177,9 +177,14 @@ namespace trSys.Migrations
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Courses_CourseRegistrationId",
-                table: "Courses",
-                column: "CourseRegistrationId");
+                name: "IX_CourseRegistrations_CourseId",
+                table: "CourseRegistrations",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CourseRegistrations_UserId",
+                table: "CourseRegistrations",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lessons_ModuleId",
@@ -201,11 +206,6 @@ namespace trSys.Migrations
                 name: "IX_Tests_ModuleId",
                 table: "Tests",
                 column: "ModuleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_CourseRegistrationId",
-                table: "Users",
-                column: "CourseRegistrationId");
         }
 
         /// <inheritdoc />
@@ -215,13 +215,16 @@ namespace trSys.Migrations
                 name: "Answers");
 
             migrationBuilder.DropTable(
+                name: "CourseRegistrations");
+
+            migrationBuilder.DropTable(
                 name: "Lessons");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Questions");
 
             migrationBuilder.DropTable(
-                name: "Questions");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Tests");
@@ -231,9 +234,6 @@ namespace trSys.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
-
-            migrationBuilder.DropTable(
-                name: "CourseRegistrations");
         }
     }
 }
