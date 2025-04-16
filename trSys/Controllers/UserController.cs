@@ -27,16 +27,18 @@ namespace trSys.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            var user = new User(model.Email, model.Password, model.FullName, model.Role);
+            var hashedPassword = CreateHashPassword(model.Password); // Хешируем пароль
+            var user = new User(model.Email, hashedPassword, model.FullName, model.Role); // Передаём хеш
             await _repository.AddAsync(user);
             return Ok(new { Message = "User registered successfully" });
         }
 
+
         [HttpPost("login")]//HUITA
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = (await _repository.GetAllAsync()).FirstOrDefault(u => u.Email == model.Email);
-            if (user == null || user.PasswordHash != CreateHashPassword(model.Password))
+            var user = (await _repository.GetAllAsync()).FirstOrDefault(u => u.Email == model.Email); // лучше эту хуйню  репозиторий вынести
+            if (user == null || user.PasswordHash != CreateHashPassword(model.Password)) // if (!CompareHashes(user.PasswordHash, CreateHashPassword(model.Password)))
             {
                 return Unauthorized(new { Message = "Invalid email or password" });
             }
@@ -47,22 +49,33 @@ namespace trSys.Controllers
 
         private string GenerateJwtToken(User user)
         {
+            var jwtKey = _configuration["Jwt:Key"];
+            var issuer = _configuration["Jwt:Issuer"];
+            var audience = _configuration["Jwt:Audience"];
+
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var key = Encoding.ASCII.GetBytes(jwtKey);
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role)
+                    new Claim(ClaimTypes.Role, user.Role ?? "User") // Если Role null ? "User"
                 }),
+                Issuer = issuer,       // "localhost"
+                Audience = audience,    // "swagger_ui"
                 Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
             };
+
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
 
         private string CreateHashPassword(string password)
         {
