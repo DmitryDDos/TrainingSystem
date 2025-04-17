@@ -9,11 +9,10 @@ namespace trSys.Models;
 public class User
 {
     private User () { }
-    public User(int id, string email, string pass, string name, string role)
+    public User(string email, string pass, string name, string role)
     {
-        Id = id;
         Email = email;
-        PasswordHash = CreateHashPassword(pass);
+        PasswordHash = pass;
         FullName = name;
         Role = role;
         //валидация отдельным методом или Required
@@ -33,12 +32,12 @@ public class User
 
     
     
-    private string CreateHashPassword(string password)
-    {
-        using (var sha256 = SHA256.Create())
-        {
-            var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
-        }
-    }
+    // private string CreateHashPassword(string password)
+    // {
+    //     using (var sha256 = SHA256.Create())
+    //     {
+    //         var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+    //         return Convert.ToBase64String(bytes);
+    //     }
+    // }
 }
