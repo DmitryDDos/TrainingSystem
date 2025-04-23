@@ -132,6 +132,29 @@ namespace trSys.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LessonFiles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FileName = table.Column<string>(type: "text", nullable: false),
+                    FilePath = table.Column<string>(type: "text", nullable: false),
+                    ContentType = table.Column<string>(type: "text", nullable: false),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    LessonId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LessonFiles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LessonFiles_Lessons_LessonId",
+                        column: x => x.LessonId,
+                        principalTable: "Lessons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
@@ -187,6 +210,11 @@ namespace trSys.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_LessonFiles_LessonId",
+                table: "LessonFiles",
+                column: "LessonId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Lessons_ModuleId",
                 table: "Lessons",
                 column: "ModuleId");
@@ -218,13 +246,16 @@ namespace trSys.Migrations
                 name: "CourseRegistrations");
 
             migrationBuilder.DropTable(
-                name: "Lessons");
+                name: "LessonFiles");
 
             migrationBuilder.DropTable(
                 name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Lessons");
 
             migrationBuilder.DropTable(
                 name: "Tests");

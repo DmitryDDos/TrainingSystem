@@ -5,6 +5,11 @@ using trSys.Repos;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using trSys.Interfaces;
+using Microsoft.Extensions.FileProviders;
+using trSys.Models;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +17,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressInferBindingSourcesForParameters = true;
+});
+
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Transport System API", Version = "v1" });
@@ -40,6 +52,8 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
+    // Добавляем поддержку загрузки файлов
+    c.OperationFilter<SwaggerFileOperationFilter>();
 });
 
 // Настройка подключения к бд
@@ -69,6 +83,13 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 50 * 1024 * 1024; // 50 MB
+});
+
+
 var app = builder.Build();
 
 // Настройка ковеера HTTP-запросов
@@ -85,6 +106,9 @@ else
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transport System API V1");
+        c.EnablePersistAuthorization();
+        c.EnableDeepLinking();
+        c.DisplayRequestDuration();
     });
 }
 
@@ -99,6 +123,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.WebRootPath, "uploads")),
+    RequestPath = "/uploads"
+});
+
 
 
 app.Run();

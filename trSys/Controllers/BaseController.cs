@@ -37,7 +37,7 @@ namespace trSys.Controllers
 
         // POST: api/[controller]
         [HttpPost]
-        public async Task<ActionResult<TEntity>> Create(TEntity entity)
+        public virtual async Task<ActionResult<TEntity>> Create(TEntity entity)
         {
             await _repository.AddAsync(entity);
             return CreatedAtAction(nameof(GetById), new { id = (entity as dynamic).Id }, entity);
@@ -45,7 +45,7 @@ namespace trSys.Controllers
 
         // PUT: api/[controller]/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, TEntity entity)
+        public virtual async Task<IActionResult> Update(int id, TEntity entity)
         {
             if (id != (entity as dynamic).Id)
             {
@@ -58,7 +58,7 @@ namespace trSys.Controllers
 
         // DELETE: api/[controller]/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public virtual async Task<IActionResult> Delete(int id)
         {
             await _repository.DeleteAsync(id);
             return NoContent();

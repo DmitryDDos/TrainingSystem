@@ -19,8 +19,5 @@ public class Answer
     public int Id {get; private set;}
     public string AnswersForQuestions {get; private set;}
     public int QuestionId {get; private set;}
-
-    //навигационное поле
-    //public Question? Questions {get; private set;}
     public Question Questions {get; private set;}
 }

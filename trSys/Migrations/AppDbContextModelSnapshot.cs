@@ -117,6 +117,36 @@ namespace trSys.Migrations
                     b.ToTable("Lessons");
                 });
 
+            modelBuilder.Entity("trSys.Models.LessonFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<byte[]>("Content")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FileType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LessonId");
+
+                    b.ToTable("LessonFile");
+                });
+
             modelBuilder.Entity("trSys.Models.Module", b =>
                 {
                     b.Property<int>("Id")
@@ -257,6 +287,17 @@ namespace trSys.Migrations
                     b.Navigation("Module");
                 });
 
+            modelBuilder.Entity("trSys.Models.LessonFile", b =>
+                {
+                    b.HasOne("trSys.Models.Lesson", "Lesson")
+                        .WithMany("Files")
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lesson");
+                });
+
             modelBuilder.Entity("trSys.Models.Module", b =>
                 {
                     b.HasOne("trSys.Models.Course", "Course")
@@ -295,6 +336,11 @@ namespace trSys.Migrations
                     b.Navigation("CourseRegistrations");
 
                     b.Navigation("Module");
+                });
+
+            modelBuilder.Entity("trSys.Models.Lesson", b =>
+                {
+                    b.Navigation("Files");
                 });
 
             modelBuilder.Entity("trSys.Models.Module", b =>

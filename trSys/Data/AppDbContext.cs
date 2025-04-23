@@ -28,6 +28,7 @@ public class AppDbContext : DbContext
     public DbSet<Test> Tests {get;set;}
     public DbSet<User> Users {get;set;}
 
+
     //тут связь многие ко многим надо добавить и UTC или как там для даты
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
