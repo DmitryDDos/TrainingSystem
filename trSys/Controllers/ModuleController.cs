@@ -1,17 +1,27 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using trSys.DTOs;
 using trSys.Interfaces;
+using trSys.Services;
 using trSys.Models;
 
-namespace trSys.Controllers
+namespace trSys.Controllers;
+
+[ApiController]
+[Route("api/modules")]
+public class ModulesController : BaseController<Module>
 {
-    [ApiController]
-    [Route("api/courses/{courseId}/[controller]")]
-    [Authorize(Roles = "Admin")]
-    public class ModuleController : BaseController<Module>
+    private readonly ILessonRepository _lessonRepository;
+
+    public ModulesController(IRepository<Module> repository, ILessonRepository lessonRepository)
+        : base(repository)
     {
-        public ModuleController(IRepository<Module> moduleRepository) : base(moduleRepository)
-        {
-        }
+        _lessonRepository = lessonRepository;
+    }
+
+    [HttpGet("{id}/lessons")]
+    public async Task<ActionResult<IEnumerable<Lesson>>> GetLessons(int id)
+    {
+        var lessons = await _lessonRepository.GetByModuleIdAsync(id);
+        return Ok(lessons);
     }
 }

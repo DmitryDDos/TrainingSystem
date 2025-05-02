@@ -10,6 +10,8 @@ using Microsoft.Extensions.FileProviders;
 using trSys.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
+using trSys.Services;
+using trSys.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -60,8 +62,22 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDataBase")));
 
-// Регистрация репозитория
+// Регистрация репозиториев
 builder.Services.AddScoped<UserRepository>();
+
+
+builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<ITestRepository, TestRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+
+// Регистрация сервисов
+builder.Services.AddScoped<TestService>();
+builder.Services.AddScoped<CourseService>();
+builder.Services.AddScoped<ModuleService>();
+builder.Services.AddScoped<LessonService>();
+
 
 // Регистрация JWT
 builder.Services.AddAuthentication(options =>

@@ -7,11 +7,11 @@ namespace trSys.Models;
 public class Answer
 {
     private Answer () { }
-    public Answer(int id, string answersForQuestions, int questionId )
+    public Answer(string answersForQuestions, int questionId, bool isCorrect)
     {
-        Id = id;
         AnswersForQuestions = answersForQuestions;
-        QuestionId = questionId;    
+        QuestionId = questionId;
+        IsCorrect = isCorrect;
     }
 
     [Key]
@@ -19,5 +19,6 @@ public class Answer
     public int Id {get; private set;}
     public string AnswersForQuestions {get; private set;}
     public int QuestionId {get; private set;}
+    public bool IsCorrect { get; private set; }
     public Question Questions {get; private set;}
 }

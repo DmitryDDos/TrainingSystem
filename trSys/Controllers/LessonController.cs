@@ -1,33 +1,27 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Models;
+using trSys.Services;
 
-namespace trSys.Controllers
+namespace trSys.Controllers;
+
+[ApiController]
+[Route("api/lessons")]
+public class LessonsController : BaseController<Lesson>
 {
-    [ApiController]
-    [Route("api/modules/{moduleId}/[controller]")]
-    [Authorize(Roles = "Admin")]
-    public class LessonController : BaseController<Lesson>
+    private readonly ILessonRepository _lessonRepository;
+
+    public LessonsController(IRepository<Lesson> repository, ILessonRepository lessonRepository)
+        : base(repository)
     {
-        public LessonController(IRepository<Lesson> lessonRepository) : base(lessonRepository)
-        {
-        }
+        _lessonRepository = lessonRepository;
+    }
 
-        // Переопределяем методы для более строгой авторизации
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public override Task<ActionResult<Lesson>> Create(Lesson entity)
-            => base.Create(entity);
-
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
-        public override Task<IActionResult> Update(int id, Lesson entity)
-            => base.Update(id, entity);
-
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public override Task<IActionResult> Delete(int id)
-            => base.Delete(id);
+    [HttpGet("by-module/{moduleId}")]
+    public async Task<IActionResult> GetByModuleId(int moduleId)
+    {
+        var lessons = await _lessonRepository.GetByModuleIdAsync(moduleId);
+        return Ok(lessons);
     }
 }

@@ -1,14 +1,21 @@
-using System;
+using Microsoft.EntityFrameworkCore;
+using trSys.Interfaces;
 using trSys.Models;
 using trSys.Data;
-using trSys.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using trSys.Repos;
 
-namespace trSys.Repos
-{
-public class ModuleRepository : BaseRepository<Module>
+namespace trSys.Repositories;
+
+public class ModuleRepository : BaseRepository<Module>, IModuleRepository
 {
     public ModuleRepository(AppDbContext context) : base(context) { }
-    // методы модулей ...
-}
+
+    public async Task<IEnumerable<Module>> GetByCourseIdAsync(int courseId)
+        => await _context.Modules
+            .Where(m => m.CourseId == courseId)
+            .Include(m => m.Lessons)
+            .ToListAsync();
+
+    public async Task<bool> ExistsAsync(int id)
+        => await _context.Modules.AnyAsync(m => m.Id == id);
 }

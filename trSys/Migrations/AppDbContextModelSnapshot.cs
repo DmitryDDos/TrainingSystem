@@ -34,6 +34,9 @@ namespace trSys.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("boolean");
+
                     b.Property<int>("QuestionId")
                         .HasColumnType("integer");
 
@@ -182,11 +185,14 @@ namespace trSys.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Quest")
+                    b.Property<int>("TestId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("TestId")
+                    b.Property<int>("Type")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -203,9 +209,6 @@ namespace trSys.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<byte[]>("Files")
-                        .HasColumnType("bytea");
 
                     b.Property<int>("ModuleId")
                         .HasColumnType("integer");
@@ -311,13 +314,13 @@ namespace trSys.Migrations
 
             modelBuilder.Entity("trSys.Models.Question", b =>
                 {
-                    b.HasOne("trSys.Models.Test", "Tests")
-                        .WithMany("Qustions")
+                    b.HasOne("trSys.Models.Test", "Test")
+                        .WithMany("Questions")
                         .HasForeignKey("TestId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Tests");
+                    b.Navigation("Test");
                 });
 
             modelBuilder.Entity("trSys.Models.Test", b =>
@@ -357,7 +360,7 @@ namespace trSys.Migrations
 
             modelBuilder.Entity("trSys.Models.Test", b =>
                 {
-                    b.Navigation("Qustions");
+                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("trSys.Models.User", b =>
