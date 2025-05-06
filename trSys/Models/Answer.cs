@@ -1,24 +1,36 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace trSys.Models;
 
 public class Answer
 {
-    private Answer () { }
-    public Answer(string answersForQuestions, int questionId, bool isCorrect)
+    private Answer() { } // Для EF Core
+
+    public Answer(string text, bool isCorrect, int questionId)
     {
-        AnswersForQuestions = answersForQuestions;
-        QuestionId = questionId;
+        Text = text ?? throw new ArgumentNullException(nameof(text));
         IsCorrect = isCorrect;
+        QuestionId = questionId;
     }
 
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id {get; private set;}
-    public string AnswersForQuestions {get; private set;}
-    public int QuestionId {get; private set;}
+    public int Id { get; private set; }
+
+    [Required]
+    [MaxLength(300)]
+    public string Text { get; private set; }
+
+    [Required]
     public bool IsCorrect { get; private set; }
-    public Question Questions {get; private set;}
+
+    [Required]
+    public int QuestionId { get; private set; }
+
+    // Навигационные свойства
+    public Question Question { get; private set; } = null!;
+
+    // Методы бизнес-логики
+    public void UpdateQuestionId(int questionId) => QuestionId = questionId;
+    public void UpdateText(string text) => Text = text ?? throw new ArgumentNullException(nameof(text));
+    public void MarkAsCorrect(bool isCorrect) => IsCorrect = isCorrect;
 }

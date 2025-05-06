@@ -8,22 +8,36 @@ using trSys.Services;
 namespace trSys.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class CourseController : BaseController<Course>
+[Route("api/courses")]
+public class CourseController : ControllerBase
 {
-    private readonly IModuleRepository _moduleRepository; // Добавлен новый репозиторий
+    private readonly ICourseService _courseService;
 
-    public CourseController(IRepository<Course> repository, IModuleRepository moduleRepository)
-        : base(repository)
+    public CourseController(ICourseService courseService)
     {
-        _moduleRepository = moduleRepository;
+        _courseService = courseService;
     }
 
-    [HttpGet("{id}/modules")]
-    public async Task<IActionResult> GetModules(int id)
+    [HttpPost]
+    public async Task<ActionResult<CourseDto>> Create([FromBody] CourseCreateDto dto)
     {
-        var modules = await _moduleRepository.GetByCourseIdAsync(id); // Исправленный метод
-        return Ok(modules);
+        try
+        {
+            var result = await _courseService.CreateCourseAsync(dto);
+            return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<CourseDetailsDto>> Get(int id)
+    {
+        var result = await _courseService.GetCourseDetailsAsync(id);
+        return result != null ? Ok(result) : NotFound();
     }
 }
+
 

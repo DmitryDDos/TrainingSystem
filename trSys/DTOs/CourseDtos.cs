@@ -2,18 +2,13 @@
 
 namespace trSys.DTOs;
 
-public class CourseCreateDto
-{
-    [Required, MaxLength(100)]
-    public string Title { get; set; }
+public record CourseCreateDto(
+    [Required][MaxLength(100)] string Title,
+    [MaxLength(500)] string Description);
 
-    [MaxLength(500)]
-    public string Description { get; set; }
-}
+public record CourseDto(
+    int Id, string Title, string Description);
 
-public class CourseDto
-{
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-}
+public record CourseDetailsDto(
+    int Id, string Title, string Description,
+    IEnumerable<ModuleDto> Modules);

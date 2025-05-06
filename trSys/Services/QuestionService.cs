@@ -1,46 +1,55 @@
-﻿using trSys.Enums;
+﻿using trSys.DTOs;
 using trSys.Interfaces;
+using trSys.Mappers;
 using trSys.Models;
 using trSys.Repos;
 
 namespace trSys.Services;
 
-public class QuestionService : IQuestionRepository
+public class QuestionService : IQuestionService
 {
     private readonly IQuestionRepository _questionRepo;
     private readonly ITestRepository _testRepo;
+    private readonly IAnswerRepository _answerRepo;
 
-    public QuestionService(IQuestionRepository questionRepo, ITestRepository testRepo)
+    public QuestionService(
+        IQuestionRepository questionRepo,
+        ITestRepository testRepo,
+        IAnswerRepository answerRepo)
     {
         _questionRepo = questionRepo;
         _testRepo = testRepo;
+        _answerRepo = answerRepo;
     }
 
-    // Реализация IQuestionRepository
-    public async Task<List<Question>> GetByTestIdAsync(int testId)
-        => await _questionRepo.GetByTestIdAsync(testId);
-
-    // Добавляем недостающие методы из IRepository<Question>
-    public async Task<IEnumerable<Question>> GetAllAsync()
-        => await _questionRepo.GetAllAsync();
-
-    public async Task<Question> GetByIdAsync(int id)
-        => await _questionRepo.GetByIdAsync(id);
-
-    public async Task AddAsync(Question entity)
-        => await _questionRepo.AddAsync(entity);
-
-    public async Task UpdateAsync(Question entity)
-        => await _questionRepo.UpdateAsync(entity);
-
-    public async Task DeleteAsync(int id)
-        => await _questionRepo.DeleteAsync(id);
-
-    // Специфичные методы сервиса
-    public async Task<Question> CreateQuestionAsync(string text, QuestionType type, int testId, List<Answer> answers)
+    public async Task<QuestionDto> CreateQuestionAsync(QuestionCreateDto dto)
     {
-        var question = new Question(text, type, testId, answers);
+        if (!await _testRepo.ExistsAsync(dto.TestId))
+            throw new ArgumentException("Test not found");
+
+        var question = new Question(dto.Text, dto.Type, dto.TestId);
+
+        foreach (var answerDto in dto.Answers)
+        {
+            question.AddAnswer(new Answer(answerDto.Text, answerDto.IsCorrect, question.Id));
+        }
+
         await _questionRepo.AddAsync(question);
-        return question;
+        return QuestionMapper.ToDto(question);
     }
+
+    public async Task<QuestionDto> UpdateQuestionAsync(int id, QuestionUpdateDto dto)
+    {
+        var question = await _questionRepo.GetByIdAsync(id);
+
+        if (dto.Text != null)
+            question.UpdateText(dto.Text);
+
+        if (dto.Type.HasValue)
+            question.UpdateType(dto.Type.Value);
+
+        await _questionRepo.UpdateAsync(question);
+        return QuestionMapper.ToDto(question);
+    }
+
 }

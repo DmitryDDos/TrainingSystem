@@ -54,8 +54,6 @@ builder.Services.AddSwaggerGen(c =>
             new string[] {}
         }
     });
-    // Добавляем поддержку загрузки файлов
-    c.OperationFilter<SwaggerFileOperationFilter>();
 });
 
 // Настройка подключения к бд

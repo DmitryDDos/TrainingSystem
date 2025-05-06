@@ -1,39 +1,42 @@
 ﻿using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Models;
+using trSys.Mappers;
 
-namespace trSys.Services;
-
-public class CourseService : ICourseRepository
+namespace trSys.Services
 {
-    private readonly ICourseRepository _repository;
-
-    public CourseService(ICourseRepository repository)
+    public class CourseService : ICourseService
     {
-        _repository = repository;
+        private readonly ICourseRepository _courseRepo;
+        private readonly IModuleRepository _moduleRepo;
+
+        public CourseService(
+            ICourseRepository courseRepo,
+            IModuleRepository moduleRepo)
+        {
+            _courseRepo = courseRepo;
+            _moduleRepo = moduleRepo;
+        }
+
+        public async Task<CourseDto> CreateCourseAsync(CourseCreateDto dto)
+        {
+            if (await _courseRepo.TitleExistsAsync(dto.Title))
+                throw new ArgumentException("Course title already exists");
+
+            var course = new Course(dto.Title, dto.Description); // Теперь работает
+            await _courseRepo.AddAsync(course);
+
+            return CourseMapper.ToDto(course);
+        }
+
+        public async Task<CourseDetailsDto> GetCourseDetailsAsync(int id)
+        {
+            var course = await _courseRepo.GetByIdAsync(id);
+            if (course == null) return null;
+
+            var modules = await _moduleRepo.GetByCourseIdAsync(id);
+
+            return CourseMapper.ToDetailsDto(course, modules);
+        }
     }
-
-    // Реализация ICourseRepository
-    public async Task<IEnumerable<Course>> GetAllAsync() => await _repository.GetAllAsync();
-    public async Task<Course> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);
-    public async Task AddAsync(Course entity) => await _repository.AddAsync(entity);
-    public async Task UpdateAsync(Course entity) => await _repository.UpdateAsync(entity);
-    public async Task DeleteAsync(int id) => await _repository.DeleteAsync(id);
-    public async Task<bool> CourseExists(int id) => await _repository.CourseExists(id);
-    public async Task<IEnumerable<Module>> GetModulesByCourseId(int courseId) => await _repository.GetModulesByCourseId(courseId);
-
-    // DTO методы
-    public async Task<CourseDto> CreateFromDtoAsync(CourseCreateDto dto)
-    {
-        var course = new Course(0, dto.Title, dto.Description);
-        await _repository.AddAsync(course);
-        return ToDto(course);
-    }
-
-    private static CourseDto ToDto(Course course) => new()
-    {
-        Id = course.Id,
-        Title = course.Title,
-        Description = course.Descriptions
-    };
 }

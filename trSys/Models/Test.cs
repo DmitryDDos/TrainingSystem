@@ -1,24 +1,39 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace trSys.Models;
 
 public class Test
 {
-    private Test () { }
-    public Test(int moduleId)
+    private Test() { } // Для EF Core
+
+    public Test(string title, string description, int moduleId)
     {
+        Title = title ?? throw new ArgumentNullException(nameof(title));
+        Description = description;
         ModuleId = moduleId;
-        //файлы в бинарный поток в через доп метод + мб это вынести в другую таблицу
     }
 
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id {get; private set;}
-    public int ModuleId {get; private set;}
+    public int Id { get; private set; }
 
-    //навигационные поля
-    public Module? Module {get; private set;}
-    public IEnumerable<Question> Questions {get; private set;} = new List<Question>();
+    [Required]
+    [MaxLength(100)]
+    public string Title { get; private set; }
+
+    [MaxLength(500)]
+    public string Description { get; private set; }
+
+    [Required]
+    public int ModuleId { get; private set; }
+
+    // Навигационные свойства
+    public Module Module { get; private set; } = null!;
+    public ICollection<Question> Questions { get; private set; } = new List<Question>();
+    public void UpdateModuleId(int moduleId) => ModuleId = moduleId;
+    public void AddQuestion(Question question)
+    {
+        if (question == null) throw new ArgumentNullException(nameof(question));
+        Questions.Add(question);
+    }
+
 }

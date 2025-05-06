@@ -1,21 +1,22 @@
 using Microsoft.EntityFrameworkCore;
-using System;
 using trSys.Data;
 using trSys.Interfaces;
 using trSys.Models;
+using trSys.Repos;
 
-namespace trSys.Repos
+namespace trSys.Repositories;
+
+public class TestRepository : BaseRepository<Test>, ITestRepository
 {
-    public class TestRepository : BaseRepository<Test>, ITestRepository
-    {
-        public TestRepository(AppDbContext context) : base(context) { }
+    public TestRepository(AppDbContext context) : base(context) { }
 
-        public async Task<Test?> GetWithQuestionsAsync(int id)
-        {
-            return await _context.Tests
-                .Include(t => t.Questions)
+    public async Task<Test?> GetWithQuestionsAsync(int id)
+        => await _context.Tests
+            .Include(t => t.Questions)
                 .ThenInclude(q => q.Answers)
-                .FirstOrDefaultAsync(t => t.Id == id);
-        }
-    }
+            .FirstOrDefaultAsync(t => t.Id == id);
+
+    public async Task<bool> ExistsAsync(int id)
+    => await _context.Tests.AnyAsync(t => t.Id == id);
+
 }

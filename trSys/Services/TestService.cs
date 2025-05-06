@@ -1,35 +1,38 @@
-﻿using trSys.Interfaces;
+﻿using trSys.DTOs;
+using trSys.Interfaces;
+using trSys.Mappers;
 using trSys.Models;
-using trSys.Repos;
 
-namespace trSys.Services
+namespace trSys.Services;
+
+public class TestService : ITestService
 {
-    public class TestService : ITestRepository
+    private readonly ITestRepository _testRepo;
+    private readonly IModuleRepository _moduleRepo;
+
+    public TestService(
+        ITestRepository testRepo,
+        IModuleRepository moduleRepo)
     {
-        private readonly ITestRepository _testRepo;
-        private readonly IQuestionRepository _questionRepo;
+        _testRepo = testRepo ?? throw new ArgumentNullException(nameof(testRepo));
+        _moduleRepo = moduleRepo ?? throw new ArgumentNullException(nameof(moduleRepo));
+    }
 
-        public TestService(ITestRepository testRepo, IQuestionRepository questionRepo)
-        {
-            _testRepo = testRepo;
-            _questionRepo = questionRepo;
-        }
+    public async Task<TestDto> CreateTestAsync(TestCreateDto dto)
+    {
+        if (!await _moduleRepo.ExistsAsync(dto.ModuleId))
+            throw new ArgumentException("Module not found");
 
-        // Реализация ITestRepository
-        public async Task<IEnumerable<Test>> GetAllAsync() => await _testRepo.GetAllAsync();
-        public async Task<Test> GetByIdAsync(int id) => await _testRepo.GetByIdAsync(id);
-        public async Task AddAsync(Test entity) => await _testRepo.AddAsync(entity);
-        public async Task UpdateAsync(Test entity) => await _testRepo.UpdateAsync(entity);
-        public async Task DeleteAsync(int id) => await _testRepo.DeleteAsync(id);
-        public async Task<Test?> GetWithQuestionsAsync(int id) => await _testRepo.GetWithQuestionsAsync(id);
+        var test = new Test(dto.Title, dto.Description, dto.ModuleId);
+        await _testRepo.AddAsync(test);
 
-        // Специфичные методы
-        public async Task<Test> CreateTestAsync(int moduleId)
-        {
-            var test = new Test(moduleId);
-            await _testRepo.AddAsync(test);
-            return test;
-        }
+        return TestMapper.ToDto(test);
+    }
+
+    public async Task<TestWithQuestionsDto> GetTestWithQuestionsAsync(int id)
+    {
+        var test = await _testRepo.GetWithQuestionsAsync(id);
+        return TestMapper.ToDtoWithQuestions(test);
     }
 
 }

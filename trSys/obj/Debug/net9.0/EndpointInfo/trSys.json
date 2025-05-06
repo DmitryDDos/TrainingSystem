@@ -5,535 +5,26 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Course/{id}/modules": {
-      "get": {
-        "tags": [
-          "Course"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Course": {
-      "get": {
-        "tags": [
-          "Course"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Course"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Course"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Course"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/courses": {
       "post": {
         "tags": [
           "Course"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Module"
-            }
-          },
-          {
-            "name": "Module.Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Course/{id}": {
-      "get": {
-        "tags": [
-          "Course"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Course"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Course"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Module"
-            }
-          },
-          {
-            "name": "Module.Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Course"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/FileUpload/upload": {
-      "post": {
-        "tags": [
-          "FileUpload"
         ],
         "requestBody": {
           "content": {
-            "multipart/form-data": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "file",
-                  "description"
-                ],
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  },
-                  "description": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/CourseCreateDto"
               }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/lessons/{lessonId}/LessonFiles": {
-      "get": {
-        "tags": [
-          "LessonFiles"
-        ],
-        "parameters": [
-          {
-            "name": "lessonId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LessonFile"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LessonFile"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/LessonFile"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "LessonFiles"
-        ],
-        "parameters": [
-          {
-            "name": "lessonId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
+            },
+            "text/json": {
               "schema": {
-                "required": [
-                  "file",
-                  "fileType"
-                ],
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  },
-                  "fileType": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/components/schemas/CourseCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CourseCreateDto"
               }
             }
           }
@@ -544,17 +35,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonFile"
+                  "$ref": "#/components/schemas/CourseDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonFile"
+                  "$ref": "#/components/schemas/CourseDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonFile"
+                  "$ref": "#/components/schemas/CourseDto"
                 }
               }
             }
@@ -562,23 +53,14 @@
         }
       }
     },
-    "/api/lessons/{lessonId}/LessonFiles/{fileId}": {
+    "/api/courses/{id}": {
       "get": {
         "tags": [
-          "LessonFiles"
+          "Course"
         ],
         "parameters": [
           {
-            "name": "lessonId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "fileId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -589,42 +71,82 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "LessonFiles"
-        ],
-        "parameters": [
-          {
-            "name": "lessonId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseDetailsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseDetailsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CourseDetailsDto"
+                }
+              }
             }
-          },
-          {
-            "name": "fileId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
     },
-    "/api/lessons/by-module/{moduleId}": {
+    "/api/Lessons": {
+      "post": {
+        "tags": [
+          "Lessons"
+        ],
+        "parameters": [
+          {
+            "name": "Title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ModuleId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LessonDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lessons/by-module/{moduleId}": {
       "get": {
         "tags": [
           "Lessons"
@@ -642,25 +164,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/lessons": {
-      "get": {
-        "tags": [
-          "Lessons"
-        ],
-        "responses": {
-          "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Lesson"
+                    "$ref": "#/components/schemas/LessonDto"
                   }
                 }
               },
@@ -668,7 +178,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Lesson"
+                    "$ref": "#/components/schemas/LessonDto"
                   }
                 }
               },
@@ -676,27 +186,21 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Lesson"
+                    "$ref": "#/components/schemas/LessonDto"
                   }
                 }
               }
             }
           }
         }
-      },
+      }
+    },
+    "/api/Modules": {
       "post": {
         "tags": [
-          "Lessons"
+          "Modules"
         ],
         "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
           {
             "name": "Title",
             "in": "query",
@@ -712,197 +216,8 @@
             }
           },
           {
-            "name": "ModuleId",
+            "name": "CourseId",
             "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Course",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Course"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Course.Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Module.Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Files",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/LessonFile"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Lesson"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Lesson"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Lesson"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/lessons/{id}": {
-      "get": {
-        "tags": [
-          "Lessons"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -915,246 +230,25 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Lesson"
+                  "$ref": "#/components/schemas/ModuleDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Lesson"
+                  "$ref": "#/components/schemas/ModuleDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Lesson"
+                  "$ref": "#/components/schemas/ModuleDto"
                 }
               }
             }
           }
         }
-      },
-      "put": {
-        "tags": [
-          "Lessons"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Description",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "ModuleId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Module.Course.Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Course",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Course"
-            }
-          },
-          {
-            "name": "Module.Course.Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Course.Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Module.Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Files",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/LessonFile"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Lessons"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
       }
     },
-    "/api/modules/{id}/lessons": {
+    "/api/Modules/{id}": {
       "get": {
         "tags": [
           "Modules"
@@ -1176,26 +270,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Lesson"
-                  }
+                  "$ref": "#/components/schemas/ModuleDetailsDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Lesson"
-                  }
+                  "$ref": "#/components/schemas/ModuleDetailsDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Lesson"
-                  }
+                  "$ref": "#/components/schemas/ModuleDetailsDto"
                 }
               }
             }
@@ -1203,446 +288,96 @@
         }
       }
     },
-    "/api/modules": {
-      "get": {
-        "tags": [
-          "Modules"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Module"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Module"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Module"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/Questions": {
       "post": {
-        "tags": [
-          "Modules"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Module.Course",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Course"
-            }
-          },
-          {
-            "name": "Course.Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Course.Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/modules/{id}": {
-      "get": {
-        "tags": [
-          "Modules"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Module"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Modules"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Module.Title",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.Descriptions",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Course.Module.CourseId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Course.Module.Course",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/Course"
-            }
-          },
-          {
-            "name": "Course.Module.Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Course.Module.Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          },
-          {
-            "name": "Course.CourseRegistrations",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
-              }
-            }
-          },
-          {
-            "name": "Tests",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Test"
-              }
-            }
-          },
-          {
-            "name": "Lessons",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Lesson"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Modules"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/questions/by-test/{testId}": {
-      "get": {
         "tags": [
           "Questions"
         ],
         "parameters": [
           {
-            "name": "testId",
+            "name": "Text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/QuestionType"
+            }
+          },
+          {
+            "name": "TestId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Answers",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AnswerCreateDto"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuestionDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Questions/{id}": {
+      "put": {
+        "tags": [
+          "Questions"
+        ],
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "Text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/QuestionType"
             }
           }
         ],
@@ -1653,7 +388,60 @@
         }
       }
     },
-    "/api/tests/{id}": {
+    "/api/Tests": {
+      "post": {
+        "tags": [
+          "Tests"
+        ],
+        "parameters": [
+          {
+            "name": "Title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Description",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ModuleId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tests/{id}/with-questions": {
       "get": {
         "tags": [
           "Tests"
@@ -1671,7 +459,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWithQuestionsDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWithQuestionsDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestWithQuestionsDto"
+                }
+              }
+            }
           }
         }
       }
@@ -1793,54 +598,25 @@
         "tags": [
           "User"
         ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Email",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "PasswordHash",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "FullName",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Role",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Courses",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/CourseRegistration"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
               }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Success",
@@ -1996,7 +772,41 @@
   },
   "components": {
     "schemas": {
-      "Answer": {
+      "AnswerCreateDto": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCorrect": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCorrect": {
+            "type": "boolean"
+          },
+          "questionId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Course": {
         "type": "object",
         "properties": {
           "id": {
@@ -2004,24 +814,32 @@
             "format": "int32",
             "readOnly": true
           },
-          "answersForQuestions": {
+          "title": {
             "type": "string",
             "nullable": true
           },
-          "questionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "isCorrect": {
-            "type": "boolean"
-          },
-          "questions": {
-            "$ref": "#/components/schemas/Question"
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "Course": {
+      "CourseCreateDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CourseDetailsDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -2032,21 +850,34 @@
             "type": "string",
             "nullable": true
           },
-          "descriptions": {
+          "description": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "courseRegistrations": {
+          "modules": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CourseRegistration"
+              "$ref": "#/components/schemas/ModuleDto"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CourseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2080,7 +911,7 @@
         },
         "additionalProperties": false
       },
-      "Lesson": {
+      "LessonDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -2093,58 +924,16 @@
           },
           "description": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "moduleId": {
             "type": "integer",
             "format": "int32"
-          },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
-          "files": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LessonFile"
-            },
-            "nullable": true,
-            "readOnly": true
           }
         },
         "additionalProperties": false
       },
-      "LessonFile": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
-          "fileType": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "type": "string",
-            "format": "byte",
-            "nullable": true
-          },
-          "lessonId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lesson": {
-            "$ref": "#/components/schemas/Lesson"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Module": {
+      "ModuleDetailsDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -2155,44 +944,52 @@
             "type": "string",
             "nullable": true
           },
-          "descriptions": {
+          "description": {
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "courseId": {
             "type": "integer",
             "format": "int32"
           },
-          "course": {
-            "$ref": "#/components/schemas/Course"
-          },
-          "tests": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Test"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
           "lessons": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Lesson"
+              "$ref": "#/components/schemas/LessonDto"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "Question": {
+      "ModuleDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuestionDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
           "text": {
             "type": "string",
@@ -2205,13 +1002,10 @@
             "type": "integer",
             "format": "int32"
           },
-          "test": {
-            "$ref": "#/components/schemas/Test"
-          },
           "answers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Answer"
+              "$ref": "#/components/schemas/AnswerDto"
             },
             "nullable": true
           }
@@ -2228,28 +1022,53 @@
         "type": "integer",
         "format": "int32"
       },
-      "Test": {
+      "TestDto": {
         "type": "object",
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "moduleId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestWithQuestionsDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           },
           "moduleId": {
             "type": "integer",
             "format": "int32"
           },
-          "module": {
-            "$ref": "#/components/schemas/Module"
-          },
           "questions": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Question"
+              "$ref": "#/components/schemas/QuestionDto"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false

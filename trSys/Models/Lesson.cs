@@ -1,33 +1,35 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace trSys.Models;
 
 public class Lesson
 {
-    private Lesson() { }
-    public Lesson(int id, string title, string discr, int moduleId, ICollection<LessonFile> lessonFiles)
+    private Lesson() { } // Для EF Core
+
+    public Lesson(string title, string description, int moduleId)
     {
-        Id = id;
-        Title = title;
-        Description = discr;
+        Title = title ?? throw new ArgumentNullException(nameof(title));
+        Description = description;
         ModuleId = moduleId;
-        Files = lessonFiles;
     }
 
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; private set; }
+
+    [Required]
+    [MaxLength(100)]
     public string Title { get; private set; }
+
+    [MaxLength(500)]
     public string Description { get; private set; }
+
+    [Required]
     public int ModuleId { get; private set; }
 
-    //навигационное поле
-    public Module? Module { get; private set; }
-    public ICollection<LessonFile> Files { get; private set; }
+    // Навигационные свойства
+    public Module Module { get; private set; } = null!;
 
-    // Методы для работы с файлами
-    public void AddFile(LessonFile file) => Files.Add(file);
-    public void RemoveFile(LessonFile file) => Files.Remove(file);
+    // Бизнес-логика методы
+    public void UpdateModuleId(int moduleId) => ModuleId = moduleId;
+
 }

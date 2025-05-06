@@ -1,28 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
-using trSys.Enums;
 using trSys.Interfaces;
-using trSys.Models;
-using trSys.Services;
 
 namespace trSys.Controllers;
 
 [ApiController]
-[Route("api/questions")]
+[Route("api/[controller]")]
 public class QuestionsController : ControllerBase
 {
-    private readonly IQuestionRepository _repository;
+    private readonly IQuestionService _service;
 
-    public QuestionsController(IQuestionRepository repository)
+    public QuestionsController(IQuestionService service)
     {
-        _repository = repository;
+        _service = service;
     }
 
-    [HttpGet("by-test/{testId}")]
-    public async Task<IActionResult> GetByTestId(int testId)
+    [HttpPost]
+    public async Task<ActionResult<QuestionDto>> Create(QuestionCreateDto dto)
     {
-        var questions = await _repository.GetByTestIdAsync(testId);
-        return Ok(questions);
+        var result = await _service.CreateQuestionAsync(dto);
+        return Created($"api/questions/{result.Id}", result);
+
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, QuestionUpdateDto dto)
+    {
+        var result = await _service.UpdateQuestionAsync(id, dto);
+        return Ok(result);
     }
 }
-

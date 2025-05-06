@@ -1,27 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
-using trSys.Models;
-using trSys.Services;
 
 namespace trSys.Controllers;
 
 [ApiController]
-[Route("api/lessons")]
-public class LessonsController : BaseController<Lesson>
+[Route("api/[controller]")]
+public class LessonsController : ControllerBase
 {
-    private readonly ILessonRepository _lessonRepository;
+    private readonly ILessonService _service;
 
-    public LessonsController(IRepository<Lesson> repository, ILessonRepository lessonRepository)
-        : base(repository)
+    public LessonsController(ILessonService service)
     {
-        _lessonRepository = lessonRepository;
+        _service = service;
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<LessonDto>> Create(LessonCreateDto dto)
+    {
+        var result = await _service.CreateLessonAsync(dto);
+        return CreatedAtAction(nameof(GetByModule), new { moduleId = result.ModuleId }, result);
     }
 
     [HttpGet("by-module/{moduleId}")]
-    public async Task<IActionResult> GetByModuleId(int moduleId)
+    public async Task<ActionResult<IEnumerable<LessonDto>>> GetByModule(int moduleId)
     {
-        var lessons = await _lessonRepository.GetByModuleIdAsync(moduleId);
+        var lessons = await _service.GetLessonsByModuleAsync(moduleId);
         return Ok(lessons);
     }
 }

@@ -8,7 +8,7 @@ namespace trSys.Controllers
     [Route("api/[controller]")]
     public class BaseController<TEntity> : ControllerBase where TEntity : class
     {
-        private readonly IRepository<TEntity> _repository;
+        protected readonly IRepository<TEntity> _repository;
 
         public BaseController(IRepository<TEntity> repository)
         {
@@ -25,7 +25,7 @@ namespace trSys.Controllers
 
         // GET: api/[controller]/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TEntity>> GetById(int id)
+        public virtual async Task<ActionResult<TEntity>> GetById(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
             if (entity == null)
@@ -37,7 +37,7 @@ namespace trSys.Controllers
 
         // POST: api/[controller]
         [HttpPost]
-        public virtual async Task<ActionResult<TEntity>> Create(TEntity entity)
+        public virtual async Task<ActionResult<TEntity>> Create([FromBody] TEntity entity)
         {
             await _repository.AddAsync(entity);
             return CreatedAtAction(nameof(GetById), new { id = (entity as dynamic).Id }, entity);

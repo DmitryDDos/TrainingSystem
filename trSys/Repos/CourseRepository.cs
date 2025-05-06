@@ -10,12 +10,12 @@ public class CourseRepository : BaseRepository<Course>, ICourseRepository
 {
     public CourseRepository(AppDbContext context) : base(context) { }
 
-    public async Task<bool> CourseExists(int id)
-        => await _context.Courses.AnyAsync(c => c.Id == id);
-
-    public async Task<IEnumerable<Module>> GetModulesByCourseId(int courseId)
+    public async Task<IEnumerable<Module>> GetCourseModulesAsync(int courseId)
         => await _context.Modules
             .Where(m => m.CourseId == courseId)
             .AsNoTracking()
             .ToListAsync();
+
+    public async Task<bool> TitleExistsAsync(string title)
+        => await _context.Courses.AnyAsync(c => c.Title == title);
 }

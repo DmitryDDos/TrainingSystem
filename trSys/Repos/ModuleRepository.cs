@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using trSys.Data;
 using trSys.Interfaces;
 using trSys.Models;
-using trSys.Data;
 using trSys.Repos;
 
 namespace trSys.Repositories;
@@ -13,9 +13,11 @@ public class ModuleRepository : BaseRepository<Module>, IModuleRepository
     public async Task<IEnumerable<Module>> GetByCourseIdAsync(int courseId)
         => await _context.Modules
             .Where(m => m.CourseId == courseId)
-            .Include(m => m.Lessons)
+            .AsNoTracking()
             .ToListAsync();
 
-    public async Task<bool> ExistsAsync(int id)
-        => await _context.Modules.AnyAsync(m => m.Id == id);
+    public async Task<Module?> GetWithLessonsAsync(int id)
+        => await _context.Modules
+            .Include(m => m.Lessons)
+            .FirstOrDefaultAsync(m => m.Id == id);
 }

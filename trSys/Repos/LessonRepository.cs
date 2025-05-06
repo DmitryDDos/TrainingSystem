@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using trSys.Interfaces;
 using trSys.Data;
+using trSys.Interfaces;
 using trSys.Models;
 using trSys.Repos;
 
@@ -13,6 +13,6 @@ public class LessonRepository : BaseRepository<Lesson>, ILessonRepository
     public async Task<IEnumerable<Lesson>> GetByModuleIdAsync(int moduleId)
         => await _context.Lessons
             .Where(l => l.ModuleId == moduleId)
-            .Include(l => l.Files)
+            .AsNoTracking()
             .ToListAsync();
 }

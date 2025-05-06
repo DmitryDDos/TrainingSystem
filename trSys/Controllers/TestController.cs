@@ -1,37 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using trSys.Models;
-using trSys.Services;
-using trSys.Interfaces;
 using trSys.DTOs;
+using trSys.Interfaces;
 
 namespace trSys.Controllers;
 
 [ApiController]
-[Route("api/tests")]
+[Route("api/[controller]")]
 public class TestsController : ControllerBase
 {
-    private readonly ITestRepository _testRepository;
-    private readonly IQuestionRepository _questionRepository;
+    private readonly ITestService _service;
 
-    public TestsController(ITestRepository testRepository, IQuestionRepository questionRepository)
+    public TestsController(ITestService service)
     {
-        _testRepository = testRepository;
-        _questionRepository = questionRepository;
+        _service = service;
     }
 
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
+    [HttpPost]
+    public async Task<ActionResult<TestDto>> Create(TestCreateDto dto)
     {
-        var test = await _testRepository.GetByIdAsync(id);
-        if (test == null) return NotFound();
+        var result = await _service.CreateTestAsync(dto);
+        return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
+    }
 
-        var questions = await _questionRepository.GetByTestIdAsync(id);
-
-        return Ok(new TestWithQuestionsDto
-        {
-            Test = test,
-            Questions = questions.ToList()
-        });
+    [HttpGet("{id}/with-questions")]
+    public async Task<ActionResult<TestWithQuestionsDto>> Get(int id)
+    {
+        var test = await _service.GetTestWithQuestionsAsync(id);
+        return test != null ? Ok(test) : NotFound();
     }
 }
-

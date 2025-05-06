@@ -1,30 +1,23 @@
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace trSys.Models;
-
-public class Course
+// Models/Course.cs
+namespace trSys.Models
 {
-    private Course () { }
-
-    public Course(int id, string title, string descr)
+    public class Course
     {
-        Id = id;
-        Title = title;
-        Descriptions = descr;
-        //валидация
+        public int Id { get; private set; }
+        public string Title { get; private set; }
+        public string Description { get; private set; }
+
+        // Конструктор для создания нового курса (без ID)
+        public Course(string title, string description)
+        {
+            Title = title ?? throw new ArgumentNullException(nameof(title));
+            Description = description;
+        }
+
+        // Конструктор для загрузки существующего курса
+        public Course(int id, string title, string description) : this(title, description)
+        {
+            Id = id;
+        }
     }
-
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id {get; private set;}
-    public string Title {get; private set;}
-    public string Descriptions {get; private set;}
-
-    //Навигационное поле Регистрации
-    public Module? Module {get; private set;}
-    //public CourseRegistration? CourseRegistration {get; private set;}
-    public IEnumerable<CourseRegistration> CourseRegistrations {get;private set;} = new List<CourseRegistration>();
-
 }
