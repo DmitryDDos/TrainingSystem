@@ -32,11 +32,15 @@ public class AppDbContext : DbContext
     //тут связь многие ко многим надо добавить и UTC или как там для даты
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Обеспечиваем каскадное удаление
         modelBuilder.Entity<CourseRegistration>()
-            .HasKey(cr => cr.Id);
+            .HasOne(cr => cr.User)
+            .WithMany(u => u.CourseRegistrations)
+            .OnDelete(DeleteBehavior.Cascade);
 
-        // modelBuilder.Entity<CourseRegistration>()
-        //     .HasOne(cr => cr.Users)
-        //     .WithMany(u => u.)
+        // Уникальный индекс против дублирования
+        modelBuilder.Entity<CourseRegistration>()
+            .HasIndex(cr => new { cr.UserId, cr.CourseId })
+            .IsUnique();
     }
 }

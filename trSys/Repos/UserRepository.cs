@@ -5,11 +5,15 @@ using trSys.Data;
 using trSys.Interfaces;
 using trSys.Models;
 
-namespace trSys.Repos
-{
+namespace trSys.Repos;
+
 public class UserRepository : BaseRepository<User>
 {
     public UserRepository(AppDbContext context) : base(context) { }
-    // методы user
-}
+
+    public async Task<User?> GetByEmailAsync(string email)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
+
 }

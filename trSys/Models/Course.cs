@@ -1,4 +1,3 @@
-// Models/Course.cs
 namespace trSys.Models
 {
     public class Course
@@ -19,5 +18,8 @@ namespace trSys.Models
         {
             Id = id;
         }
+
+        public ICollection<Module> Modules { get; private set; } = new List<Module>();
+        public ICollection<CourseRegistration> Registrations { get; set; } = new List<CourseRegistration>();
     }
 }

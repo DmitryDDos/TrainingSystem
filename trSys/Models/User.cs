@@ -25,19 +25,9 @@ public class User
     public string PasswordHash {get; private set;}
     public string FullName {get; private set;}
     public string Role {get; private set;}
-    
+
     //навигационное поле
     //public CourseRegistration? CourseRegistration {get; private set;}
-    public IEnumerable<CourseRegistration> Courses {get;private set;} = new List<CourseRegistration>();
+    public ICollection<CourseRegistration> CourseRegistrations { get; private set; } = new List<CourseRegistration>();
 
-    
-    
-    // private string CreateHashPassword(string password)
-    // {
-    //     using (var sha256 = SHA256.Create())
-    //     {
-    //         var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-    //         return Convert.ToBase64String(bytes);
-    //     }
-    // }
 }

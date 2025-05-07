@@ -12,7 +12,7 @@ public class CourseRegistration
         Id = id;
         UserId = userId;
         CourseId = courseId;
-        Date = DateOnly.FromDateTime(DateTime.Now);
+        Date = DateOnly.FromDateTime(DateTime.UtcNow);
     }
 
     [Key]

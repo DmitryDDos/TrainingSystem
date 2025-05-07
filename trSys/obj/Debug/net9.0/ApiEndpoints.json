@@ -1,5 +1,93 @@
 [
   {
+    "ContainingType": "trSys.Controllers.CourseRegistrationController",
+    "Method": "Register",
+    "RelativePath": "api/CourseRegistration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "trSys.DTOs.RegistrationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.DTOs.RegistrationResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.CourseRegistrationController",
+    "Method": "CheckAccess",
+    "RelativePath": "api/CourseRegistration/check-access",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.DTOs.AccessCheckDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.CourseRegistrationController",
+    "Method": "GetCourseStats",
+    "RelativePath": "api/CourseRegistration/stats/{courseId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.CourseRegistrationController",
+    "Method": "GetUserCourses",
+    "RelativePath": "api/CourseRegistration/user-courses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.DTOs.UserCourseDto, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "trSys.Controllers.CourseController",
     "Method": "Create",
     "RelativePath": "api/courses",
@@ -415,8 +503,8 @@
         "IsRequired": false
       },
       {
-        "Name": "Courses",
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "CourseRegistrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       }
     ],
@@ -488,6 +576,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.UserController",
+    "Method": "ValidateToken",
+    "RelativePath": "api/User/validate-token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

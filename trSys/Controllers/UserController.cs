@@ -7,6 +7,8 @@ using System.Text;
 using trSys.Interfaces;
 using trSys.Models;
 using trSys.Repos;
+using trSys.Services;
+
 
 namespace trSys.Controllers
 {
@@ -16,74 +18,84 @@ namespace trSys.Controllers
     {
         private readonly UserRepository _repository;
         private readonly IConfiguration _configuration;
+        private readonly AuthService _authService;
 
-
-        public UserController(UserRepository repository, IConfiguration configuration) : base(repository) 
-        { 
+        public UserController(
+            UserRepository repository,
+            IConfiguration configuration,
+            AuthService authService) : base(repository)
+        {
             _repository = repository;
             _configuration = configuration;
+            _authService = authService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            var hashedPassword = CreateHashPassword(model.Password); // Хешируем пароль
-            var user = new User(model.Email, hashedPassword, model.FullName, model.Role); // Передаём хеш
+            // Валидация модели
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            // Проверка, что пользователь с таким email уже не существует
+            var existingUser = await _repository.GetByEmailAsync(model.Email);
+            if (existingUser != null)
+                return Conflict(new { Message = "User with this email already exists" });
+
+            // Генерация хеша пароля с солью
+            var passwordHash = _authService.CreateHashPassword(model.Password);
+
+            // Создание пользователя с ролью по умолчанию, если не указана
+            var user = new User(
+                model.Email,
+                passwordHash,
+                model.FullName,
+                model.Role ?? "User");
+
             await _repository.AddAsync(user);
+
             return Ok(new { Message = "User registered successfully" });
         }
 
 
-        [HttpPost("login")]//HUITA
+        [HttpPost("login")]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            var user = (await _repository.GetAllAsync()).FirstOrDefault(u => u.Email == model.Email); // лучше эту хуйню  репозиторий вынести
-            if (user == null || user.PasswordHash != CreateHashPassword(model.Password)) // if (!CompareHashes(user.PasswordHash, CreateHashPassword(model.Password)))
-            {
+            // Валидация модели
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            // Поиск пользователя по email (оптимизированный запрос)
+            var user = await _repository.GetByEmailAsync(model.Email);
+            if (user == null)
                 return Unauthorized(new { Message = "Invalid email or password" });
-            }
 
-            var token = GenerateJwtToken(user);
-            return Ok(new { Token = token });
-        }
+            // Проверка пароля
+            if (!_authService.VerifyPassword(model.Password, user.PasswordHash))
+                return Unauthorized(new { Message = "Invalid email or password" });
 
-        private string GenerateJwtToken(User user)
-        {
-            var jwtKey = _configuration["Jwt:Key"];
-            var issuer = _configuration["Jwt:Issuer"];
-            var audience = _configuration["Jwt:Audience"];
+            // Генерация JWT-токена
+            var token = _authService.GenerateJwtToken(user);
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(jwtKey);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
+            return Ok(new
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role ?? "User") // Если Role null ? "User"
-                }),
-                Issuer = issuer,       // "localhost"
-                Audience = audience,    // "swagger_ui"
-                Expires = DateTime.UtcNow.AddDays(7),
-                SigningCredentials = new SigningCredentials(
-                    new SymmetricSecurityKey(key),
-                    SecurityAlgorithms.HmacSha256Signature)
-            };
-
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+                Token = token,
+                UserId = user.Id,
+                Email = user.Email,
+                Role = user.Role
+            });
         }
 
-
-        private string CreateHashPassword(string password)
+        [HttpGet("validate-token")]
+        public IActionResult ValidateToken()
         {
-            using (var sha256 = SHA256.Create())
+            return Ok(new
             {
-                var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(bytes);
-            }
+                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
+                IsAuthenticated = User.Identity?.IsAuthenticated,
+                Claims = User.Claims.Select(c => new { c.Type, c.Value })
+            });
         }
+
     }
 }

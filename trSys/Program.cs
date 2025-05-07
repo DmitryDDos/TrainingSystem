@@ -12,6 +12,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using trSys.Services;
 using trSys.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,15 +64,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Регистрация репозиториев
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<CourseRegistrationRepository>();
+
 
 
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 builder.Services.AddScoped<ITestRepository, TestRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 
 // Регистрация сервисов
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<TestService>();
 builder.Services.AddScoped<CourseService>();
 builder.Services.AddScoped<ModuleService>();
@@ -91,6 +97,9 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
+        LogValidationExceptions = true, // новое
+        NameClaimType = ClaimTypes.NameIdentifier, // Добавьте это
+        RoleClaimType = ClaimTypes.Role,           // И это
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
@@ -129,6 +138,7 @@ else
 app.UseHttpsRedirection();
 app.UseRouting();
 
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
@@ -145,6 +155,11 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/uploads"
 });
 
-
+app.Use(async (context, next) =>
+{
+    var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+    logger.LogInformation("Auth status: {auth}", context.User.Identity?.IsAuthenticated);
+    await next();
+});
 
 app.Run();
