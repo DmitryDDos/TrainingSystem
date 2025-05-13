@@ -1,101 +1,37 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
+using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Models;
-using trSys.Repos;
-using trSys.Services;
-
 
 namespace trSys.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class UserController : BaseController<User>
     {
-        private readonly UserRepository _repository;
-        private readonly IConfiguration _configuration;
-        private readonly AuthService _authService;
+        private readonly IUserService _userService;
 
-        public UserController(
-            IRepository<User> repository,
-            IConfiguration configuration,
-            AuthService authService) : base(repository)
+        public UserController(IRepository<User> repository, IUserService userService) : base(repository)
         {
-            _repository = (UserRepository)repository;
-            _configuration = configuration;
-            _authService = authService;
+            _userService = userService;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public async Task<IActionResult> Register(RegisterDto dto)
         {
-            // Валидация модели
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            // Проверка, что пользователь с таким email уже не существует
-            var existingUser = await _repository.GetByEmailAsync(model.Email);
-            if (existingUser != null)
-                return Conflict(new { Message = "User with this email already exists" });
-
-            // Генерация хеша пароля с солью
-            var passwordHash = _authService.CreateHashPassword(model.Password);
-
-            // Создание пользователя с ролью по умолчанию, если не указана
-            var user = new User(
-                model.Email,
-                passwordHash,
-                model.FullName,
-                model.Role ?? "User");
-
-            await _repository.AddAsync(user);
-
-            return Ok(new { Message = "User registered successfully" });
+            var result = await _userService.RegisterAsync(dto);
+            return result.Success
+                ? Ok(new { result.Token, result.User })
+                : BadRequest(result.Message);
         }
-
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginDto dto)
         {
-            // Валидация модели
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            // Поиск пользователя по email (оптимизированный запрос)
-            var user = await _repository.GetByEmailAsync(model.Email);
-            if (user == null)
-                return Unauthorized(new { Message = "Invalid email or password" });
-
-            // Проверка пароля
-            if (!_authService.VerifyPassword(model.Password, user.PasswordHash))
-                return Unauthorized(new { Message = "Invalid email or password" });
-
-            // Генерация JWT-токена
-            var token = _authService.GenerateJwtToken(user);
-
-            return Ok(new
-            {
-                Token = token,
-                UserId = user.Id,
-                Email = user.Email,
-                Role = user.Role
-            });
+            var result = await _userService.LoginAsync(dto);
+            return result.Success
+                ? Ok(new { result.Token, result.User })
+                : Unauthorized(result.Message);
         }
-
-        [HttpGet("validate-token")]
-        public IActionResult ValidateToken()
-        {
-            return Ok(new
-            {
-                UserId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                IsAuthenticated = User.Identity?.IsAuthenticated,
-                Claims = User.Claims.Select(c => new { c.Type, c.Value })
-            });
-        }
-
     }
 }

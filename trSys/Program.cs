@@ -67,7 +67,13 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<CourseRegistrationRepository>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICourseRegistrationRepository, CourseRegistrationRepository>();
 builder.Services.AddScoped<ICourseRegistrationService, CourseRegistrationService>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
@@ -78,7 +84,6 @@ builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 
 // Регистрация сервисов
-builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<TestService>();
 builder.Services.AddScoped<CourseService>();
 builder.Services.AddScoped<ModuleService>();

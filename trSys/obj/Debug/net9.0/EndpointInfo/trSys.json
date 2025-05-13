@@ -2346,7 +2346,6 @@
           {
             "name": "Email",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2354,7 +2353,6 @@
           {
             "name": "Password",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2362,7 +2360,6 @@
           {
             "name": "FullName",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2370,7 +2367,6 @@
           {
             "name": "Role",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2392,7 +2388,6 @@
           {
             "name": "Email",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2400,23 +2395,10 @@
           {
             "name": "Password",
             "in": "query",
-            "required": true,
             "schema": {
               "type": "string"
             }
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/User/validate-token": {
-      "get": {
-        "tags": [
-          "User"
         ],
         "responses": {
           "200": {

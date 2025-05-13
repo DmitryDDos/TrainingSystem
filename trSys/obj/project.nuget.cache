@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PzAiedcqIIU=",
+  "dgSpecHash": "Hn11jZcGteo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\trSys.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Савва\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.4\\microsoft.aspnetcore.authentication.jwtbearer.9.0.4.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.0\\microsoft.aspnetcore.jsonpatch.6.0.0.nupkg.sha512",
@@ -48,6 +49,7 @@
     "C:\\Users\\Савва\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
+    "C:\\Users\\Савва\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Савва\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

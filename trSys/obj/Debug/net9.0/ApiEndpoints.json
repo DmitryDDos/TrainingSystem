@@ -1616,15 +1616,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "trSys.Controllers.UserController",
-    "Method": "ValidateToken",
-    "RelativePath": "api/User/validate-token",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
   }
 ]
