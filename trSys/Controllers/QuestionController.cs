@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
+using trSys.Models;
 
 namespace trSys.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class QuestionsController : ControllerBase
+public class QuestionsController : BaseController<Question>
 {
     private readonly IQuestionService _service;
 
-    public QuestionsController(IQuestionService service)
+    public QuestionsController(IRepository<Question> repository, IQuestionService service) : base(repository)
     {
         _service = service;
     }
 
-    [HttpPost]
+    [HttpPost("custom")]
     public async Task<ActionResult<QuestionDto>> Create(QuestionCreateDto dto)
     {
         var result = await _service.CreateQuestionAsync(dto);
@@ -23,7 +24,7 @@ public class QuestionsController : ControllerBase
 
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("custom/{id}")]
     public async Task<IActionResult> Update(int id, QuestionUpdateDto dto)
     {
         var result = await _service.UpdateQuestionAsync(id, dto);

@@ -65,9 +65,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Регистрация репозиториев
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<CourseRegistrationRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
 
 
-
+builder.Services.AddScoped<ICourseRegistrationRepository, CourseRegistrationRepository>();
+builder.Services.AddScoped<ICourseRegistrationService, CourseRegistrationService>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 builder.Services.AddScoped<ITestRepository, TestRepository>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();

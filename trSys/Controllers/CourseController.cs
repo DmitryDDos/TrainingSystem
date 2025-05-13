@@ -9,21 +9,21 @@ namespace trSys.Controllers;
 
 [ApiController]
 [Route("api/courses")]
-public class CourseController : ControllerBase
+public class CourseController : BaseController<Course>
 {
-    private readonly ICourseService _courseService;
+    private readonly ICourseService _service;
 
-    public CourseController(ICourseService courseService)
+    public CourseController(IRepository<Course> repository, ICourseService service) : base(repository)
     {
-        _courseService = courseService;
+        _service = service;
     }
 
-    [HttpPost]
+    [HttpPost("custom")]
     public async Task<ActionResult<CourseDto>> Create([FromBody] CourseCreateDto dto)
     {
         try
         {
-            var result = await _courseService.CreateCourseAsync(dto);
+            var result = await _service.CreateCourseAsync(dto);
             return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
         }
         catch (ArgumentException ex)
@@ -32,10 +32,10 @@ public class CourseController : ControllerBase
         }
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("details/{id}")]
     public async Task<ActionResult<CourseDetailsDto>> Get(int id)
     {
-        var result = await _courseService.GetCourseDetailsAsync(id);
+        var result = await _service.GetCourseDetailsAsync(id);
         return result != null ? Ok(result) : NotFound();
     }
 }

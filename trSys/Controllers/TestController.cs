@@ -1,21 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
+using trSys.Models;
 
 namespace trSys.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TestsController : ControllerBase
+public class TestsController : BaseController<Test>
 {
     private readonly ITestService _service;
 
-    public TestsController(ITestService service)
+    public TestsController(IRepository<Test> repository, ITestService service) : base(repository)
     {
         _service = service;
     }
 
-    [HttpPost]
+    [HttpPost("custom")]
     public async Task<ActionResult<TestDto>> Create(TestCreateDto dto)
     {
         var result = await _service.CreateTestAsync(dto);

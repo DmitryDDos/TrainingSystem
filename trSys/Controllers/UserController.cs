@@ -21,11 +21,11 @@ namespace trSys.Controllers
         private readonly AuthService _authService;
 
         public UserController(
-            UserRepository repository,
+            IRepository<User> repository,
             IConfiguration configuration,
             AuthService authService) : base(repository)
         {
-            _repository = repository;
+            _repository = (UserRepository)repository;
             _configuration = configuration;
             _authService = authService;
         }

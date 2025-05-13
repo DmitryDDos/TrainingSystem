@@ -1,21 +1,15 @@
 [
   {
-    "ContainingType": "trSys.Controllers.CourseRegistrationController",
-    "Method": "Register",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
     "RelativePath": "api/CourseRegistration",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "trSys.DTOs.RegistrationRequestDto",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "trSys.DTOs.RegistrationResponseDto",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -24,6 +18,165 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Create",
+    "RelativePath": "api/CourseRegistration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.CourseRegistration",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.CourseRegistration",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/CourseRegistration/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.CourseRegistration",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/CourseRegistration/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CourseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Date",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.PasswordHash",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "User.CourseRegistrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/CourseRegistration/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "trSys.Controllers.CourseRegistrationController",
@@ -42,6 +195,32 @@
     "ReturnTypes": [
       {
         "Type": "trSys.DTOs.AccessCheckDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.CourseRegistrationController",
+    "Method": "Register",
+    "RelativePath": "api/CourseRegistration/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "trSys.DTOs.RegistrationRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.DTOs.RegistrationResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -88,9 +267,138 @@
     ]
   },
   {
-    "ContainingType": "trSys.Controllers.CourseController",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/courses",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/courses",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.Course",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Course",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/courses/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Course",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/courses/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Course, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/courses/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.CourseController",
+    "Method": "Create",
+    "RelativePath": "api/courses/custom",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -116,7 +424,7 @@
   {
     "ContainingType": "trSys.Controllers.CourseController",
     "Method": "Get",
-    "RelativePath": "api/courses/{id}",
+    "RelativePath": "api/courses/details/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -140,9 +448,214 @@
     ]
   },
   {
-    "ContainingType": "trSys.Controllers.LessonsController",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Lessons",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Lessons",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.Lesson",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Lesson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Lessons/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Lesson",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Lessons/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ModuleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.CourseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Lessons",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Tests",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Lessons/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.LessonsController",
+    "Method": "GetByModule",
+    "RelativePath": "api/Lessons/by-module/{moduleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "moduleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.DTOs.LessonDto, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.LessonsController",
+    "Method": "Create",
+    "RelativePath": "api/Lessons/custom",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -176,22 +689,16 @@
     ]
   },
   {
-    "ContainingType": "trSys.Controllers.LessonsController",
-    "Method": "GetByModule",
-    "RelativePath": "api/Lessons/by-module/{moduleId}",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Modules",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
-      {
-        "Name": "moduleId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
+    "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.DTOs.LessonDto, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -202,9 +709,148 @@
     ]
   },
   {
-    "ContainingType": "trSys.Controllers.ModulesController",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Modules",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.Module",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Module",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Modules/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Module",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Modules/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CourseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Course.Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Lessons",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Tests",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Modules/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.ModulesController",
+    "Method": "Create",
+    "RelativePath": "api/Modules/custom",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -240,7 +886,7 @@
   {
     "ContainingType": "trSys.Controllers.ModulesController",
     "Method": "Get",
-    "RelativePath": "api/Modules/{id}",
+    "RelativePath": "api/Modules/details/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -264,9 +910,218 @@
     ]
   },
   {
-    "ContainingType": "trSys.Controllers.QuestionsController",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Questions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Questions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.Question",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Question",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Questions/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Question",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Questions/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Type",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TestId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.ModuleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.CourseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Course.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Course.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Course.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Course.Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Course.Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Lessons",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Module.Tests",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Test.Questions",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Answers",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Answer, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Questions/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.QuestionsController",
+    "Method": "Create",
+    "RelativePath": "api/Questions/custom",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -307,7 +1162,7 @@
   {
     "ContainingType": "trSys.Controllers.QuestionsController",
     "Method": "Update",
-    "RelativePath": "api/Questions/{id}",
+    "RelativePath": "api/Questions/custom/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -331,9 +1186,219 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "trSys.Controllers.TestsController",
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetAll",
+    "RelativePath": "api/Tests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
     "Method": "Create",
     "RelativePath": "api/Tests",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "entity",
+        "Type": "trSys.Models.Test",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Test",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "GetById",
+    "RelativePath": "api/Tests/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.Models.Test",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Update",
+    "RelativePath": "api/Tests/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ModuleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.CourseId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Modules",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Module, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Course.Registrations",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.CourseRegistration, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Lessons",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Lesson, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Module.Tests",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Questions",
+        "Type": "System.Collections.Generic.ICollection\u00601[[trSys.Models.Question, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.BaseController\u00601[[trSys.Models.Test, trSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+    "Method": "Delete",
+    "RelativePath": "api/Tests/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.TestsController",
+    "Method": "Get",
+    "RelativePath": "api/Tests/{id}/with-questions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.DTOs.TestWithQuestionsDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.TestsController",
+    "Method": "Create",
+    "RelativePath": "api/Tests/custom",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -357,32 +1422,6 @@
     "ReturnTypes": [
       {
         "Type": "trSys.DTOs.TestDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "trSys.Controllers.TestsController",
-    "Method": "Get",
-    "RelativePath": "api/Tests/{id}/with-questions",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "trSys.DTOs.TestWithQuestionsDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
