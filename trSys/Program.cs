@@ -18,6 +18,7 @@ using System.Security.Claims;
 var builder = WebApplication.CreateBuilder(args);
 
 // Добавление сервисов в контейнер.
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -142,6 +143,7 @@ else
     });
 }
 
+app.MapRazorPages();
 app.UseHttpsRedirection();
 app.UseRouting();
 

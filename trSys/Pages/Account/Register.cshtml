@@ -1,0 +1,27 @@
+﻿@page
+@model trSys.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="auth-container">
+    <h2>Регистрация</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Input.Email"></label>
+            <input asp-for="Input.Email" class="form-control" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Password"></label>
+            <input asp-for="Input.Password" type="password" class="form-control" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.FullName">Полное имя</label>
+            <input asp-for="Input.FullName" class="form-control" />
+            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+</div>
