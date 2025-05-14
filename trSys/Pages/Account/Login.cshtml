@@ -4,19 +4,267 @@
     ViewData["Title"] = "Вход";
 }
 
-<div class="auth-container">
-    <h2>Вход</h2>
-    <form method="post">
-        <div class="form-group">
-            <label asp-for="Input.Email"></label>
-            <input asp-for="Input.Email" class="form-control" />
-            <span asp-validation-for="Input.Email" class="text-danger"></span>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]</title>
+    <style>
+        @@font-face {
+            font-family: 'Ida';
+            src: url('/fonts/Ida-Light.woff2') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Ida';
+            src: url('/fonts/Ida-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @@font-face {
+            font-family: 'Ida';
+            src: url('/fonts/Ida-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        :root {
+            --turquoise: #00C0C9;
+            --turquoise-dark: #008C94;
+            --white: #FFFFFF;
+            --black: #202121;
+            --text-dark: #3F6578;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Ida', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 300; /* Light по умолчанию */
+            background: linear-gradient(135deg, var(--turquoise), var(--turquoise-dark));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--black);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3 {
+            font-weight: 500; /* Medium */
+            margin: 0 0 1rem 0;
+        }
+
+        h1 {
+            font-size: 1.5rem; /* 24px */
+        }
+
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--white);
+            border-bottom: 1px solid var(--black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Ida';
+            font-weight: 500; /* Medium */
+            font-size: 1.25rem; /* 20px */
+        }
+
+        .nav-links a {
+            font-family: 'Ida';
+            font-weight: 300; /* Light */
+            color: var(--black);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem; /* 16px */
+        }
+
+        .login-container {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            max-width: 500px;
+            min-width: 350px;
+            padding: 40px;
+            margin-top: 30px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                font-family: 'Ida';
+                font-weight: 500; /* Medium */
+                display: block;
+                margin-bottom: 8px;
+                color: var(--text-dark);
+            }
+
+        .form-control {
+            font-family: 'Ida';
+            font-weight: 300; /* Light */
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--turquoise);
+            }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 25px 0;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+
+            .remember-me input {
+                margin-right: 8px;
+            }
+
+            .remember-me label {
+                font-family: 'Ida';
+                font-weight: 300; /* Light */
+            }
+
+        .forgot-password {
+            font-family: 'Ida';
+            font-weight: 300; /* Light */
+            color: var(--turquoise);
+            text-decoration: none;
+        }
+
+            .forgot-password:hover {
+                text-decoration: underline;
+            }
+
+        .btn-login {
+            font-family: 'Ida';
+            font-weight: 500; /* Medium */
+            width: 100%;
+            padding: 14px;
+            background-color: var(--turquoise);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+            .btn-login:hover {
+                background-color: var(--turquoise-dark);
+            }
+
+        .register-link {
+            font-family: 'Ida';
+            font-weight: 300; /* Light */
+            text-align: center;
+            margin-top: 25px;
+            color: var(--text-dark);
+        }
+
+            .register-link a {
+                font-weight: 500; /* Medium */
+                color: var(--turquoise);
+                text-decoration: none;
+            }
+
+                .register-link a:hover {
+                    text-decoration: underline;
+                }
+
+        .text-danger {
+            font-family: 'Ida';
+            font-weight: 700; /* Bold */
+            color: #e74c3c;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">
+            <img src="/uploads/Logo-Ujin-dark.png" alt="Логотип" height="40">
         </div>
-        <div class="form-group">
-            <label asp-for="Input.Password"></label>
-            <input asp-for="Input.Password" type="password" class="form-control" />
-            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        <div class="nav-links">
+            <a href="#">Главная страница</a>
+            <a href="#">Курсы</a>
+            <a href="#">Контакты</a>
         </div>
-        <button type="submit" class="btn btn-primary">Войти</button>
-    </form>
-</div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Авторизация</h1>
+        </div>
+
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label asp-for="Email">Логин</label>
+                <input asp-for="Email" class="form-control" placeholder="Введите ваш email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password">Пароль</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Введите пароль">
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="options">
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Запомнить</label>
+                </div>
+                <a href="#" class="forgot-password">Восстановить доступ</a>
+            </div>
+
+            <button type="submit" class="btn-login">Войти</button>
+
+            <div class="register-link">
+                Нет аккаунта? <a href="/Account/Register">Создать аккаунт</a>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>
