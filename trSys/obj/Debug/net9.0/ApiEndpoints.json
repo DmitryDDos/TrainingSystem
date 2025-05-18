@@ -1616,5 +1616,52 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "trSys.Controllers.UserProgressController",
+    "Method": "GetProgress",
+    "RelativePath": "api/UserProgress/{courseId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "trSys.DTOs.UserProgressDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "trSys.Controllers.UserProgressController",
+    "Method": "UpdateProgress",
+    "RelativePath": "api/UserProgress/{courseId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "courseId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "trSys.Controllers.UpdateProgressRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

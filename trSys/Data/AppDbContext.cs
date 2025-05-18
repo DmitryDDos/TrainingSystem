@@ -27,6 +27,8 @@ public class AppDbContext : DbContext
     public DbSet<Question> Questions {get;set;}
     public DbSet<Test> Tests {get;set;}
     public DbSet<User> Users {get;set;}
+    public DbSet<UserProgress> UserProgresses { get; set; }
+
 
 
     //тут связь многие ко многим надо добавить и UTC или как там для даты
@@ -41,6 +43,22 @@ public class AppDbContext : DbContext
         // Уникальный индекс против дублирования
         modelBuilder.Entity<CourseRegistration>()
             .HasIndex(cr => new { cr.UserId, cr.CourseId })
+            .IsUnique();
+
+        modelBuilder.Entity<UserProgress>()
+        .HasOne(up => up.User)
+        .WithMany() // Без обратной ссылки
+        .HasForeignKey(up => up.UserId)
+        .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<UserProgress>()
+            .HasOne(up => up.Course)
+            .WithMany() // Без обратной ссылки
+            .HasForeignKey(up => up.CourseId);
+
+        // Добавляем индекс для быстрого поиска прогресса
+        modelBuilder.Entity<UserProgress>()
+            .HasIndex(up => new { up.UserId, up.CourseId })
             .IsUnique();
     }
 }

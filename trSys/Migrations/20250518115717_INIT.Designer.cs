@@ -12,7 +12,7 @@ using trSys.Data;
 namespace trSys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250506111944_INIT")]
+    [Migration("20250518115717_INIT")]
     partial class INIT
     {
         /// <inheritdoc />
@@ -93,7 +93,8 @@ namespace trSys.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "CourseId")
+                        .IsUnique();
 
                     b.ToTable("CourseRegistrations");
                 });
@@ -237,6 +238,35 @@ namespace trSys.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("trSys.Models.UserProgress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompletedModules")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserProgresses");
+                });
+
             modelBuilder.Entity("trSys.Models.Answer", b =>
                 {
                     b.HasOne("trSys.Models.Question", "Question")
@@ -251,13 +281,13 @@ namespace trSys.Migrations
             modelBuilder.Entity("trSys.Models.CourseRegistration", b =>
                 {
                     b.HasOne("trSys.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("Registrations")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("trSys.Models.User", "User")
-                        .WithMany("Courses")
+                        .WithMany("CourseRegistrations")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -281,7 +311,7 @@ namespace trSys.Migrations
             modelBuilder.Entity("trSys.Models.Module", b =>
                 {
                     b.HasOne("trSys.Models.Course", "Course")
-                        .WithMany()
+                        .WithMany("Modules")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -311,6 +341,32 @@ namespace trSys.Migrations
                     b.Navigation("Module");
                 });
 
+            modelBuilder.Entity("trSys.Models.UserProgress", b =>
+                {
+                    b.HasOne("trSys.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("trSys.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("trSys.Models.Course", b =>
+                {
+                    b.Navigation("Modules");
+
+                    b.Navigation("Registrations");
+                });
+
             modelBuilder.Entity("trSys.Models.Module", b =>
                 {
                     b.Navigation("Lessons");
@@ -330,7 +386,7 @@ namespace trSys.Migrations
 
             modelBuilder.Entity("trSys.Models.User", b =>
                 {
-                    b.Navigation("Courses");
+                    b.Navigation("CourseRegistrations");
                 });
 #pragma warning restore 612, 618
         }

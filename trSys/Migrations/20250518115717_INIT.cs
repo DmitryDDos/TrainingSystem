@@ -91,6 +91,34 @@ namespace trSys.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserProgresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    CourseId = table.Column<int>(type: "integer", nullable: false),
+                    CompletedModules = table.Column<int>(type: "integer", nullable: false),
+                    LastUpdated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserProgresses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserProgresses_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserProgresses_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Lessons",
                 columns: table => new
                 {
@@ -185,9 +213,10 @@ namespace trSys.Migrations
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseRegistrations_UserId",
+                name: "IX_CourseRegistrations_UserId_CourseId",
                 table: "CourseRegistrations",
-                column: "UserId");
+                columns: new[] { "UserId", "CourseId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lessons_ModuleId",
@@ -208,6 +237,16 @@ namespace trSys.Migrations
                 name: "IX_Tests_ModuleId",
                 table: "Tests",
                 column: "ModuleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProgresses_CourseId",
+                table: "UserProgresses",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserProgresses_UserId",
+                table: "UserProgresses",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -221,6 +260,9 @@ namespace trSys.Migrations
 
             migrationBuilder.DropTable(
                 name: "Lessons");
+
+            migrationBuilder.DropTable(
+                name: "UserProgresses");
 
             migrationBuilder.DropTable(
                 name: "Questions");
