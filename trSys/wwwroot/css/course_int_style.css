@@ -1,0 +1,271 @@
+:root {
+    --nav-height: 70px;
+    --progress-height: 8px;
+    --sidebar-width: 300px;
+    --accent: #00c0c9;
+    --text-dark: #2d3748;
+    --border-color: #e2e8f0;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Базовые стили */
+
+
+@font-face {
+  font-family: 'Ida';
+  src: url('../fonts/Ida-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ida';
+  src: url('../fonts/Ida-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ida';
+  src: url('../fonts/Ida-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ida', sans-serif;
+    font-weight: 300; /* Light как основной */
+}
+body {
+    background: #f8fafc;
+    color: var(--text-dark);
+}
+
+/* Навигационная панель */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: #ffffff;
+    border-bottom: 2px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.nav-container {
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-family: 'Ida'
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: var(--primary-bg);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    overflow: hidden;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Прогресс-бар курса */
+.course-progress {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    height: var(--progress-height);
+    background: #f1f5f9;
+    z-index: 999;
+}
+
+.progress-bar {
+    height: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    font-weight: 300; /* Light */
+    color: var(--text-dark);
+}
+
+/* Основной контейнер */
+.course-wrapper {
+    margin-top: calc(var(--nav-height) + var(--progress-height));
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    min-height: calc(100vh - var(--nav-height));
+
+}
+
+/* Боковая панель уроков */
+.lessons-sidebar {
+    background: #ffffff;
+    border-right: 2px solid var(--border-color);
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.lessons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.lesson-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: background 0.2s ease;
+}
+
+.lesson-item:hover {
+    background: #f8fafc;
+}
+
+.lesson-item.active {
+    background: var(--accent);
+    color: white;
+}
+
+.lesson-number {
+    width: 30px;
+    font-weight: 500;
+}
+
+.lesson-status {
+    margin-left: auto;
+    color: #48bb78;
+}
+
+/* Контент урока */
+.lesson-content {
+    padding: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lesson-header h1 {
+    font-size: 2.2rem;
+    font-weight: 500; /* Medium */
+    margin-bottom: 1rem;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.code-example {
+    background: #212121;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    overflow-x: auto;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.lesson-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+.nav-button {
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.nav-button:hover {
+    opacity: 0.9;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .course-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .lessons-sidebar {
+        display: none;
+    }
+    
+    .lesson-content {
+        padding: 2rem 1rem;
+    }
+    
+    .lesson-header h1 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Программирование для начинающих</title>
+    <link rel="stylesheet" href="../css/course_style.css">
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="logo-ujin-dark-10.svg" alt="Логотип" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">Курсы</a>
+                <a href="#" class="nav-link">Прогресс</a>
+                <a href="#" class="nav-link">Профиль</a>
+            </nav>
+
+            <div class="user-panel">
+                <img src="img/avatar.jpg" alt="Аватар пользователя" class="user-avatar">
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="content-wrapper">
+        <article class="course-container">
+            <h1 class="course-main-title">Основы Python</h1>
+            
+            <section class="course-header">
+                <div class="progress-container">
+                    <span class="progress-label">Прогресс курса:</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                    <span class="progress-value">65%</span>
+                </div>
+                
+                <p class="course-description">
+                    Полный курс по основам программирования на Python для начинающих
+                </p>
+            </section>
+
+            <section class="lessons-section">
+                <h2 class="section-title">Содержание курса</h2>
+
+                <!-- Урок 1 -->
+                <article class="lesson-card completed">
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">Урок 1: Введение в Python</h3>
+                        <div class="lesson-meta">
+                            <span class="lesson-status">✅ Завершено</span>
+                            <span class="lesson-duration">⏱ 2 часа</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Урок 2 -->
+                <article class="lesson-card active">
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">Урок 2: Синтаксис и переменные</h3>
+                        <div class="lesson-meta">
+                            <div class="lesson-progress">
+                                <span class="progress-text">Прогресс: 45%</span>
+                                <div class="progress-bar small">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                            </div>
+                            <div class="lesson-actions">
+                                <button class="btn primary">Продолжить</button>
+                                <button class="btn secondary">Материалы</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

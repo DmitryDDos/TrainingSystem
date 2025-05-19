@@ -1,0 +1,168 @@
+:root {
+    --nav-height: 70px;
+    --progress-height: 8px;
+    --sidebar-width: 300px;
+    --accent: #00c0c9;
+    --text-dark: #2d3748;
+    --border-color: #e2e8f0;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --primary-bg: #f8fafc;
+}
+
+/* Подключение шрифтов Ida */
+@font-face {
+    font-family: 'Ida';
+    src: url('../fonts/Ida-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('../fonts/Ida-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('../fonts/Ida-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ida', sans-serif; /* Изменено с Inter на Ida */
+    font-weight: 300; /* Светлое начертание по умолчанию */
+}
+
+body {
+    background: var(--primary-bg);
+    color: var(--text-dark);
+}
+
+/* Навигационная панель */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: #ffffff;
+    border-bottom: 2px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.nav-container {
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500; /* Среднее начертание */
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Остальные стили без изменений... */
+/* Main content */
+.content-wrapper {
+  padding: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 40px 0;
+  padding: 20px;
+  background: #d9d9d9;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.news-card {
+  background: #d9d9d9;
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 200px;
+  background: #3f6578;
+  border-radius: 30px;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .header {
+    flex-wrap: wrap;
+  }
+  
+  .nav-menu {
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .news-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательная платформа</title>
+    <link rel="stylesheet" href="../css/profile_style.css">
+
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="logo-ujin-dark-10.svg" alt="Логотип" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">Курсы</a>
+                <a href="#" class="nav-link">Прогресс</a>
+                <a href="#" class="nav-link">Профиль</a>
+            </nav>
+
+            <div class="user-avatar">
+                <img src="avatar.jpg" alt="Аватар пользователя">
+            </div>
+        </div>
+    </header>
+
+    <!-- Боковая панель -->
+    <aside class="sidebar">
+        <div class="user-profile flex-center">
+            <div class="user-avatar-large">
+                <img src="avatar-large.jpg" alt="Профиль пользователя">
+            </div>
+            <h2 class="user-name">Евдоким Петров</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-link button">
+                <span>📚 Мои курсы</span>
+                <span class="badge">3</span>
+            </a>
+            <a href="#" class="sidebar-link">📈 Прогресс</a>
+            <a href="#" class="sidebar-link">⚙️ Настройки</a>
+        </nav>
+    </aside>
+
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <h1 class="page-title">Мои курсы</h1>
+        
+        <div class="courses-grid">
+            <!-- Карточка курса 1 -->
+            <article class="course-card fade-in">
+                <div class="course-media">
+                    <img src="course1.jpg" alt="Веб-разработка">
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Современная веб-разработка</h3>
+                    <p class="course-description">
+                        Полный курс по JavaScript, React и Node.js
+                    </p>
+                    <div class="course-meta">
+                        <span class="difficulty">🚀 Продвинутый</span>
+                        <span class="duration">⏳ 6 месяцев</span>
+                    </div>
+                    <a href="#" class="button">Начать курс</a>
+                </div>
+            </article>
+
+            <!-- Карточка курса 2 -->
+            <article class="course-card fade-in">
+                <div class="course-media">
+                    <img src="course2.jpg" alt="Data Science">
+                </div>
+                <div class="course-content">
+                    <h3 class="course-title">Data Science с нуля</h3>
+                    <p class="course-description">
+                        Python, машинное обучение и анализ данных
+                    </p>
+                    <div class="course-meta">
+                        <span class="difficulty">📈 Средний уровень</span>
+                        <span class="duration">⏳ 4 месяца</span>
+                    </div>
+                    <a href="#" class="button">Начать курс</a>
+                </div>
+            </article>
+
+            
+        </div>
+    </main>
+
+    <!-- Мобильная навигация -->
+    <div class="mobile-nav hidden">
+        <!-- Контент мобильного меню -->
+    </div>
+</body>
+</html>
