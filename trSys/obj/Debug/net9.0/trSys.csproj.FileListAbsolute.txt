@@ -434,4 +434,13 @@ C:\Users\elkov\Source\Repos\trainingSystem\trSys\obj\Debug\net9.0\refint\trSys.d
 C:\Users\elkov\Source\Repos\trainingSystem\trSys\obj\Debug\net9.0\trSys.pdb
 C:\Users\elkov\Source\Repos\trainingSystem\trSys\obj\Debug\net9.0\trSys.genruntimeconfig.cache
 C:\Users\elkov\Source\Repos\trainingSystem\trSys\obj\Debug\net9.0\ref\trSys.dll
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\2mtucv6xp1-q5eqdvl8se.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\iuy5fwthcu-1132wqlzq3.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\a2ezwlrwm5-wegv768w4s.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\jzkpcteq6e-lgclwgyk62.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\3l3wyk5cm5-uybiyaj2si.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\1lebcqb8jo-ari1c5cbi9.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\tn99qwk4oi-bu6zqbahfe.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\ez9g6grx17-i5alai9x42.gz
+C:\Users\Савва\source\repos\trainingSystem\trSys\obj\Debug\net9.0\compressed\l71jrcvuow-4mm3046q83.gz
 C:\Users\Савва\Source\Repos\trainingSystem\trSys\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

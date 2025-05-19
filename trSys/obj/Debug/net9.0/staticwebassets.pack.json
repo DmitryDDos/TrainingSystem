@@ -5,6 +5,26 @@
       "PackagePath": "staticwebassets\\trSys.zp69v2ekki.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "PackagePath": "staticwebassets\\css\\course_int_style.css"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "PackagePath": "staticwebassets\\css\\course_style.css"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "PackagePath": "staticwebassets\\css\\courses_style.css"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "PackagePath": "staticwebassets\\css\\main_style.css"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "PackagePath": "staticwebassets\\css\\profile_style.css"
+    },
+    {
       "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -267,6 +287,22 @@
     {
       "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "PackagePath": "staticwebassets\\pages\\course.html"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "PackagePath": "staticwebassets\\pages\\courses.html"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "PackagePath": "staticwebassets\\pages\\main.html"
+    },
+    {
+      "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "PackagePath": "staticwebassets\\pages\\profile.html"
     },
     {
       "Id": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\uploads\\8c0ba9f1-84df-44ce-a206-4c504cc87bef.png",

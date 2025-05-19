@@ -1,38 +1,56 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using trSys.DTOs;
 using trSys.Interfaces;
+using trSys.Models;
 
-public class LoginModel : PageModel
+namespace trSys.Pages.Account
 {
-    private readonly IUserService _userService;
-
-    [BindProperty]
-    public LoginDto Input { get; set; }
-
-    public LoginModel(IUserService userService)
+    public class LoginModel : PageModel
     {
-        _userService = userService;
-    }
+        private readonly ILoginService _loginService;
 
-    public IActionResult OnGet()
-    {
-        return Page();
-    }
+        [BindProperty]
+        public LoginDto Input { get; set; }
 
-    public async Task<IActionResult> OnPostAsync()
-    {
-        if (!ModelState.IsValid)
-            return Page();
+        [TempData]
+        public string ErrorMessage { get; set; }
 
-        var result = await _userService.LoginAsync(Input);
-        if (!result.Success)
+        public string ReturnUrl { get; set; }
+
+        public LoginModel(ILoginService loginService)
         {
+            _loginService = loginService;
+        }
+
+        public void OnGet(string returnUrl = null)
+        {
+            if (!string.IsNullOrEmpty(ErrorMessage))
+            {
+                ModelState.AddModelError(string.Empty, ErrorMessage);
+            }
+
+            ReturnUrl = returnUrl ?? Url.Content("~/");
+        }
+
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        {
+            ReturnUrl = returnUrl ?? Url.Content("~/");
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            var result = await _loginService.LoginAsync(Input);
+
+            if (result.Success)
+            {
+                return LocalRedirect(ReturnUrl);
+            }
+
             ModelState.AddModelError(string.Empty, result.Message);
             return Page();
         }
-
-        Response.Cookies.Append("auth_token", result.Token);
-        return RedirectToPage("/Index");
     }
 }

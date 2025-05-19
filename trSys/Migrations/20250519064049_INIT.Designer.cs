@@ -12,7 +12,7 @@ using trSys.Data;
 namespace trSys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250518115717_INIT")]
+    [Migration("20250519064049_INIT")]
     partial class INIT
     {
         /// <inheritdoc />
@@ -262,7 +262,8 @@ namespace trSys.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "CourseId")
+                        .IsUnique();
 
                     b.ToTable("UserProgresses");
                 });

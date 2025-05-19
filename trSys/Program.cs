@@ -14,6 +14,7 @@ using trSys.Services;
 using trSys.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,11 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     options.SuppressInferBindingSourcesForParameters = true;
 });
 
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "X-CSRF-TOKEN";
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+});
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -85,6 +91,8 @@ builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
 builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<IUserProgressRepository, UserProgressRepository>();
 builder.Services.AddScoped<IUserProgressService, UserProgressService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddHttpContextAccessor();
 
 
 // Регистрация сервисов
@@ -95,11 +103,13 @@ builder.Services.AddScoped<LessonService>();
 
 
 // Регистрация JWT
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";
+        options.AccessDeniedPath = "/Account/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(builder.Configuration.GetValue<int>("Jwt:ExpiryInMinutes"));
+    })
 .AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters

@@ -244,9 +244,10 @@ namespace trSys.Migrations
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserProgresses_UserId",
+                name: "IX_UserProgresses_UserId_CourseId",
                 table: "UserProgresses",
-                column: "UserId");
+                columns: new[] { "UserId", "CourseId" },
+                unique: true);
         }
 
         /// <inheritdoc />

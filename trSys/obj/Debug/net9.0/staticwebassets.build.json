@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "d3RvKf73vhH8iKpbzs45e5UFYckoZRoKC0qL4DVPw0U=",
+  "Hash": "2aEisjgCPv8fkI8ZGdZ/laDzPrF0YQTUOZ9Mht8fr2c=",
   "Source": "trSys",
   "BasePath": "_content/trSys",
   "Mode": "Default",
@@ -57,6 +57,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1lebcqb8jo-ari1c5cbi9.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/course#[.{fingerprint=ari1c5cbi9}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "467ihgc78p",
+      "Integrity": "zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html"
     },
     {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1qfqt7hs4c-ltid2c489k.gz",
@@ -143,6 +164,27 @@
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\favicon.ico"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2mtucv6xp1-q5eqdvl8se.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/courses_style#[.{fingerprint=q5eqdvl8se}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "iff0kz64k4",
+      "Integrity": "4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2v8tpohvd8-zp69v2ekki.gz",
       "SourceId": "trSys",
       "SourceType": "Computed",
@@ -162,6 +204,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\scopedcss\\bundle\\trSys.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3l3wyk5cm5-uybiyaj2si.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/profile_style#[.{fingerprint=uybiyaj2si}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "jkoeeqguh6",
+      "Integrity": "42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css"
     },
     {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3okbslb0s6-c2oey78nd0.gz",
@@ -374,6 +437,27 @@
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\a2ezwlrwm5-wegv768w4s.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/course_style#[.{fingerprint=wegv768w4s}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2xmdor466a",
+      "Integrity": "uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ahrg53uwxx-u9q1upor1n.gz",
       "SourceId": "trSys",
       "SourceType": "Discovered",
@@ -521,6 +605,27 @@
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ez9g6grx17-i5alai9x42.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/main#[.{fingerprint=i5alai9x42}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "z936yajccj",
+      "Integrity": "F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\hji3kf53y0-c63t5i9ira.gz",
       "SourceId": "trSys",
       "SourceType": "Discovered",
@@ -582,6 +687,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iuy5fwthcu-1132wqlzq3.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/course_int_style#[.{fingerprint=1132wqlzq3}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "yu17jm4nyf",
+      "Integrity": "1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css"
     },
     {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iz8bynmoxz-jd9uben2k1.gz",
@@ -668,6 +794,27 @@
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\jzkpcteq6e-lgclwgyk62.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/main_style#[.{fingerprint=lgclwgyk62}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "qx3rn0gaoj",
+      "Integrity": "Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\k1wtjmkpvg-aexeepp0ev.gz",
       "SourceId": "trSys",
       "SourceType": "Discovered",
@@ -708,6 +855,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\l71jrcvuow-4mm3046q83.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/profile#[.{fingerprint=4mm3046q83}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "0j871x9ctf",
+      "Integrity": "FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html"
     },
     {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\lyxivurutk-mrlpezrjn3.gz",
@@ -1088,6 +1256,27 @@
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\tn99qwk4oi-bu6zqbahfe.gz",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/courses#[.{fingerprint=bu6zqbahfe}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2sznffhjtz",
+      "Integrity": "HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ts187wi5fb-y7v9cxd14o.gz",
       "SourceId": "trSys",
       "SourceType": "Discovered",
@@ -1401,6 +1590,111 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\trSys.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/course_int_style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1132wqlzq3",
+      "Integrity": "1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\course_int_style.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/course_style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wegv768w4s",
+      "Integrity": "2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\course_style.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/courses_style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "q5eqdvl8se",
+      "Integrity": "0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\courses_style.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/main_style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lgclwgyk62",
+      "Integrity": "VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\main_style.css"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "css/profile_style#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uybiyaj2si",
+      "Integrity": "6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\profile_style.css"
     },
     {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\site.css",
@@ -2789,6 +3083,90 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/course#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ari1c5cbi9",
+      "Integrity": "NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\course.html"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/courses#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bu6zqbahfe",
+      "Integrity": "Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\courses.html"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/main#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i5alai9x42",
+      "Integrity": "pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\main.html"
+    },
+    {
+      "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "SourceId": "trSys",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\",
+      "BasePath": "_content/trSys",
+      "RelativePath": "pages/profile#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4mm3046q83",
+      "Integrity": "xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\profile.html"
+    },
+    {
       "Identity": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\uploads\\8c0ba9f1-84df-44ce-a206-4c504cc87bef.png",
       "SourceId": "trSys",
       "SourceType": "Discovered",
@@ -2832,6 +3210,1496 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "css/course_int_style.1132wqlzq3.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iuy5fwthcu-1132wqlzq3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000654450262"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1527"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1132wqlzq3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_int_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_int_style.1132wqlzq3.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1132wqlzq3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_int_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_int_style.1132wqlzq3.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iuy5fwthcu-1132wqlzq3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1527"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1132wqlzq3"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_int_style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_int_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iuy5fwthcu-1132wqlzq3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000654450262"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1527"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_int_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4996"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1VNv6JFksh04gYy+BPZluOVZAI5XKK4XHX6Uu3enaJ0="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_int_style.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\iuy5fwthcu-1132wqlzq3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1527"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1u9HJfrTtFOwer/nEgyvl9w/00w1k5bvy6jKk0t0TAI="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\a2ezwlrwm5-wegv768w4s.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000739644970"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1351"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4303"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\a2ezwlrwm5-wegv768w4s.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1351"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.wegv768w4s.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\a2ezwlrwm5-wegv768w4s.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000739644970"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1351"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wegv768w4s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.wegv768w4s.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4303"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wegv768w4s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2CMeHnolr35fLPhcbRX5Q+yVhXm68IIHX9yYUayXJ2w="
+        }
+      ]
+    },
+    {
+      "Route": "css/course_style.wegv768w4s.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\a2ezwlrwm5-wegv768w4s.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1351"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wegv768w4s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/course_style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uiZAfo8XQ+rejQFAzXNU/S6vR1R6/c9KskMbN7z3rzI="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2mtucv6xp1-q5eqdvl8se.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000745712155"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1340"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3816"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2mtucv6xp1-q5eqdvl8se.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1340"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.q5eqdvl8se.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2mtucv6xp1-q5eqdvl8se.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000745712155"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1340"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q5eqdvl8se"
+        },
+        {
+          "Name": "label",
+          "Value": "css/courses_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.q5eqdvl8se.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3816"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q5eqdvl8se"
+        },
+        {
+          "Name": "label",
+          "Value": "css/courses_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0tyzQL0XM/XAFazIOCY0CvUmY3guLxPU6mbo2bITVos="
+        }
+      ]
+    },
+    {
+      "Route": "css/courses_style.q5eqdvl8se.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\2mtucv6xp1-q5eqdvl8se.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1340"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "q5eqdvl8se"
+        },
+        {
+          "Name": "label",
+          "Value": "css/courses_style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4lGTOi6sxKOImlITNnJpqeZTV7aRCEv/dsQh+/2+Kd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\jzkpcteq6e-lgclwgyk62.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000833333333"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1199"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\jzkpcteq6e-lgclwgyk62.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.lgclwgyk62.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\jzkpcteq6e-lgclwgyk62.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000833333333"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1199"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lgclwgyk62"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.lgclwgyk62.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lgclwgyk62"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VbK4lkRzDEU5xOBjKtt9PA5AK03ElvderkXagIMM1OA="
+        }
+      ]
+    },
+    {
+      "Route": "css/main_style.lgclwgyk62.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\jzkpcteq6e-lgclwgyk62.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1199"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lgclwgyk62"
+        },
+        {
+          "Name": "label",
+          "Value": "css/main_style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Urxb4v9s8mHAvXIzrdZ/HcP03LWbHQdrW5IEg39KjP0="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3l3wyk5cm5-uybiyaj2si.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000602772755"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1658"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5541"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3l3wyk5cm5-uybiyaj2si.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1658"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.uybiyaj2si.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3l3wyk5cm5-uybiyaj2si.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000602772755"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1658"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uybiyaj2si"
+        },
+        {
+          "Name": "label",
+          "Value": "css/profile_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.uybiyaj2si.css",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5541"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uybiyaj2si"
+        },
+        {
+          "Name": "label",
+          "Value": "css/profile_style.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6njiPsf8sSLRMyh1t/3e2VAHWQjJ1sb6I1p2Hiww8CA="
+        }
+      ]
+    },
+    {
+      "Route": "css/profile_style.uybiyaj2si.css.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\3l3wyk5cm5-uybiyaj2si.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1658"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uybiyaj2si"
+        },
+        {
+          "Name": "label",
+          "Value": "css/profile_style.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-42n7qFWmE3RtJY6P+/cltqgaP3YRmPrvWExTdlh2mms="
+        }
+      ]
+    },
     {
       "Route": "css/site.b9sayid5wm.css",
       "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\6vrydycjk2-b9sayid5wm.gz",
@@ -21633,6 +23501,1198 @@
         {
           "Name": "integrity",
           "Value": "sha256-1HkjQSVuV0/ji/X/lGeDTHeagBS0BwopMrHDQuwqgtU="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.ari1c5cbi9.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1lebcqb8jo-ari1c5cbi9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000908265213"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1100"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ari1c5cbi9"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/course.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.ari1c5cbi9.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ari1c5cbi9"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/course.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.ari1c5cbi9.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1lebcqb8jo-ari1c5cbi9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1100"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ari1c5cbi9"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/course.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1lebcqb8jo-ari1c5cbi9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000908265213"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1100"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3774"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-NlXxQhq6OqZVsXOLd3lGRbEdUczquQSkeVR/TRLjjLM="
+        }
+      ]
+    },
+    {
+      "Route": "pages/course.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\1lebcqb8jo-ari1c5cbi9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1100"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zGVfwwjzWjhfnAeXwMwSyOi8A5imkVhZ048Z/+XadL4="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.bu6zqbahfe.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\tn99qwk4oi-bu6zqbahfe.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001455604076"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu6zqbahfe"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/courses.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.bu6zqbahfe.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2360"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu6zqbahfe"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/courses.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.bu6zqbahfe.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\tn99qwk4oi-bu6zqbahfe.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bu6zqbahfe"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/courses.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\tn99qwk4oi-bu6zqbahfe.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001455604076"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2360"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Y1MYk6lFP4VYwrvFqkw8XhG+il3TKDrWWgKy95ir2kY="
+        }
+      ]
+    },
+    {
+      "Route": "pages/courses.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\tn99qwk4oi-bu6zqbahfe.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "686"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HhDnhmP+MMK1G5YEqQ4fLFr3oD8TFbfhULf2oY9NT4A="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ez9g6grx17-i5alai9x42.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001031991744"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "968"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2346"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ez9g6grx17-i5alai9x42.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "968"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.i5alai9x42.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ez9g6grx17-i5alai9x42.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001031991744"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "968"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i5alai9x42"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/main.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.i5alai9x42.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2346"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i5alai9x42"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/main.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pshobD52qrJztGeTSsk5dg8KVeJ3hMaiDNKyUpx0Gec="
+        }
+      ]
+    },
+    {
+      "Route": "pages/main.i5alai9x42.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\ez9g6grx17-i5alai9x42.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "968"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i5alai9x42"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/main.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-F1BXfZeMjHge5vxM0tZoJxvfjjQdLsXBurCie9m/RvA="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.4mm3046q83.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\l71jrcvuow-4mm3046q83.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000831255195"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1202"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4mm3046q83"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/profile.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.4mm3046q83.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4037"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4mm3046q83"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/profile.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.4mm3046q83.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\l71jrcvuow-4mm3046q83.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1202"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4mm3046q83"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/profile.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\l71jrcvuow-4mm3046q83.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000831255195"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1202"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.html",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4037"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xPqhxoxPAv6jnMbk77P0e6/RNcaRqGTVvzW6O8f20Ak="
+        }
+      ]
+    },
+    {
+      "Route": "pages/profile.html.gz",
+      "AssetFile": "C:\\Users\\Савва\\Source\\Repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\compressed\\l71jrcvuow-4mm3046q83.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1202"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 06:37:56 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FIR2QiDY4QmM4K18py5572W67Ze4/E0wtSWizejIDEU="
         }
       ]
     },
