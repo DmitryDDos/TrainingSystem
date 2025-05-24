@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ���������� �������� � ���������.
 builder.Services.AddRazorPages(options => {
     options.Conventions.AllowAnonymousToPage("/Account/Login");
 });
@@ -41,7 +40,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
-// ��������� ����������� � ��
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDataBase")));
 

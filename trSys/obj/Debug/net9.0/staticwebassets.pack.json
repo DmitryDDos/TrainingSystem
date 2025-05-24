@@ -1,335 +1,335 @@
 {
   "Files": [
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/obj/Debug/net9.0/scopedcss/projectbundle/trSys.bundle.scp.css",
-      "PackagePath": "staticwebassets/trSys.xlokqlqpms.bundle.scp.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\trSys.bundle.scp.css",
+      "PackagePath": "staticwebassets\\trSys.zp69v2ekki.bundle.scp.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/course_int_style.css",
-      "PackagePath": "staticwebassets/css/course_int_style.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\course_int_style.css",
+      "PackagePath": "staticwebassets\\css\\course_int_style.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/course_style.css",
-      "PackagePath": "staticwebassets/css/course_style.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\course_style.css",
+      "PackagePath": "staticwebassets\\css\\course_style.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/courses_style.css",
-      "PackagePath": "staticwebassets/css/courses_style.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\courses_style.css",
+      "PackagePath": "staticwebassets\\css\\courses_style.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/main_style.css",
-      "PackagePath": "staticwebassets/css/main_style.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\main_style.css",
+      "PackagePath": "staticwebassets\\css\\main_style.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/profile_style.css",
-      "PackagePath": "staticwebassets/css/profile_style.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\profile_style.css",
+      "PackagePath": "staticwebassets\\css\\profile_style.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/css/site.css",
-      "PackagePath": "staticwebassets/css/site.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/favicon.ico",
-      "PackagePath": "staticwebassets/favicon.ico"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/fonts/Ida-Bold.woff2",
-      "PackagePath": "staticwebassets/fonts/Ida-Bold.woff2"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\fonts\\Ida-Bold.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Ida-Bold.woff2"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/fonts/Ida-Light.woff2",
-      "PackagePath": "staticwebassets/fonts/Ida-Light.woff2"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\fonts\\Ida-Light.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Ida-Light.woff2"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/fonts/Ida-Medium.woff2",
-      "PackagePath": "staticwebassets/fonts/Ida-Medium.woff2"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\fonts\\Ida-Medium.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Ida-Medium.woff2"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/js/site.js",
-      "PackagePath": "staticwebassets/js/site.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/LICENSE",
-      "PackagePath": "staticwebassets/lib/bootstrap"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation/LICENSE.md",
-      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation/dist/additional-methods.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
-      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/LICENSE.txt",
-      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.js",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.min.js",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.min.map",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.slim.js",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.slim.min.js",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.js"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/lib/jquery/dist/jquery.slim.min.map",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.slim.min.map"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/pages/course.html",
-      "PackagePath": "staticwebassets/pages/course.html"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\pages\\course.html",
+      "PackagePath": "staticwebassets\\pages\\course.html"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/pages/courses.html",
-      "PackagePath": "staticwebassets/pages/courses.html"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\pages\\courses.html",
+      "PackagePath": "staticwebassets\\pages\\courses.html"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/pages/main.html",
-      "PackagePath": "staticwebassets/pages/main.html"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\pages\\main.html",
+      "PackagePath": "staticwebassets\\pages\\main.html"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/pages/profile.html",
-      "PackagePath": "staticwebassets/pages/profile.html"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\pages\\profile.html",
+      "PackagePath": "staticwebassets\\pages\\profile.html"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/uploads/8c0ba9f1-84df-44ce-a206-4c504cc87bef.png",
-      "PackagePath": "staticwebassets/uploads/8c0ba9f1-84df-44ce-a206-4c504cc87bef.png"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\uploads\\8c0ba9f1-84df-44ce-a206-4c504cc87bef.png",
+      "PackagePath": "staticwebassets\\uploads\\8c0ba9f1-84df-44ce-a206-4c504cc87bef.png"
     },
     {
-      "Id": "/root/newPhoto/trainingSystem-main/trSys/wwwroot/uploads/Logo-Ujin-dark.png",
-      "PackagePath": "staticwebassets/uploads/Logo-Ujin-dark.png"
+      "Id": "C:\\Users\\Савва\\source\\repos\\trainingSystem\\trSys\\wwwroot\\uploads\\Logo-Ujin-dark.png",
+      "PackagePath": "staticwebassets\\uploads\\Logo-Ujin-dark.png"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.trSys.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.trSys.props",
       "PackagePath": "build\\trSys.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.trSys.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.trSys.props",
       "PackagePath": "buildMultiTargeting\\trSys.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.trSys.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.trSys.props",
       "PackagePath": "buildTransitive\\trSys.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.trSys.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.trSys.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
-      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.trSys.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.trSys.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     }
   ],
