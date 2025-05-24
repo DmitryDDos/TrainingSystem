@@ -96,8 +96,6 @@ namespace trSys.Migrations
                     b.ToTable("CourseRegistrations");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("trSys.Models.FileEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -126,7 +124,6 @@ namespace trSys.Migrations
                     b.ToTable("Files");
                 });
 
->>>>>>> 89d6c65 (добавленный файлы)
             modelBuilder.Entity("trSys.Models.Lesson", b =>
                 {
                     b.Property<int>("Id")

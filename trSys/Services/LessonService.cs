@@ -29,6 +29,11 @@ public class LessonService : ILessonService
         return LessonMapper.ToDto(lesson);
     }
 
+    public Task<int> GetLessonByIdAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<IEnumerable<LessonDto>> GetLessonsByModuleAsync(int moduleId)
     {
         var lessons = await _lessonRepo.GetByModuleIdAsync(moduleId);
