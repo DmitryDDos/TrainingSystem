@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors.Infrastructure;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
@@ -7,6 +8,7 @@ using trSys.Services;
 
 namespace trSys.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("api/courses")]
 public class CourseController : BaseController<Course>

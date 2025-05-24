@@ -15,7 +15,6 @@ public class User
         PasswordHash = pass;
         FullName = name;
         Role = role;
-        //валидация отдельным методом или Required
     }
     
     [Key]
@@ -25,9 +24,6 @@ public class User
     public string PasswordHash {get; private set;}
     public string FullName {get; private set;}
     public string Role {get; private set;}
-
-    //навигационное поле
-    //public CourseRegistration? CourseRegistration {get; private set;}
     public ICollection<CourseRegistration> CourseRegistrations { get; private set; } = new List<CourseRegistration>();
 
 }

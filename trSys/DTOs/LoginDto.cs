@@ -4,5 +4,5 @@ namespace trSys.DTOs
 {
     public record LoginDto(
         [Required][EmailAddress] string Email,
-        [Required] string Password);
+        [Required][MinLength(6)] string Password);
 }

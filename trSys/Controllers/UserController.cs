@@ -16,21 +16,21 @@ namespace trSys.Controllers
             _userService = userService;
         }
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterDto dto)
-        {
-            var result = await _userService.RegisterAsync(dto);
-            return result.Success
-                ? Ok(new { result.Token, result.User })
-                : BadRequest(result.Message);
-        }
+        //[HttpPost("register")]
+        //public async Task<IActionResult> Register(RegisterDto dto)
+        //{
+        //    var result = await _userService.RegisterAsync(dto);
+        //    return result.Success
+        //        ? Ok(new { result.Token, result.User })
+        //        : BadRequest(result.Message);
+        //}
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
         {
             var result = await _userService.LoginAsync(dto);
             return result.Success
-                ? Ok(new { result.Token, result.User })
+                ? Ok(new { result.User }) // Токен больше не возвращаем
                 : Unauthorized(result.Message);
         }
     }

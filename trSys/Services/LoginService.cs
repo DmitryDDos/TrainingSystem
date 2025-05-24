@@ -13,12 +13,12 @@ namespace trSys.Services
     {
         private readonly IUserService _userService;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly JwtSettings _jwtSettings;
+        private readonly CookieSettings _jwtSettings;
 
         public LoginService(
             IUserService userService,
             IHttpContextAccessor httpContextAccessor,
-            IOptions<JwtSettings> jwtSettings)
+            IOptions<CookieSettings> jwtSettings)
         {
             _userService = userService;
             _httpContextAccessor = httpContextAccessor;
@@ -31,23 +31,22 @@ namespace trSys.Services
 
             if (authResult.Success)
             {
-                await SignInUser(authResult.User, authResult.Token);
-                return new AuthResult(true, "Успешный вход", authResult.Token);
+                await SignInUser(authResult.User);
+                return new AuthResult(true, "Успешный вход");
             }
 
             return new AuthResult(false, authResult.Message);
         }
 
-        private async Task SignInUser(UserDto user, string token)
+        private async Task SignInUser(UserDto user)
         {
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Name, user.FullName),
-                new Claim(ClaimTypes.Role, user.Role),
-                new Claim("JWT", token)
-            };
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.Name, user.FullName),
+        new Claim(ClaimTypes.Role, user.Role)
+    };
 
             var claimsIdentity = new ClaimsIdentity(
                 claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -63,6 +62,7 @@ namespace trSys.Services
                 new ClaimsPrincipal(claimsIdentity),
                 authProperties);
         }
+
 
         public async Task LogoutAsync()
         {
