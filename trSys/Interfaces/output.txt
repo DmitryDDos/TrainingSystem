@@ -1,0 +1,234 @@
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface IAnswerRepository : IRepository<Answer>
+{
+    // специфичные методы для ответов
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface IAnswerService
+{
+    Task<AnswerDto> UpdateAnswerAsync(int id, AnswerUpdateDto dto);
+}
+﻿using trSys.Models;
+using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface ICourseRegistrationRepository : IRepository<CourseRegistration>
+{
+    Task<CourseRegistration> RegisterUserAsync(int userId, int courseId);
+    Task<bool> HasAccessAsync(int userId, int courseId);
+    Task<IEnumerable<Course>> GetUserCoursesAsync(int userId);
+    Task<int> GetRegistrationCountAsync(int courseId);
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface ICourseRegistrationService
+{
+    Task<RegistrationResponseDto> RegisterAsync(int userId, RegistrationRequestDto request);
+    Task<AccessCheckDto> CheckAccessAsync(int userId, int courseId);
+    Task<IEnumerable<UserCourseDto>> GetUserCoursesAsync(int userId);
+    Task<int> GetRegistrationCountAsync(int courseId);
+}
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface ICourseRepository : IRepository<Course>
+{
+    Task<IEnumerable<Module>> GetCourseModulesAsync(int courseId);
+    Task<bool> TitleExistsAsync(string title);
+    Task<bool> ExistsAsync(int id);
+}﻿using trSys.DTOs;
+
+namespace trSys.Interfaces
+{
+    public interface ICourseService
+    {
+        Task<CourseDto> CreateCourseAsync(CourseCreateDto dto);
+        Task<CourseDetailsDto> GetCourseDetailsAsync(int id);
+    }
+}
+using System;
+using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface IFileRepository
+{
+    Task<FileEntity> GetByIdAsync(int id);
+    Task<int> AddAsync(FileEntity file);
+}
+using System.Threading.Tasks;
+using trSys.DTOs;
+
+namespace trSys.Interfaces
+{
+    public interface IFileService
+    {
+        Task<int> UploadFileAsync(FileUploadDto fileDto);
+        Task<FileDownloadDto> DownloadFileAsync(int id);
+    }
+}
+
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface ILessonRepository : IRepository<Lesson>
+{
+    Task<IEnumerable<Lesson>> GetByModuleIdAsync(int moduleId);
+}﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface ILessonService
+{
+    Task<LessonDto> CreateLessonAsync(LessonCreateDto dto);
+    Task<IEnumerable<LessonDto>> GetLessonsByModuleAsync(int moduleId);
+    Task<int> GetLessonByIdAsync(int id);
+}
+﻿using trSys.DTOs;
+using trSys.Models;
+
+namespace trSys.Interfaces
+{
+    public interface ILoginService
+    {
+        Task<AuthResult> LoginAsync(LoginDto loginDto);
+        Task LogoutAsync();
+    }
+}
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface IModuleRepository : IRepository<Module>
+{
+    Task<IEnumerable<Module>> GetByCourseIdAsync(int courseId);
+    Task<bool> ExistsAsync(int id);
+    Task<Module?> GetWithLessonsAsync(int id);
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface IModuleService
+{
+    Task<ModuleDto> CreateModuleAsync(ModuleCreateDto dto);
+    Task<ModuleDetailsDto?> GetModuleDetailsAsync(int id);
+}
+﻿namespace trSys.Interfaces
+{
+    public interface IPasswordHasher
+    {
+        string CreateHash(string password);
+        bool VerifyHash(string inputPassword, string storedHash);
+    }
+}
+﻿using trSys.Models;
+
+namespace trSys.Interfaces
+{
+    public interface IQuestionRepository : IRepository<Question>
+    {
+        Task<List<Question>> GetByTestIdAsync(int testId);
+    }
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface IQuestionService
+{
+    Task<QuestionDto> CreateQuestionAsync(QuestionCreateDto dto);
+    Task<QuestionDto> UpdateQuestionAsync(int id, QuestionUpdateDto dto);
+}
+﻿namespace trSys.Interfaces
+{
+    public interface IReadRepository<T> where T : class
+    {
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(int id);
+        Task<bool> ExistsAsync(int id);
+    }
+}
+using System;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Mvc;
+
+namespace trSys.Interfaces;
+
+public interface IRepository<T> where T : class
+{
+    Task<IEnumerable<T>> GetAllAsync();
+    Task<T> GetByIdAsync(int id);
+    Task AddAsync(T entity);
+    Task UpdateAsync(T entity);
+    Task DeleteAsync(int id);
+}
+﻿using trSys.Models;
+using trSys.Repos;
+
+namespace trSys.Interfaces
+{
+    public interface ITestRepository : IRepository<Test>
+    {
+        Task<Test?> GetWithQuestionsAsync(int id);
+        Task<bool> ExistsAsync(int id);
+    }
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface ITestService
+{
+    Task<TestDto> CreateTestAsync(TestCreateDto dto);
+    Task<TestWithQuestionsDto> GetTestWithQuestionsAsync(int id);
+}
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface IUserProgressRepository
+{
+    Task<UserProgress?> GetByUserAndCourseAsync(int userId, int courseId);
+    Task UpdateProgressAsync(int userId, int courseId, int completedModules);
+    Task<int> GetCompletedModulesAsync(int userId, int courseId);
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces;
+
+public interface IUserProgressService
+{
+    Task<UserProgressDto> GetProgressAsync(int userId, int courseId);
+    Task UpdateProgressAsync(int userId, int courseId, int completedModules);
+}
+﻿using trSys.Models;
+
+namespace trSys.Interfaces;
+
+public interface IUserRepository : IRepository<User>
+{
+    Task<User?> GetByEmailAsync(string email);
+    Task<bool> ExistsAsync(string email); 
+}
+﻿using trSys.DTOs;
+
+namespace trSys.Interfaces
+{
+    public interface IUserService
+    {
+        //Task<AuthDto> RegisterAsync(RegisterDto dto);
+        Task<AuthDto> LoginAsync(LoginDto dto);
+    }
+}

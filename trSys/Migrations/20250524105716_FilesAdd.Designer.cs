@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using trSys.Data;
@@ -11,9 +12,11 @@ using trSys.Data;
 namespace trSys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250524105716_FilesAdd")]
+    partial class FilesAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,8 +99,6 @@ namespace trSys.Migrations
                     b.ToTable("CourseRegistrations");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("trSys.Models.FileEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -126,7 +127,6 @@ namespace trSys.Migrations
                     b.ToTable("Files");
                 });
 
->>>>>>> 89d6c65 (добавленный файлы)
             modelBuilder.Entity("trSys.Models.Lesson", b =>
                 {
                     b.Property<int>("Id")

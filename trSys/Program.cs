@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавление сервисов в контейнер.
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 builder.Services.AddRazorPages(options => {
     options.Conventions.AllowAnonymousToPage("/Account/Login");
 });
@@ -28,7 +28,10 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 builder.Services.AddAntiforgery(options =>
 {
     options.HeaderName = "X-CSRF-TOKEN";
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    // Р’ СЂР°Р·СЂР°Р±РѕС‚РєРµ СЂР°Р·СЂРµС€Р°РµРј HTTP, РІ РїСЂРѕРґР°РєС€РµРЅРµ С‚РѕР»СЊРєРѕ HTTPS
+    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment() 
+        ? CookieSecurePolicy.SameAsRequest 
+        : CookieSecurePolicy.Always;
 });
 
 builder.Services.ConfigureApplicationCookie(options =>
@@ -38,7 +41,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
-// Настройка подключения к бд
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDataBase")));
 
@@ -61,7 +64,6 @@ builder.WebHost.ConfigureKestrel(options =>
 
 
 var app = builder.Build();
-
 
 app.UseStaticFiles();
 app.UseRouting();

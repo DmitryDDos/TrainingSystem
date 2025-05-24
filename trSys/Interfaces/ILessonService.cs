@@ -6,4 +6,5 @@ public interface ILessonService
 {
     Task<LessonDto> CreateLessonAsync(LessonCreateDto dto);
     Task<IEnumerable<LessonDto>> GetLessonsByModuleAsync(int moduleId);
+    Task<int> GetLessonByIdAsync(int id);
 }

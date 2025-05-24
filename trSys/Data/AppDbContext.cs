@@ -28,6 +28,7 @@ public class AppDbContext : DbContext
     public DbSet<Test> Tests {get;set;}
     public DbSet<User> Users {get;set;}
     public DbSet<UserProgress> UserProgresses { get; set; }
+    public DbSet<FileEntity> Files {get;set;}
 
 
 
