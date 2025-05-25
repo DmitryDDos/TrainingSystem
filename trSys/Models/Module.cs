@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class Module
+public class Module : IEntity
 {
     private Module() { } // Для EF Core
 
@@ -14,22 +15,22 @@ public class Module
     }
 
     [Key]
-    public int Id { get; private set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public string Title { get; private set; }
+    public string Title { get; set; }
 
     [MaxLength(500)]
-    public string Description { get; private set; }
+    public string Description { get; set; }
 
     [Required]
-    public int CourseId { get; private set; }
+    public int CourseId { get; set; }
 
     // Навигационные свойства
-    public Course Course { get; private set; } = null!;
-    public ICollection<Lesson> Lessons { get; private set; } = new List<Lesson>();
-    public ICollection<Test> Tests { get; private set; } = new List<Test>();
+    public Course Course { get; set; } = null!;
+    public ICollection<Lesson> Lessons { get; set; } = new List<Lesson>();
+    public ICollection<Test> Tests { get; set; } = new List<Test>();
 
     // Методы для бизнес логики
     public void UpdateCourseId(int courseId) => CourseId = courseId;

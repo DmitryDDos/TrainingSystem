@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using trSys.Enums;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class Question
+public class Question : IEntity
 {
     private Question() { } // Для EF Core
 
@@ -15,21 +16,21 @@ public class Question
     }
 
     [Key]
-    public int Id { get; private set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(500)]
-    public string Text { get; private set; }
+    public string Text { get; set; }
 
     [Required]
-    public QuestionType Type { get; private set; }
+    public QuestionType Type { get; set; }
 
     [Required]
-    public int TestId { get; private set; }
+    public int TestId { get; set; }
 
     // Навигационные свойства
-    public Test Test { get; private set; } = null!;
-    public ICollection<Answer> Answers { get; private set; } = new List<Answer>();
+    public Test Test { get; set; } = null!;
+    public ICollection<Answer> Answers { get; set; } = new List<Answer>();
 
     // Методы бизнес-логики
     public void AddAnswer(Answer answer)

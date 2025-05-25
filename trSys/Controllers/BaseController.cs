@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using trSys.Interfaces;
 using System.Threading.Tasks;
+using trSys.Interfaces;
 
 namespace trSys.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class BaseController<TEntity> : ControllerBase where TEntity : class
+    public class BaseController<TEntity> : Controller where TEntity : class, IEntity
     {
         protected readonly IRepository<TEntity> _repository;
 
@@ -15,53 +13,95 @@ namespace trSys.Controllers
             _repository = repository;
         }
 
-        // GET: api/[controller]
+        // GET: /[controller]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
+        public virtual async Task<IActionResult> Index()
         {
             var entities = await _repository.GetAllAsync();
-            return Ok(entities);
+            return View(entities);
         }
 
-        // GET: api/[controller]/5
-        [HttpGet("{id}")]
-        public virtual async Task<ActionResult<TEntity>> GetById(int id)
+        // GET: /[controller]/Details/5
+        [HttpGet("Details/{id}")]
+        public virtual async Task<IActionResult> Details(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
             if (entity == null)
             {
                 return NotFound();
             }
-            return Ok(entity);
+            return View(entity);
         }
 
-        // POST: api/[controller]
-        [HttpPost]
-        public virtual async Task<ActionResult<TEntity>> Create([FromBody] TEntity entity)
+        // GET: /[controller]/Create
+        [HttpGet("Create")]
+        public virtual IActionResult Create()
         {
-            await _repository.AddAsync(entity);
-            return CreatedAtAction(nameof(GetById), new { id = (entity as dynamic).Id }, entity);
+            return View();
         }
 
-        // PUT: api/[controller]/5
-        [HttpPut("{id}")]
-        public virtual async Task<IActionResult> Update(int id, TEntity entity)
+        // POST: /[controller]/Create
+        [HttpPost("Create")]
+        [ValidateAntiForgeryToken]
+        public virtual async Task<IActionResult> Create(TEntity entity)
         {
-            if (id != (entity as dynamic).Id)
+            if (ModelState.IsValid)
+            {
+                await _repository.AddAsync(entity);
+                return RedirectToAction(nameof(Details), new { id = entity.Id });
+            }
+            return View(entity);
+        }
+
+        // GET: /[controller]/Edit/5
+        [HttpGet("Edit/{id}")]
+        public virtual async Task<IActionResult> Edit(int id)
+        {
+            var entity = await _repository.GetByIdAsync(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+            return View(entity);
+        }
+
+        // POST: /[controller]/Edit/5
+        [HttpPost("Edit/{id}")]
+        [ValidateAntiForgeryToken]
+        public virtual async Task<IActionResult> Edit(int id, TEntity entity)
+        {
+            if (id != entity.Id)
             {
                 return BadRequest();
             }
 
-            await _repository.UpdateAsync(entity);
-            return NoContent();
+            if (ModelState.IsValid)
+            {
+                await _repository.UpdateAsync(entity);
+                return RedirectToAction(nameof(Details), new { id = entity.Id });
+            }
+            return View(entity);
         }
 
-        // DELETE: api/[controller]/5
-        [HttpDelete("{id}")]
+        // GET: /[controller]/Delete/5
+        [HttpGet("Delete/{id}")]
         public virtual async Task<IActionResult> Delete(int id)
         {
+            var entity = await _repository.GetByIdAsync(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+            return View(entity);
+        }
+
+        // POST: /[controller]/Delete/5
+        [HttpPost("Delete/{id}"), ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public virtual async Task<IActionResult> DeleteConfirmed(int id)
+        {
             await _repository.DeleteAsync(id);
-            return NoContent();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

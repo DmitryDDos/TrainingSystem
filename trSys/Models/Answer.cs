@@ -1,10 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class Answer
+public class Answer : IEntity
 {
-    private Answer() { } // Для EF Core
+    private Answer() { } // пїЅпїЅпїЅ EF Core
 
     public Answer(string text, bool isCorrect, int questionId)
     {
@@ -14,22 +15,22 @@ public class Answer
     }
 
     [Key]
-    public int Id { get; private set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(300)]
-    public string Text { get; private set; }
+    public string Text { get; set; }
 
     [Required]
-    public bool IsCorrect { get; private set; }
+    public bool IsCorrect { get; set; }
 
     [Required]
-    public int QuestionId { get; private set; }
+    public int QuestionId { get; set; }
 
-    // Навигационные свойства
-    public Question Question { get; private set; } = null!;
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+    public Question Question { get; set; } = null!;
 
-    // Методы бизнес-логики
+    // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ
     public void UpdateQuestionId(int questionId) => QuestionId = questionId;
     public void UpdateText(string text) => Text = text ?? throw new ArgumentNullException(nameof(text));
     public void MarkAsCorrect(bool isCorrect) => IsCorrect = isCorrect;

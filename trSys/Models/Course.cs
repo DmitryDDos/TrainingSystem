@@ -1,10 +1,12 @@
+using trSys.Interfaces;
+
 namespace trSys.Models
 {
-    public class Course
+    public class Course : IEntity
     {
-        public int Id { get; private set; }
-        public string Title { get; private set; }
-        public string Description { get; private set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
         // Конструктор для создания нового курса (без ID)
         public Course(string title, string description)

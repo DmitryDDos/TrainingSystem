@@ -8,10 +8,10 @@ using trSys.Services;
 using trSys.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using trSys.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ���������� �������� � ���������.
 builder.Services.AddRazorPages(options => {
     options.Conventions.AllowAnonymousToPage("/Account/Login");
 });
@@ -24,6 +24,8 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressInferBindingSourcesForParameters = true;
 });
+
+
 
 builder.Services.AddAntiforgery(options =>
 {
@@ -41,7 +43,6 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 });
 
-// ��������� ����������� � ��
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDataBase")));
 
@@ -56,6 +57,40 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>(); 
+
+/////////////////
+builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<CourseRegistrationRepository>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+
+// builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICourseRegistrationRepository, CourseRegistrationRepository>();
+builder.Services.AddScoped<ICourseRegistrationService, CourseRegistrationService>();
+builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<ITestRepository, TestRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<IModuleRepository, ModuleRepository>();
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+builder.Services.AddScoped<IFileRepository, FileRepository>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<ILessonService, LessonService>();
+
+// ����������� ��������
+builder.Services.AddScoped<TestService>();
+builder.Services.AddScoped<CourseService>();
+builder.Services.AddScoped<ModuleService>();
+builder.Services.AddScoped<LessonService>();
 
 builder.WebHost.ConfigureKestrel(options =>
 {

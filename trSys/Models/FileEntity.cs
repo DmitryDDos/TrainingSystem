@@ -1,8 +1,9 @@
 using System;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class FileEntity
+public class FileEntity : IEntity
 {
 
     public int Id { get; set; }

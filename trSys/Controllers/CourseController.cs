@@ -1,45 +1,59 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Models;
 using trSys.Services;
 
-namespace trSys.Controllers;
-
-[Authorize]
-[ApiController]
-[Route("api/courses")]
-public class CourseController : BaseController<Course>
+namespace trSys.Controllers
 {
-    private readonly ICourseService _service;
-
-    public CourseController(IRepository<Course> repository, ICourseService service) : base(repository)
+    [Authorize]
+    public class CourseController : BaseController<Course>
     {
-        _service = service;
-    }
+        private readonly ICourseService _service;
 
-    [HttpPost("custom")]
-    public async Task<ActionResult<CourseDto>> Create([FromBody] CourseCreateDto dto)
-    {
-        try
+        public CourseController(IRepository<Course> repository, ICourseService service) : base(repository)
         {
-            var result = await _service.CreateCourseAsync(dto);
-            return CreatedAtAction(nameof(Get), new { id = result.Id }, result);
+            _service = service;
         }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-    }
 
-    [HttpGet("details/{id}")]
-    public async Task<ActionResult<CourseDetailsDto>> Get(int id)
-    {
-        var result = await _service.GetCourseDetailsAsync(id);
-        return result != null ? Ok(result) : NotFound();
+        // GET: /Course/CustomCreate
+        [HttpGet("CustomCreate")]
+        public IActionResult CustomCreate()
+        {
+            return View();
+        }
+
+        // POST: /Course/CustomCreate
+        [HttpPost("CustomCreate")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CustomCreate(CourseCreateDto dto)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await _service.CreateCourseAsync(dto);
+                    return RedirectToAction(nameof(Details), new { id = result.Id });
+                }
+                catch (ArgumentException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
+            }
+            return View(dto);
+        }
+
+        // GET: /Course/DetailsExtended/5
+        [HttpGet("DetailsExtended/{id}")]
+        public async Task<IActionResult> DetailsExtended(int id)
+        {
+            var result = await _service.GetCourseDetailsAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return View(result);
+        }
     }
 }
-
-

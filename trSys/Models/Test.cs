@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class Test
+public class Test : IEntity
 {
     private Test() { } // Для EF Core
 
@@ -14,17 +15,17 @@ public class Test
     }
 
     [Key]
-    public int Id { get; private set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(100)]
-    public string Title { get; private set; }
+    public string Title { get; set; }
 
     [MaxLength(500)]
-    public string Description { get; private set; }
+    public string Description { get; set; }
 
     [Required]
-    public int ModuleId { get; private set; }
+    public int ModuleId { get; set; }
 
     // Навигационные свойства
     public Module Module { get; private set; } = null!;

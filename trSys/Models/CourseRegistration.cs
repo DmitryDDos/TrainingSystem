@@ -1,10 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using trSys.Interfaces;
 
 namespace trSys.Models;
 
-public class CourseRegistration
+public class CourseRegistration : IEntity
 {
     private CourseRegistration () { }
     public CourseRegistration(int id, int userId, int courseId)
@@ -17,12 +18,12 @@ public class CourseRegistration
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id {get; private set;}
+    public int Id {get; set;}
     [ForeignKey("User")]
-    public int UserId {get; private set;}
+    public int UserId {get; set;}
     [ForeignKey("Course")]
-    public int CourseId {get; private set;}
-    public DateOnly Date {get; private set;}
+    public int CourseId {get; set;}
+    public DateOnly Date {get; set;}
 
     //навигационные поля
     //public ICollection<User> Users {get; private set;} = new List<User>();
