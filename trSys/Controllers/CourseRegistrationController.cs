@@ -8,56 +8,61 @@ using trSys.Models;
 namespace trSys.Controllers;
 
 [Authorize(Roles = "User")]
-[ApiController]
-[Route("api/[controller]")]
-public class CourseRegistrationController : BaseController<CourseRegistration>
+public class CourseRegistrationController : Controller
 {
     private readonly ICourseRegistrationService _service;
 
-    public CourseRegistrationController(
-        IRepository<CourseRegistration> repository,
-        ICourseRegistrationService service) : base(repository)
+    public CourseRegistrationController(ICourseRegistrationService service)
     {
         _service = service;
     }
 
-    [HttpPost("register")]
-    public async Task<ActionResult<RegistrationResponseDto>> Register(
-        [FromBody] RegistrationRequestDto request)
+    // POST: /CourseRegistration/Register
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(int courseId)
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         try
         {
-            var response = await _service.RegisterAsync(userId, request);
-            return Ok(response);
+            var response = await _service.RegisterAsync(
+                userId,
+                new RegistrationRequestDto { CourseId = courseId });
+
+            TempData["Success"] = "Вы успешно записаны на курс";
+            return RedirectToAction("Details", "Course", new { id = courseId });
         }
         catch (Exception ex)
         {
-            return BadRequest(new AccessCheckDto(false, ex.Message));
+            TempData["Error"] = ex.Message;
+            return RedirectToAction("Details", "Course", new { id = courseId });
         }
     }
 
-    [HttpGet("check-access")]
-    public async Task<ActionResult<AccessCheckDto>> CheckAccess(int courseId)
+    // GET: /CourseRegistration/CheckAccess
+    [HttpGet]
+    public async Task<IActionResult> CheckAccess(int courseId)
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var result = await _service.CheckAccessAsync(userId, courseId);
-        return Ok(result);
+        return Json(result); // Для AJAX-запросов
     }
 
-    [HttpGet("user-courses")]
-    public async Task<ActionResult<IEnumerable<UserCourseDto>>> GetUserCourses()
+    // GET: /CourseRegistration/UserCourses
+    [HttpGet]
+    public async Task<IActionResult> UserCourses()
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var courses = await _service.GetUserCoursesAsync(userId);
-        return Ok(courses);
+        return View(courses); // Или Json(courses) для API
     }
 
-    [HttpGet("stats/{courseId}")]
-    public async Task<IActionResult> GetCourseStats(int courseId)
+    // GET: /CourseRegistration/Stats/5
+    [HttpGet("Stats/{courseId}")]
+    public async Task<IActionResult> Stats(int courseId)
     {
         var count = await _service.GetRegistrationCountAsync(courseId);
-        return Ok(new { RegistrationsCount = count });
+        return Json(new { RegistrationsCount = count });
     }
 }

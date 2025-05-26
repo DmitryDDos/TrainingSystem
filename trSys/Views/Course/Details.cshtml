@@ -1,32 +1,87 @@
-@* @model CourseDto
+@using trSys.Interfaces
+@model Course
+@inject ICourseRegistrationService RegistrationService
 @{
-    ViewData["Title"] = "Подробная информация о курсе";
+    ViewData["Title"] = Model.Title;
+    var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+    var isRegistered = await RegistrationService.CheckAccessAsync(userId, Model.Id);
+    var registrationStatus = TempData["RegistrationStatus"] as string;
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h3>@Model.Title</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Описание</h5>
+                    <p>@Model.Description</p>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Название:</dt>
-        <dd class="col-sm-10">@Model.Name</dd>
+                    @if (Model.Modules.Any())
+                    {
+                        <h5 class="mt-4">Модули курса</h5>
+                        <div class="list-group">
+                            @foreach (var module in Model.Modules)
+                            {
+                                <div class="list-group-item">
+                                    <h6>@module.Title</h6>
+                                    <p class="mb-1">@module.Description</p>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            @if (isRegistered.HasAccess)
+                            {
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle"></i> Вы уже записаны на этот курс
+                                </div>
+                            }
+                            else if (registrationStatus == "Success")
+                            {
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle"></i> Вы успешно зарегистрировались на курс
+                                </div>
+                            }
+                            else
+                            {
+                                <form asp-controller="CourseRegistration" asp-action="Register" method="post">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="courseId" value="@Model.Id" />
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        <i class="fas fa-user-plus"></i> Записаться на курс
+                                    </button>
+                                </form>
 
-        <dt class="col-sm-2">Описание:</dt>
-        <dd class="col-sm-10">@Model.Description</dd>
+                                @if (!string.IsNullOrEmpty(isRegistered.ErrorMessage))
+                                {
+                                    <div class="alert alert-danger mt-3">
+                                        <i class="fas fa-exclamation-circle"></i> @isRegistered.ErrorMessage
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <dt class="col-sm-2">Дата начала:</dt>
-        <dd class="col-sm-10">@Model.StartDate.ToString("dd.MM.yyyy")</dd>
-
-        <dt class="col-sm-2">Продолжительность:</dt>
-        <dd class="col-sm-10">@Model.Duration дней</dd>
-
-        <dt class="col-sm-2">Преподаватель:</dt>
-        <dd class="col-sm-10">@Model.InstructorName</dd>
-
-        <dt class="col-sm-2">Количество студентов:</dt>
-        <dd class="col-sm-10">@Model.StudentsCount</dd>
-    </dl>
+    <a asp-action="Index" class="btn btn-secondary mt-3">
+        <i class="fas fa-arrow-left"></i> Вернуться к списку курсов
+    </a>
 </div>
-<div>
-    <a asp-action="Index" class="btn btn-primary">Вернуться к списку</a>
-</div> *@
+
+@section Scripts {
+    <script>
+        // Автоматическое скрытие сообщений через 5 секунд
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}
