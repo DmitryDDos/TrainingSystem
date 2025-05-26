@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -59,14 +58,6 @@
 
             .button:hover {
                 background-color: #3F6578;
-            }
-
-            .logout {
-                background-color: #FF8769; /* Цвет фона для кнопки выхода */
-            }
-
-            .logout:hover {
-                background-color: #3F6578; /* Цвет фона для кнопки выхода при наведении */
             }
 
         .user-menu-wrapper {
@@ -134,13 +125,30 @@
                     background-color: #3F6578;
                 }
 
-                .dropdown a.logout {
-                    background-color: #FF8769;
-                }
+        .logout-link {
+            display: block;
+            width: 100%;
+            background-color: #FF8769; /* Цвет фона для кнопки выхода */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+        }
 
-                    .dropdown a.logout:hover {
-                        background-color: #3F6578;
-                    }
+            .logout-link:last-child {
+                margin-bottom: 0;
+            }
+
+            .logout-link:hover {
+                background-color: #3F6578; /* Цвет фона кнопки выхода при наведении */
+            }
     </style>
 </head>
 <body>
@@ -163,7 +171,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <form id="logoutForm" method="post" asp-controller="Account" asp-action="Logout" style="display:inline;">
-                            <button type="submit" role="menuitem" class="button" onclick="logout()">Выход</button>
+                            <button type="submit" role="menuitem" class="logout-link">Выход</button>
                         </form>
                     }
                     else
