@@ -1,0 +1,195 @@
+﻿/* Подключение шрифтов */
+@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Универсальные переменные цветов */
+:root {
+    --turquoise: #00C0C9;
+    --turquoise-dark: #008C94;
+    --white: #FFFFFF;
+    --black: #202121;
+    --text-dark: #3F6578;
+}
+
+/* Базовые стили */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ida', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    background: linear-gradient(135deg, var(--turquoise), var(--turquoise-dark));
+    color: var(--black);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Заголовки */
+h1, h2, h3 {
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+/* Топ-бар */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    border-bottom: 1px solid var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Ida';
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.nav-links a {
+    font-family: 'Ida';
+    font-weight: 300;
+    color: var(--black);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+/* Контейнер формы */
+.login-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 550px; /* Максимальная ширина */
+    min-width: 350px; /* Минимальная ширина */
+    padding: 40px; /* Внутренние отступы */
+    margin-top: 30px; /* Отступ сверху */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+/* Заголовок формы */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Группы полей */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-family: 'Ida';
+        font-weight: 500;
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-dark);
+    }
+
+/* Поля ввода */
+.form-control {
+    font-family: 'Ida';
+    font-weight: 300;
+    width: 100%; /* Поля занимают всю ширину контейнера */
+    padding: 12px 15px; /* Внутренние отступы */
+    border: 1px solid #ddd; /* Рамка */
+    border-radius: 4px; /* Закругление углов */
+    font-size: 16px; /* Размер шрифта */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--turquoise);
+    }
+
+/* Опции */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+    .remember-me input {
+        margin-right: 8px;
+    }
+
+    .remember-me label {
+        font-family: 'Ida';
+        font-weight: 300;
+    }
+
+/* Кнопка входа */
+.btn-login {
+    font-family: 'Ida';
+    font-weight: 500;
+    width: 100%;
+    padding: 14px;
+    background-color: var(--turquoise);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .btn-login:hover {
+        background-color: var(--turquoise-dark);
+    }
+
+/* Ошибки */
+.text-danger {
+    font-family: 'Ida';
+    font-weight: 700;
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .login-container {
+        width: 90%; /* Ширина для мобильных устройств */
+        padding: 20px; /* Уменьшение отступов */
+    }
+
+    .top-bar {
+        padding: 0 15px; /* Уменьшение отступов для топ-бара */
+    }
+}

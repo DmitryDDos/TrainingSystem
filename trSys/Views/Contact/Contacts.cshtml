@@ -1,0 +1,164 @@
+﻿ @* @{
+    ViewData["Title"] = "Contacts";
+}*@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система внутренних обучений</title>
+    <link rel="stylesheet" href="../css/main_style.css">
+    <style>
+        body {
+            background-color: #E8F1F6;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+
+            .contact-info p {
+                margin: 10px 0;
+            }
+
+        .contact-message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #007BFF;
+        }
+
+        form {
+            margin: 0 auto;
+            display: inline-block;
+            text-align: left;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                transition: border-color 0.3s;
+                box-sizing: border-box;
+            }
+
+                .form-group input:focus,
+                .form-group textarea:focus {
+                    border-color: #00C0C9;
+                    outline: none;
+                }
+
+            .form-group textarea {
+                height: 150px;
+            }
+
+        .button-animation {
+            padding: 10px 20px;
+            background-color: #00C0C9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.8s ease;
+        }
+
+            .button-animation:hover {
+                background-color: #3F6578;
+            }
+
+        .success-message {
+            color: green;
+            margin-top: 20px;
+            font-weight: bold;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <main class="content-wrapper">
+        <h1>Контакты</h1>
+
+        <div class="contact-info">
+            <p><strong>Телефон:</strong> +78005553535</p>
+            <p><strong>Электронная почта:</strong> sviza@yandex.ru</p>
+            <p><strong>Адрес:</strong> г. Пермь, ул. Космонавтов 123</p>
+        </div>
+
+        <div class="contact-message">Свяжитесь с нами</div>
+
+        <form id="contactForm" method="post">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="button-animation">Отправить</button>
+        </form>
+
+        <div class="success-message" id="successMessage" style="display:none;">
+            Спасибо! Ваше сообщение отправлено.
+        </div>
+    </main>
+    <script>
+        document.getElementById('contactForm').onsubmit = function(event) {
+            event.preventDefault();
+
+            // Здесь можно добавить логику отправки формы
+
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+        };
+    </script>
+</body>
+</html>
