@@ -2,10 +2,12 @@
 
 namespace trSys.DTOs;
 
-public record RegistrationRequestDto(
-    [Required] int CourseId
-// UserId берётся из JWT-токена, поэтому не включается в DTO
-);
+public record RegistrationRequestDto
+{
+    [Required]
+    public int CourseId { get; init; }
+}
+
 
 public record RegistrationResponseDto(
     int RegistrationId,
