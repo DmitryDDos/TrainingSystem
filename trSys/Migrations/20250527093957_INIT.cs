@@ -13,17 +13,19 @@ namespace trSys.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Courses",
+                name: "Files",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "text", nullable: false),
-                    Description = table.Column<string>(type: "text", nullable: false)
+                    FileName = table.Column<string>(type: "text", nullable: false),
+                    ContentType = table.Column<string>(type: "text", nullable: false),
+                    Data = table.Column<byte[]>(type: "bytea", nullable: false),
+                    UploadDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Courses", x => x.Id);
+                    table.PrimaryKey("PK_Files", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,24 +45,23 @@ namespace trSys.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Modules",
+                name: "Courses",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
-                    CourseId = table.Column<int>(type: "integer", nullable: false)
+                    Title = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    CoverImageId = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modules", x => x.Id);
+                    table.PrimaryKey("PK_Courses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Modules_Courses_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Courses_Files_CoverImageId",
+                        column: x => x.CoverImageId,
+                        principalTable: "Files",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +87,27 @@ namespace trSys.Migrations
                         name: "FK_CourseRegistrations_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Modules",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Title = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    CourseId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Modules", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Modules_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -219,6 +241,11 @@ namespace trSys.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Courses_CoverImageId",
+                table: "Courses",
+                column: "CoverImageId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Lessons_ModuleId",
                 table: "Lessons",
                 column: "ModuleId");
@@ -279,6 +306,9 @@ namespace trSys.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "Files");
         }
     }
 }

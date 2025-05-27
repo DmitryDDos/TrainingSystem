@@ -19,6 +19,7 @@ namespace trSys.Controllers
 
         // GET: /Course/CustomCreate
         [HttpGet("CustomCreate")]
+        [Authorize(Policy = "AdminOnly")]
         public IActionResult CustomCreate()
         {
             return View();
@@ -27,13 +28,17 @@ namespace trSys.Controllers
         // POST: /Course/CustomCreate
         [HttpPost("CustomCreate")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CustomCreate(CourseCreateDto dto)
+        [Authorize(Policy = "AdminOnly")]
+        public async Task<IActionResult> CustomCreate(CourseCreateDto dto, IFormFile coverImage)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var result = await _service.CreateCourseAsync(dto);
+                    var result = coverImage != null
+                        ? await _service.CreateCourseWithFileAsync(dto, coverImage)
+                        : await _service.CreateCourseAsync(dto);
+
                     return RedirectToAction(nameof(Details), new { id = result.Id });
                 }
                 catch (ArgumentException ex)
@@ -43,6 +48,7 @@ namespace trSys.Controllers
             }
             return View(dto);
         }
+
 
         // GET: /Course/DetailsExtended/5
         [HttpGet("DetailsExtended/{id}")]

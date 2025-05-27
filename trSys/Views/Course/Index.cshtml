@@ -1,4 +1,4 @@
-@model IEnumerable<Course>
+@model IEnumerable<trSys.Models.Course>
 @{
     ViewData["Title"] = "Все курсы";
 }
@@ -6,12 +6,34 @@
 <div class="container mt-4">
     <h2 class="mb-4">Доступные курсы</h2>
 
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="mb-4">
+            <a asp-action="CustomCreate" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Создать новый курс
+            </a>
+        </div>
+    }
+
     <div class="row">
         @foreach (var course in Model)
         {
             <div class="col-md-4 mb-4">
                 <a asp-action="Details" asp-route-id="@course.Id" class="card-link text-decoration-none">
                     <div class="card h-100 hover-shadow">
+                        @if (course.CoverImage != null)
+                        {
+                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")"
+                                 class="card-img-top"
+                                 alt="Обложка курса"
+                                 style="height: 250px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary" style="height: 180px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-book-open text-white" style="font-size: 3rem;"></i>
+                            </div>
+                        }
                         <div class="card-body">
                             <h5 class="card-title">@course.Title</h5>
                             <p class="card-text text-muted">
@@ -33,9 +55,11 @@
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
         transition: box-shadow 0.3s ease;
     }
+
     .card-link .card {
         transition: transform 0.3s ease;
     }
+
     .card-link:hover .card {
         transform: translateY(-2px);
     }

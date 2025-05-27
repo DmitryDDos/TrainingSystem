@@ -54,6 +54,12 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.ExpireTimeSpan = TimeSpan.FromDays(30);
     });
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireRole("Admin"));
+});
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IUserService, UserService>();

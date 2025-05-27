@@ -6,5 +6,6 @@ namespace trSys.Interfaces
     {
         Task<CourseDto> CreateCourseAsync(CourseCreateDto dto);
         Task<CourseDetailsDto> GetCourseDetailsAsync(int id);
+        Task<CourseDto> CreateCourseWithFileAsync(CourseCreateDto dto, IFormFile coverImage);
     }
 }
