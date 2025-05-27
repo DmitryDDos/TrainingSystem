@@ -1,36 +1,85 @@
 ﻿@model trSys.DTOs.LoginDto
 
 @{
-    ViewData["Title"] = "Вход в систему";
+    ViewData["Title"] = "Авторизация";
 }
 
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <h2>@ViewData["Title"]</h2>
-        <form asp-action="Login" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/auth_style.css" /> <!-- Подключение внешнего CSS файла -->
+    <style>
+        /* Встроенный стиль для центрирования формы */
+        .page-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 60px; /* Чтобы не перекрываться топ-баром */
+            background: transparent; /* Наследуется фон body */
+        }
 
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+        /* Стиль для кнопки */
+        .btn-login {
+            width: 100%; /* Занимает всю ширину контейнера */
+            background-color: #00C0C9; /* Цвет кнопки */
+            color: white; /* Цвет текста на кнопке */
+            border: none; /* Убираем рамку */
+            padding: 10px; /* Отступы внутри кнопки */
+            font-size: 16px; /* Размер шрифта */
+            cursor: pointer; /* Указатель при наведении */
+        }
+
+            .btn-login:hover {
+                background-color: #009B9D; /* Цвет кнопки при наведении */
+            }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>@ViewData["Title"]</h1>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+            <form asp-action="Login" method="post">
+                @Html.AntiForgeryToken()
 
-            <div class="form-group mt-3">
-                <button type="submit" class="btn btn-primary">Войти</button>
-            </div>
-        </form>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Введите ваш email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Введите пароль" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="options">
+                    <div class="remember-me">
+                        <input asp-for="RememberMe" type="checkbox" id="rememberMe" class="form-check-input" />
+                        <label for="rememberMe">Запомнить</label>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn-login">Войти</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
     }
-}
+</body>
+</html>

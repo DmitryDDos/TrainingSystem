@@ -1,47 +1,256 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - title</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/trSys.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Шапка</title>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+            height: 70px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .rounded-rectangle {
+            flex-grow: 1;
+            height: 50px;
+            background-color: #E8F1F6;
+            border: 2px solid black;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            margin-right: 50px;
+            padding-right: 10px;
+        }
+
+        .left-container {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            padding-left: 5px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+            margin-right: 5px;
+            display: block;
+        }
+
+        .button {
+            background-color: #00C0C9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.8s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+            .button:hover {
+                background-color: #3F6578;
+            }
+
+        .user-menu-wrapper {
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .circle {
+            width: 45px;
+            height: 45px;
+            background-color: #E8F1F6;
+            border: 2px solid black;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: width 0.5s ease, height 0.5s ease;
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+            .circle:hover {
+                width: 50px;
+                height: 50px;
+            }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 30px;
+            right: -50px;
+            background-color: #E8F1F6;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 5px;
+            z-index: 1000;
+            min-width: 110px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+            .dropdown a {
+                display: block;
+                color: white;
+                background-color: #00C0C9;
+                padding: 5px 10px;
+                border-radius: 6px;
+                margin-bottom: 5px;
+                text-decoration: none;
+                font-size: 14px;
+                text-align: center;
+                transition: background-color 0.3s ease;
+            }
+
+                .dropdown a:last-child {
+                    margin-bottom: 0;
+                }
+
+                .dropdown a:hover {
+                    background-color: #3F6578;
+                }
+
+        .logout-link {
+            display: block;
+            width: 100%;
+            background-color: #FF8769; /* Цвет фона для кнопки выхода */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-family: inherit;
+        }
+
+            .logout-link:last-child {
+                margin-bottom: 0;
+            }
+
+            .logout-link:hover {
+                background-color: #3F6578; /* Цвет фона кнопки выхода при наведении */
+            }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">trSys</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+        <div class="rounded-rectangle">
+            <div class="left-container">
+                <img src="/uploads/Logo-Ujin-dark.png" alt="Логотип" class="logo" id="logo" />
+                <a class="button" href="/">Главная страница</a>
+                <a class="button" href="/Course/Index">Курсы</a>
+                <a class="button" href="/Contacts">Контакты</a>
+            </div>
+
+            <div class="user-menu-wrapper">
+                <div class="circle" id="userCircle" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownMenu">
+                    <img src="/uploads/123.jpg" alt="Профиль пользователя" />
+                </div>
+                <div class="dropdown" id="dropdownMenu" role="menu" aria-label="Меню пользователя">
+                    <a href="/Account/Profile" role="menuitem">Профиль</a>
+                    <a href="/Courses/MyCourses" role="menuitem">Мои Курсы</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form id="logoutForm" method="post" asp-controller="Account" asp-action="Logout" style="display:inline;">
+                            <button type="submit" role="menuitem" class="logout-link">Выход</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a href="/Account/Login" role="menuitem">Войти</a>
+                    }
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <script>
+        const userCircle = document.getElementById('userCircle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - trSys - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+        let dropdownHideTimer;
+        let hideDelay = 300;
+
+        function toggleDropdown() {
+            const isVisible = dropdownMenu.style.display === 'block';
+            dropdownMenu.style.display = isVisible ? 'none' : 'block';
+            userCircle.setAttribute('aria-expanded', !isVisible);
+        }
+
+        userCircle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown();
+        });
+
+        userCircle.addEventListener('mouseenter', () => {
+            clearTimeout(dropdownHideTimer);
+            setTimeout(() => {
+                dropdownMenu.style.display = 'block';
+                userCircle.setAttribute('aria-expanded', 'true');
+            }, hideDelay);
+        });
+
+        userCircle.addEventListener('mouseleave', () => {
+            if (!dropdownMenu.matches(':hover')) {
+                dropdownHideTimer = setTimeout(() => {
+                    dropdownMenu.style.display = 'none';
+                    userCircle.setAttribute('aria-expanded', 'false');
+                }, hideDelay);
+            }
+        });
+
+        dropdownMenu.addEventListener('mouseenter', () => {
+            clearTimeout(dropdownHideTimer);
+            setTimeout(() => {
+                dropdownMenu.style.display = 'block';
+            }, hideDelay);
+        });
+
+        dropdownMenu.addEventListener('mouseleave', () => {
+            dropdownHideTimer = setTimeout(() => {
+                dropdownMenu.style.display = 'none';
+                userCircle.setAttribute('aria-expanded', 'false');
+            }, hideDelay);
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdownMenu.contains(e.target) && e.target !== userCircle) {
+                dropdownMenu.style.display = 'none';
+                userCircle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                dropdownMenu.style.display = 'none';
+                userCircle.setAttribute('aria-expanded', 'false');
+                userCircle.focus();
+            }
+        });
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

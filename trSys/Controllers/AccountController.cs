@@ -50,9 +50,16 @@ public class AccountController : Controller
                 new(ClaimTypes.Role, result.User.Role)
             };
 
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = dto.RememberMe // Установка свойства IsPersistent
+            };
+
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)));
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
 
             return RedirectToAction("Index", "Home");
         }
