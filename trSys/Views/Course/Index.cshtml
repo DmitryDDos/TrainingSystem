@@ -1,54 +1,48 @@
-@model List<Course>
-
+@model IEnumerable<trSys.Models.Course>
 @{
-    Layout = "_Layout";
+    ViewData["Title"] = "Все курсы";
 }
 
-<h1>Список курсов</h1>
+<div class="container mt-4">
+    <h2 class="mb-4">Доступные курсы</h2>
 
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        <a class="button" href="@Url.Action("CustomCreate")">Добавить новый курс</a>
-    </p>
-}
-
-<div class="courses-grid">
-    @foreach (var course in Model)
+    @if (User.IsInRole("Admin"))
     {
-        <article class="course-card">
-            <div class="card-image">
-                @if (course.CoverImageId.HasValue)
-                {
-                    <img src="@Url.Content($"/api/File/{course.CoverImageId.Value}")" alt="@course.Title" />
-                }
-                else
-                {
-                    <img src="/path/to/default/image.jpg" alt="Нет изображения" />
-                }
-            </div>
-            <div class="card-content">
-                <h2 class="card-title">@course.Title</h2>
-                <p class="card-description">@course.Description</p>
-                <div class="card-actions">
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a class="edit-button" href="@Url.Action("Edit", new { id = course.Id })">Редактировать</a>
-                        <form asp-action="Delete" method="post" onsubmit="return confirm('Удалить курс?')" class="delete-form">
-                            <input type="hidden" name="id" value="@course.Id" />
-                            <button type="submit" class="delete-button">Удалить</button>
-                        </form>
-                    }
-                    else if (User.Identity.IsAuthenticated) // авторизованный пользователь, не админ
-                    {
-                        <a class="button start-course" href="@Url.Action("StartCourse", new { id = course.Id })">Начать</a>
-                        <form asp-action="AddToFavorites" method="post" class="add-to-favorites-form" style="display:inline;">
-                            <input type="hidden" name="courseId" value="@course.Id" />
-                            <button type="submit" class="button add-to-favorites">В избранное</button>
-                        </form>
-                    }
-                </div>
-            </div>
-        </article>
+        <div class="mb-4">
+            <a asp-action="Create" class="button">
+                <i class="fas fa-plus"></i> Создать новый курс
+            </a>
+        </div>
     }
+
+    <div class="courses-grid">
+        @foreach (var course in Model)
+        {
+            <div class="course-card">
+                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="text-decoration-none" style="color: inherit;">
+                    <div class="card-image">
+                        @if (course.CoverImageId != null)
+                        {
+                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")" alt="Обложка курса" style="height:160px; object-fit:cover; width:100%;" />
+                        }
+                        else
+                        {
+                            <div style="height:160px; display:flex; align-items:center; justify-content:center; background-color:#6c757d;">
+                                <i class="fas fa-book-open text-white" style="font-size:3rem;"></i>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-content">
+                        <h5 class="card-title">@course.Title</h5>
+                        <p class="card-description">
+                            @(course.Description?.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
+                        </p>
+                        <div class="card-actions">
+                            <span class="btn btn-outline-primary">Подробнее</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
 </div>

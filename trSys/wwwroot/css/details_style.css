@@ -1,0 +1,193 @@
+﻿@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ida';
+    src: url('/fonts/Ida-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Сброс базовых стилей */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ida', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #222;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+.card-header {
+    background-color: #00c0c9; /* Цвет заголовка */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #00c0c9; /* Цвет заголовка секции */
+    border-bottom: 2px solid #e9ecef; /* Линия под заголовком */
+    padding-bottom: 5px;
+}
+
+.module-item {
+    background-color: #f1f1f1; /* Цвет фона для модулей */
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+    .module-item:hover {
+        background-color: #e2e2e2; /* Цвет при наведении */
+    }
+
+.module-image {
+    width: 80px; /* Ширина изображения */
+    height: 80px; /* Высота изображения */
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.module-title {
+    font-size: 1.1rem;
+    color: #00c0c9; /* Цвет заголовка модуля */
+    margin: 0 0 5px 0;
+}
+
+.module-description {
+    color: #555;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00c0c9; /* Основной цвет кнопки */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+    .button:hover {
+        background-color: #0097a7; /* Темнее при наведении */
+    }
+
+.alert {
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.btn-group {
+    margin-top: 10px;
+}
+
+.edit-button,
+.delete-button,
+.add-module-button,
+.enroll-button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.add-module-button {
+    background-color: #00c0c9; /* Цвет кнопки добавления модуля */
+    color: white;
+    border: 1px solid #00c0c9;
+}
+
+    .add-module-button:hover {
+        background-color: #0097a7; /* Темнее при наведении */
+        border-color: #0097a7;
+    }
+
+.enroll-button {
+    background-color: #ff8769; /* Цвет кнопки записи на курс */
+    color: white;
+    border: 1px solid #ff8769;
+}
+
+    .enroll-button:hover {
+        background-color: #b99af3; /* Темнее при наведении */
+        border-color: #b99af3;
+    }
+
+.delete-form {
+    margin: 0;
+}
