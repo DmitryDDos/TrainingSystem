@@ -1,209 +1,159 @@
 @font-face {
     font-family: 'Ida';
-    src: url('../fonts/Ida-Light.woff2') format('woff2');
+    src: url('/fonts/Ida-Light.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Ida';
-    src: url('../fonts/Ida-Medium.woff2') format('woff2');
+    src: url('/fonts/Ida-Medium.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Ida';
-    src: url('../fonts/Ida-Bold.woff2') format('woff2');
+    src: url('/fonts/Ida-Bold.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
 }
 
-:root {
-    --nav-height: 70px;
-    --progress-height: 8px;
-    --sidebar-width: 300px;
-    --accent: #00c0c9;
-    --text-dark: #2d3748;
-    --border-color: #e2e8f0;
-    --shadow: 0 2px 8px rgba(0,0,0,0.1);
-    --primary-bg: #f8fafc;
-}
-
-/* Базовые стили */
+/* Сброс базовых стилей */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Ida', sans-serif; /* Изменено с Inter */
-    font-weight: 300; /* Светлое начертание по умолчанию */
 }
 
 body {
-    background: var(--primary-bg);
-    color: var(--text-dark);
+    font-family: 'Ida', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+    color: #333;
 }
 
-/* Навигационная панель */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--nav-height);
-    background: #ffffff;
-    border-bottom: 2px solid var(--border-color);
-    z-index: 1000;
-    box-shadow: var(--shadow);
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #222;
 }
 
-.nav-container {
-    max-width: 1400px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-img {
-    height: 40px;
-    width: auto;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-link {
-    color: var(--text-dark);
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0078d7;
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
-.nav-link:hover {
-    background: rgba(0, 192, 201, 0.1);
-    color: var(--accent);
-}
+    .button:hover {
+        background-color: #005ea2;
+    }
 
-.user-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid var(--border-color);
-    overflow: hidden;
-}
-
-.user-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Остальные стили из вашего файла */
-.main-wrapper {
-    background: #e8f1f6;
-    min-height: 100vh;
-    padding: 20px;
-    position: relative;
-}
-
-/* Сетка курсов */
 .courses-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1400px;
-  margin-top: 40px;
-  margin-right: auto;
-  margin-bottom: 0px;
-  margin-left: auto;
-  padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Карточка курса */
 .course-card {
-  background: #d9d9d9;
-  border-radius: 15px;
-  padding: 20px;
-  min-height: 421px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+    .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
 
 .card-image {
-  background: #aaaaaa;
-  border-radius: 15px;
-  width: 100%;
-  height: 226px;
-  margin-bottom: 20px;
-}
-
-/* Подвал */
-.footer {
-  background: #3f6578;
-  border-radius: 30px;
-  width: 100%;
-  height: 200px;
-  margin-top: 40px;
-}
-
-/* Адаптивность */
-@media (max-width: 1200px) {
-  .courses-grid {
-    grid-template-columns: 1fr;
-    max-width: 800px;
-  }
-  
-  .nav-menu {
-    margin-left: 150px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-  }
-  
-  .header-container {
-    order: -1;
     width: 100%;
-  }
-  
-  .logo {
-    position: static;
-    margin-bottom: 15px;
-  }
-  
-  .nav-menu {
-    flex-wrap: wrap;
-    margin-left: 0;
+    height: 160px;
+    overflow: hidden;
+    background-color: #ddd;
+    display: flex;
     justify-content: center;
-  }
+    align-items: center;
 }
 
-@media (max-width: 480px) {
-  .main-wrapper {
-    border-radius: 15px;
-  }
-  
-  .nav-item {
-    width: 80px;
-    height: 40px;
-  }
-  
-  .nav-special {
-    width: 150px;
-  }
-  
-  .courses-grid {
-    gap: 20px;
-    padding: 10px;
-  }
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.card-content {
+    padding: 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    color: #0078d7;
+}
+
+.card-description {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.edit-button {
+    background-color: #00c0c9;
+    color: white;
+    border: 1px solid #00c0c9;
+}
+
+    .edit-button:hover {
+        background-color: #3f6578;
+        border-color: #3f6578;
+    }
+
+.delete-button {
+    background-color: #ff8769;
+    color: white;
+    border: 1px solid #ff8769;
+}
+
+    .delete-button:hover {
+        background-color: #b99af3;
+        border-color: #b99af3;
+    }
+
+.delete-form {
+    margin: 0;
 }

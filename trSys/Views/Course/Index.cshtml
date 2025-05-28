@@ -1,66 +1,54 @@
-@model IEnumerable<trSys.Models.Course>
+@model List<Course>
+
 @{
-    ViewData["Title"] = "Все курсы";
+    Layout = "_Layout";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">Доступные курсы</h2>
+<h1>Список курсов</h1>
 
-    @if (User.IsInRole("Admin"))
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a class="button" href="@Url.Action("CustomCreate")">Добавить новый курс</a>
+    </p>
+}
+
+<div class="courses-grid">
+    @foreach (var course in Model)
     {
-        <div class="mb-4">
-            <a asp-action="CustomCreate" class="btn btn-primary">
-                <i class="fas fa-plus"></i> Создать новый курс
-            </a>
-        </div>
-    }
-
-    <div class="row">
-        @foreach (var course in Model)
-        {
-            <div class="col-md-4 mb-4">
-                <a asp-action="Details" asp-route-id="@course.Id" class="card-link text-decoration-none">
-                    <div class="card h-100 hover-shadow">
-                        @if (course.CoverImage != null)
-                        {
-                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")"
-                                 class="card-img-top"
-                                 alt="Обложка курса"
-                                 style="height: 250px; object-fit: cover;">
-                        }
-                        else
-                        {
-                            <div class="card-img-top bg-secondary" style="height: 180px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-book-open text-white" style="font-size: 3rem;"></i>
-                            </div>
-                        }
-                        <div class="card-body">
-                            <h5 class="card-title">@course.Title</h5>
-                            <p class="card-text text-muted">
-                                @(course.Description.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <span class="btn btn-outline-primary">Подробнее</span>
-                        </div>
-                    </div>
-                </a>
+        <article class="course-card">
+            <div class="card-image">
+                @if (course.CoverImageId.HasValue)
+                {
+                    <img src="@Url.Content($"/api/File/{course.CoverImageId.Value}")" alt="@course.Title" />
+                }
+                else
+                {
+                    <img src="/path/to/default/image.jpg" alt="Нет изображения" />
+                }
             </div>
-        }
-    </div>
+            <div class="card-content">
+                <h2 class="card-title">@course.Title</h2>
+                <p class="card-description">@course.Description</p>
+                <div class="card-actions">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="edit-button" href="@Url.Action("Edit", new { id = course.Id })">Редактировать</a>
+                        <form asp-action="Delete" method="post" onsubmit="return confirm('Удалить курс?')" class="delete-form">
+                            <input type="hidden" name="id" value="@course.Id" />
+                            <button type="submit" class="delete-button">Удалить</button>
+                        </form>
+                    }
+                    else if (User.Identity.IsAuthenticated) // авторизованный пользователь, не админ
+                    {
+                        <a class="button start-course" href="@Url.Action("StartCourse", new { id = course.Id })">Начать</a>
+                        <form asp-action="AddToFavorites" method="post" class="add-to-favorites-form" style="display:inline;">
+                            <input type="hidden" name="courseId" value="@course.Id" />
+                            <button type="submit" class="button add-to-favorites">В избранное</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </article>
+    }
 </div>
-
-<style>
-    .card-link:hover .hover-shadow {
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .card-link .card {
-        transition: transform 0.3s ease;
-    }
-
-    .card-link:hover .card {
-        transform: translateY(-2px);
-    }
-</style>

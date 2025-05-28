@@ -12,7 +12,7 @@ using trSys.Data;
 namespace trSys.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250527093957_INIT")]
+    [Migration("20250528144652_INIT")]
     partial class INIT
     {
         /// <inheritdoc />

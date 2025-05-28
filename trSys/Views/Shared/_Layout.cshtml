@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Шапка</title>
+    <link rel="stylesheet" href="~/css/courses_style.css" />
     <style>
         header {
             display: flex;
@@ -166,8 +167,8 @@
                     <img src="/uploads/123.jpg" alt="Профиль пользователя" />
                 </div>
                 <div class="dropdown" id="dropdownMenu" role="menu" aria-label="Меню пользователя">
-                    <a href="/Account/Profile" role="menuitem">Профиль</a>
-                    <a href="/Courses/MyCourses" role="menuitem">Мои Курсы</a>
+                    <a href="/Profile/Profile" role="menuitem">Профиль</a>
+                    <a href="/MyCourses/MyCourses" role="menuitem">Мои Курсы</a>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <form id="logoutForm" method="post" asp-controller="Account" asp-action="Logout" style="display:inline;">
