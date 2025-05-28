@@ -9,7 +9,7 @@
     @if (User.IsInRole("Admin"))
     {
         <div class="mb-4">
-            <a asp-action="CustomCreate" class="btn btn-primary">
+            <a asp-action="Create" class="btn btn-primary">
                 <i class="fas fa-plus"></i> Создать новый курс
             </a>
         </div>
@@ -19,7 +19,7 @@
         @foreach (var course in Model)
         {
             <div class="col-md-4 mb-4">
-                <a asp-action="Details" asp-route-id="@course.Id" class="card-link text-decoration-none">
+                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="card-link text-decoration-none">
                     <div class="card h-100 hover-shadow">
                         @if (course.CoverImage != null)
                         {
