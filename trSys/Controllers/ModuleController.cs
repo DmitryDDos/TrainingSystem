@@ -14,11 +14,14 @@ public class ModulesController : BaseController<Module>
     private readonly IModuleService _service;
     private readonly ICourseService _courseService;
 
-    public ModulesController(IRepository<Module> repository, IModuleService service, ICourseService courseService)
-        : base(repository)
+    public ModulesController(IRepository<Module> repository, 
+                             IModuleService service, 
+                             ICourseService courseService) : base(repository)
     {
         _service = service;
         _courseService = courseService;
+        RedirectAfterDelete = (module) => 
+            RedirectToAction("Details", "Course", new {id = module.CourseId});
     }
 
     // GET: Modules/Create

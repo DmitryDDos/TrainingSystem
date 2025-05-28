@@ -9,9 +9,14 @@ namespace trSys.Controllers
     {
         protected readonly IRepository<TEntity> _repository;
         protected abstract string EntityName { get; }
+
+
+        protected Func<TEntity, IActionResult> RedirectAfterDelete { get; set; } 
+
         public BaseController(IRepository<TEntity> repository)
         {
             _repository = repository;
+            RedirectAfterDelete = entity => RedirectToAction(nameof(Index));
         }
 
         // GET: /[controller]
@@ -101,11 +106,12 @@ namespace trSys.Controllers
         [ActionName("Delete")]
         public virtual async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (!await _repository.ExistsAsync(id))
-                return NotFound();
+            var entity = await _repository.GetByIdAsync(id);
+            if (entity == null) return NotFound();
+
 
             await _repository.DeleteAsync(id);
-            return RedirectToAction(nameof(Index));
+            return RedirectAfterDelete(entity);
         }
 
     }
