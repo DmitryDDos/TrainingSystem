@@ -94,8 +94,6 @@ public class ModulesController : BaseController<Module>
         }
     }
 
-
-
     // GET: Modules/Details/5
     [HttpGet]
     public async Task<IActionResult> Details(int id)

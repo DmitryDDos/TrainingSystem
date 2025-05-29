@@ -97,6 +97,67 @@
                     <i class="fas fa-info-circle"></i> В этом модуле пока нет уроков
                 </div>
             }
+            <div class="d-flex justify-content-between align-items-center mt-5">
+                <h5 class="border-bottom pb-2 mb-0">Тесты модуля</h5>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-controller="Tests"
+                       asp-action="Create"
+                       asp-route-moduleId="@Model.Id"
+                       class="btn btn-sm btn-success">
+                        <i class="fas fa-plus"></i> Добавить тест
+                    </a>
+                }
+            </div>
+
+            @if (Model.Tests.Any())
+            {
+                <div class="list-group mt-3">
+                    @foreach (var test in Model.Tests)
+                    {
+                        <div class="list-group-item list-group-item-action p-0">
+                            <a asp-controller="Tests"
+                               asp-action="Details"
+                               asp-route-id="@test.Id"
+                               class="d-block p-3 text-decoration-none text-dark">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6>@test.Title</h6>
+                                        <p class="mb-1 text-muted">@(test.Description ?? "Описание отсутствует")</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="lesson-actions bg-light p-2 border-top">
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-controller="Tests"
+                                           asp-action="Edit"
+                                           asp-route-id="@test.Id"
+                                           class="btn btn-outline-primary">
+                                            <i class="fas fa-edit"></i> Редактировать
+                                        </a>
+                                        <a asp-controller="Tests"
+                                           asp-action="Delete"
+                                           asp-route-id="@test.Id"
+                                           class="btn btn-outline-danger delete-test-btn">
+                                            <i class="fas fa-trash"></i> Удалить
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-info-circle"></i> В этом модуле пока нет тестов
+                </div>
+            }
         </div>
     </div>
 

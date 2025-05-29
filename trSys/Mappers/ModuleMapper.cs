@@ -16,5 +16,6 @@ public static class ModuleMapper
         module.Title,
         module.Description,
         module.CourseId,
-        module.Lessons.Select(LessonMapper.ToDto));
+        module.Lessons.Select(LessonMapper.ToDto),
+        module.Tests.Select(TestMapper.ToDto));
 }

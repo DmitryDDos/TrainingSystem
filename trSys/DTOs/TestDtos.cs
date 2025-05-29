@@ -9,6 +9,12 @@ public record TestDto(
     int ModuleId);
 
 public record TestCreateDto(
+    [Required][MaxLength(100)] string Title = "",
+    [MaxLength(500)] string Description = "",
+    [Range(1, int.MaxValue)] int ModuleId = 1);
+
+public record TestUpdateDto(
+    int Id,
     [Required][MaxLength(100)] string Title,
     [MaxLength(500)] string Description,
     [Range(1, int.MaxValue)] int ModuleId);

@@ -1,119 +1,99 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using trSys.DTOs;
-//using trSys.Interfaces;
-//using trSys.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using trSys.DTOs;
+using trSys.Interfaces;
+using trSys.Models;
+using trSys.Services;
 
-//namespace trSys.Controllers
-//{
 
-//    public class TestsController : BaseController<Test>
-//    {
-//        protected override string EntityName => "Test";
+namespace trSys.Controllers
+{
+    [Authorize]
+    [Route("Tests")]
+    public class TestsController : BaseController<Test>
+    {
+        private readonly ITestService _testService;
+        protected override string EntityName => "Test";
 
-//        private readonly IQuestionRepository _questionRepository;
+        public TestsController(
+            IRepository<Test> repository,
+            ITestService testService) : base(repository)
+        {
+            _testService = testService;
+            RedirectAfterDelete = test =>
+                RedirectToAction("Details", "Modules", new { id = test.ModuleId });
+        }
 
-//        public TestsController(
-//            IRepository<Test> repository,
-//            IQuestionRepository questionRepository)
-//            : base(repository)
-//        {
-//            _questionRepository = questionRepository;
+        // GET: Tests/Details/5
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var testDto = await _testService.GetTestWithQuestionsAsync(id);
+            return testDto != null ? View(testDto) : NotFound();
+        }
 
-//            // Настройка перенаправления после удаления
-//            RedirectAfterDelete = _ => RedirectToAction(nameof(Index));
-//        }
+        // GET: Tests/Create?moduleId=5
+        [HttpGet("Create")]
+        public IActionResult Create(int moduleId)
+        {
+            var dto = new TestCreateDto { ModuleId = moduleId };
+            return View(dto);
+        }
 
-//        // GET: Tests/Details/5
-//        [HttpGet("{id}")]
-//        public async Task<IActionResult> Details(int id)
-//        {
-//            var test = await _repository.GetByIdAsync(id);
-//            if (test == null) return NotFound();
+        // POST: Tests/Create
+        [HttpPost("Create")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(TestCreateDto dto)
+        {
+            if (!ModelState.IsValid)
+                return View(dto);
 
-//            var questions = await _questionRepository.GetQuestionsByTestIdAsync(id);
+            try
+            {
+                await _testService.CreateTestAsync(dto);
+                return RedirectToAction("Details", "Modules", new { id = dto.ModuleId });
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
+            }
+        }
 
-//            var dto = new TestWithQuestionsDto(
-//                test.Id,
-//                test.Title,
-//                test.Description,
-//                test.ModuleId,
-//                questions.Select(q => new QuestionDto(q.Id, q.Text, q.TestId))
-//            );
+        // GET: Tests/Edit/5
+        [HttpGet("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var testDto = await _testService.GetTestByIdAsync(id);
+            if (testDto == null) return NotFound();
 
-//            return View(dto);
-//        }
+            var updateDto = new TestUpdateDto(
+                testDto.Id,
+                testDto.Title,
+                testDto.Description,
+                testDto.ModuleId
+            );
+            return View(updateDto);
+        }
 
-//        // GET: Tests/Create
-//        [HttpGet]
-//        public IActionResult Create()
-//        {
-//            return View();
-//        }
+        // POST: Tests/Edit/5
+        [HttpPost("Edit/{id}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, TestUpdateDto dto)
+        {
+            if (!ModelState.IsValid)
+                return View(dto);
 
-//        // POST: Tests/Create
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Create(TestCreateDto dto)
-//        {
-//            if (!ModelState.IsValid) return View(dto);
-
-//            var test = new Test
-//            {
-//                Title = dto.Title,
-//                Description = dto.Description,
-//                ModuleId = dto.ModuleId
-//            };
-
-//            await _repository.AddAsync(test);
-//            return RedirectToAction(nameof(Details), new { id = test.Id });
-//        }
-
-//        // GET: Tests/Edit/5
-//        [HttpGet("{id}")]
-//        public async Task<IActionResult> Edit(int id)
-//        {
-//            var test = await _repository.GetByIdAsync(id);
-//            if (test == null) return NotFound();
-
-//            var dto = new TestCreateDto
-//            {
-//                Title = test.Title,
-//                Description = test.Description,
-//                ModuleId = test.ModuleId
-//            };
-
-//            return View(dto);
-//        }
-
-//        // POST: Tests/Edit/5
-//        [HttpPost("{id}")]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Edit(int id, TestCreateDto dto)
-//        {
-//            if (!ModelState.IsValid) return View(dto);
-
-//            var test = await _repository.GetByIdAsync(id);
-//            if (test == null) return NotFound();
-
-//            test.Title = dto.Title;
-//            test.Description = dto.Description;
-//            test.ModuleId = dto.ModuleId;
-
-//            await _repository.UpdateAsync(test);
-//            return RedirectToAction(nameof(Details), new { id });
-//        }
-
-//        // GET: Tests/ManageQuestions/5
-//        [HttpGet("{id}")]
-//        public async Task<IActionResult> ManageQuestions(int id)
-//        {
-//            var test = await _repository.GetByIdAsync(id);
-//            if (test == null) return NotFound();
-
-//            var questions = await _questionRepository.GetQuestionsByTestIdAsync(id);
-
-//            ViewBag.TestId = id;
-//            return View(questions);
-//        }
-//    }
-//} // namespace trSys.Comtroller
+            try
+            {
+                await _testService.UpdateTestAsync(id, dto);
+                return RedirectToAction("Details", "Modules", new { id = dto.ModuleId });
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
+            }
+        }
+    }
+}

@@ -19,7 +19,8 @@ public record ModuleDetailsDto(
     string Title,
     string Description,
     int CourseId,
-    IEnumerable<LessonDto> Lessons);
+    IEnumerable<LessonDto> Lessons,
+    IEnumerable<TestDto> Tests);
 
 public record ModuleCreateDto(
     [Required][MaxLength(100)] string Title = "",

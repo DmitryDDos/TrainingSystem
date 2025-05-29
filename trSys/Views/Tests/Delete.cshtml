@@ -1,0 +1,31 @@
+﻿@model trSys.Models.Test
+
+@{
+    ViewData["Title"] = "Удалить тест";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Вы уверены, что хотите удалить этот тест?</h3>
+<div>
+    <h4>@Model.Title</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Описание:</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+
+        <dt class="col-sm-2">ID модуля:</dt>
+        <dd class="col-sm-10">@Model.ModuleId</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a asp-controller="Modules"
+           asp-action="Details"
+           asp-route-id="@Model.ModuleId"
+           class="btn btn-outline-secondary">
+            отмена
+        </a>
+    </form>
+</div>

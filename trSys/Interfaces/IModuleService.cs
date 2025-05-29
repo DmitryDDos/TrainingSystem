@@ -1,4 +1,5 @@
 ﻿using trSys.DTOs;
+using trSys.Models;
 
 namespace trSys.Interfaces;
 
