@@ -83,6 +83,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICourseRegistrationRepository, CourseRegistrationRepository>();
 builder.Services.AddScoped<ICourseRegistrationService, CourseRegistrationService>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<IAnswerRepository, AnswerRepository>();
 builder.Services.AddScoped<ITestRepository, TestRepository>();
 builder.Services.AddScoped<ITestService, TestService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
@@ -92,6 +93,7 @@ builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<IFileRepository, FileRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<IQuestionService, QuestionService>();
 
 // ����������� ��������
 builder.Services.AddScoped<CourseService>();

@@ -14,4 +14,5 @@ public record AnswerCreateDto(
 
 public record AnswerUpdateDto(
     [MaxLength(300)] string? Text,
-    bool? IsCorrect);
+    bool? IsCorrect,
+    int? Id);

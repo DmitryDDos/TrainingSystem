@@ -13,13 +13,15 @@ namespace trSys.Controllers
     public class TestsController : BaseController<Test>
     {
         private readonly ITestService _testService;
+        private readonly IQuestionService _questionService;
         protected override string EntityName => "Test";
 
         public TestsController(
             IRepository<Test> repository,
-            ITestService testService) : base(repository)
+            ITestService testService, IQuestionService questionService) : base(repository)
         {
             _testService = testService;
+            _questionService = questionService;
             RedirectAfterDelete = test =>
                 RedirectToAction("Details", "Modules", new { id = test.ModuleId });
         }
@@ -95,5 +97,20 @@ namespace trSys.Controllers
                 return View(dto);
             }
         }
+
+        [HttpGet("ManageQuestions/{testId}")]
+        public async Task<IActionResult> ManageQuestions(int testId)
+        {
+            var test = await _testService.GetTestByIdAsync(testId);
+            if (test == null) return NotFound();
+
+            var questions = await _questionService.GetQuestionsByTestIdAsync(testId);
+
+            ViewBag.TestId = testId;
+            ViewBag.TestTitle = test.Title;
+
+            return View(questions);
+        }
+
     }
 }

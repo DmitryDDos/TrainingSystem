@@ -1,33 +1,113 @@
-﻿//using Microsoft.AspNetCore.Mvc;
-//using trSys.DTOs;
-//using trSys.Interfaces;
-//using trSys.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using trSys.DTOs;
+using trSys.Enums;
+using trSys.Interfaces;
+using trSys.Services;
 
-//namespace trSys.Controllers;
+namespace trSys.Controllers;
 
-//[ApiController]
-//[Route("api/[controller]")]
-//public class QuestionsController : BaseController<Question>
-//{
-//    private readonly IQuestionService _service;
+[Authorize]
+[Route("Questions")]
+public class QuestionsController : Controller
+{
+    private readonly IQuestionService _questionService;
 
-//    public QuestionsController(IRepository<Question> repository, IQuestionService service) : base(repository)
-//    {
-//        _service = service;
-//    }
+    public QuestionsController(IQuestionService questionService)
+    {
+        _questionService = questionService;
+    }
 
-//    [HttpPost("custom")]
-//    public async Task<ActionResult<QuestionDto>> Create(QuestionCreateDto dto)
-//    {
-//        var result = await _service.CreateQuestionAsync(dto);
-//        return Created($"api/questions/{result.Id}", result);
+    [HttpGet("Create/{testId}")]
+    public IActionResult Create(int testId)
+    {
+        var dto = new QuestionCreateDto(
+            Text: "",
+            Type: QuestionType.SingleChoice,
+            TestId: testId,
+            Answers: new List<AnswerCreateDto>()
+        );
+        return View(dto);
+    }
 
-//    }
+    [HttpPost("Create/{testId}")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(int testId, QuestionCreateDto dto)
+    {
+        var fixedDto = new QuestionCreateDto(
+            Text: dto.Text,
+            Type: dto.Type,
+            TestId: testId,
+            Answers: dto.Answers
+        );
 
-//    [HttpPut("custom/{id}")]
-//    public async Task<IActionResult> Update(int id, QuestionUpdateDto dto)
-//    {
-//        var result = await _service.UpdateQuestionAsync(id, dto);
-//        return Ok(result);
-//    }
-//}
+        if (!ModelState.IsValid) return View(fixedDto);
+
+        try
+        {
+            await _questionService.CreateQuestionAsync(fixedDto);
+            return RedirectToAction("Details", "Tests", new { id = testId });
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View(fixedDto);
+        }
+    }
+
+
+    [HttpGet("Edit/{id}")]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var question = await _questionService.GetQuestionWithAnswersAsync(id);
+        if (question == null) return NotFound();
+
+        var answers = question.Answers.Select(a =>
+            new AnswerUpdateDto(a.Text, a.IsCorrect, a.Id));
+
+        var updateDto = new QuestionUpdateDto(
+            Text: question.Text,
+            Type: question.Type,
+            Answers: answers
+        );
+
+        ViewBag.TestId = question.TestId;
+        return View(updateDto);
+    }
+
+    [HttpPost("Edit/{id}")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, QuestionUpdateDto dto)
+    {
+        if (!ModelState.IsValid) return View(dto);
+
+        try
+        {
+            var updated = await _questionService.UpdateQuestionWithAnswersAsync(id, dto);
+            return RedirectToAction("Details", "Tests", new { id = updated.TestId });
+        }
+        catch (ArgumentException ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View(dto);
+        }
+    }
+    
+    [HttpPost("Delete/{id}")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        try
+        {
+            var question = await _questionService.GetQuestionWithAnswersAsync(id);
+            if (question == null) return NotFound();
+
+            await _questionService.DeleteQuestionAsync(id);
+            return RedirectToAction("Details", "Tests", new { id = question.TestId });
+        }
+        catch
+        {
+            return RedirectToAction("Error", "Home");
+        }
+    }
+}

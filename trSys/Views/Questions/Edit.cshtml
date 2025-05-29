@@ -1,0 +1,99 @@
+﻿@* @model trSys.DTOs.QuestionUpdateDto
+@{
+    ViewData["Title"] = "Редактирование вопроса";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="TestId" />
+
+        <div class="mb-3">
+            <label asp-for="Text" class="form-label">Текст вопроса</label>
+            <textarea asp-for="Text" class="form-control" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Type" class="form-label">Тип вопроса</label>
+            <select asp-for="Type" class="form-select"
+                    asp-items="Html.GetEnumSelectList<trSys.Enums.QuestionType>()"></select>
+        </div>
+
+        <div class="mb-3">
+            <h4>Ответы</h4>
+            <div id="answers-container">
+                @for (var i = 0; i < Model.Answers.Count; i++)
+                {
+                    <div class="answer-item mb-2 p-2 border">
+                        <input type="hidden" name="Answers[@i].Id" value="@Model.Answers[i].Id" />
+                        <div class="row">
+                            <div class="col-8">
+                                <input name="Answers[@i].Text" class="form-control"
+                                       value="@Model.Answers[i].Text" required />
+                            </div>
+                            <div class="col-2">
+                                <div class="form-check">
+                                    <input name="Answers[@i].IsCorrect" type="checkbox"
+                                           class="form-check-input"
+                                    @(Model.Answers[i].IsCorrect ? "checked" : "") />
+                                    <label class="form-check-label">Правильный</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-sm btn-danger remove-answer">×</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button type="button" id="add-answer" class="btn btn-sm btn-primary mt-2">
+                Добавить ответ
+            </button>
+        </div>
+
+        <button type="submit" class="btn btn-success">Сохранить</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('answers-container');
+            const addBtn = document.getElementById('add-answer');
+            let counter = @Model.Answers.Count;
+
+            addBtn.addEventListener('click', () => {
+                const div = document.createElement('div');
+                div.className = 'answer-item mb-2 p-2 border';
+                div.innerHTML = `
+                    <div class="row">
+                        <div class="col-8">
+                            <input name="Answers[${counter}].Text" class="form-control"
+                                   placeholder="Текст ответа" required />
+                        </div>
+                        <div class="col-2">
+                            <div class="form-check">
+                                <input name="Answers[${counter}].IsCorrect" type="checkbox"
+                                       class="form-check-input" />
+                                <label class="form-check-label">Правильный</label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-sm btn-danger remove-answer">×</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+                counter++;
+            });
+
+            container.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-answer')) {
+                    e.target.closest('.answer-item').remove();
+                }
+            });
+        });
+    </script>
+}
+ *@

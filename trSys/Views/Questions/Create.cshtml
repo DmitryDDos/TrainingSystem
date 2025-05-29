@@ -1,0 +1,86 @@
+﻿@model trSys.DTOs.QuestionCreateDto
+@{
+    ViewData["Title"] = $"Новый вопрос для теста #{Model.TestId}";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Create" method="post">
+        <input type="hidden" asp-for="TestId" />
+
+        <div class="mb-3">
+            <label asp-for="Text" class="form-label">Текст вопроса *</label>
+            <textarea asp-for="Text" class="form-control" rows="3" required></textarea>
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Type" class="form-label">Тип вопроса *</label>
+            <select asp-for="Type" class="form-select"
+                    asp-items="Html.GetEnumSelectList<trSys.Enums.QuestionType>()"></select>
+            <span asp-validation-for="Type" class="text-danger"></span>
+        </div>
+
+        <h4>Ответы</h4>
+        <div id="answers-container" class="mb-3">
+            <!-- Ответы будут добавляться через JS -->
+        </div>
+
+        <button type="button" id="add-answer" class="btn btn-outline-primary mb-3">
+            <i class="bi bi-plus-circle"></i> Добавить ответ
+        </button>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Сохранить
+            </button>
+            <a asp-controller="Tests" asp-action="ManageQuestions" asp-route-testId="@Model.TestId"
+               class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Отмена
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('answers-container');
+            const addBtn = document.getElementById('add-answer');
+            let counter = 0;
+
+            addBtn.addEventListener('click', function() {
+                const div = document.createElement('div');
+                div.className = 'answer-item mb-2 p-2 border rounded';
+                div.innerHTML = `
+                    <div class="row align-items-center">
+                        <div class="col-7">
+                            <input name="Answers[${counter}].Text" class="form-control"
+                                   placeholder="Текст ответа" required />
+                        </div>
+                        <div class="col-3">
+                            <div class="form-check form-switch">
+                                <input type="checkbox" name="Answers[${counter}].IsCorrect" value="true" />
+                                <label class="form-check-label">Правильный</label>
+                            </div>
+                        </div>
+                        <div class="col-2 text-end">
+                            <button type="button" class="btn btn-sm btn-danger remove-answer">
+                                <i class="bi bi-x"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+                counter++;
+            });
+
+            container.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-answer')) {
+                    e.target.closest('.answer-item').remove();
+                }
+            });
+        });
+    </script>
+}

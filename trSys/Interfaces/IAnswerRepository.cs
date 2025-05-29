@@ -4,5 +4,5 @@ namespace trSys.Interfaces;
 
 public interface IAnswerRepository : IRepository<Answer>
 {
-    // специфичные методы для ответов
+    Task<List<Answer>> GetByQuestionIdAsync(int questionId);
 }
