@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace trSys.Controllers
 {
     [Authorize]
+    [Route("Lessons")]
     public class LessonsController : BaseController<Lesson>
     {
         private readonly ILessonService _lessonService;
@@ -24,7 +25,7 @@ namespace trSys.Controllers
         }
 
         // GET: Lessons/Create?moduleId=5
-        [HttpGet]
+        [HttpGet("Create")]
         public IActionResult Create(int moduleId)
         {
             var dto = new LessonCreateDto { ModuleId = moduleId };
@@ -33,7 +34,7 @@ namespace trSys.Controllers
 
 
         // POST: Lessons/Create
-        [HttpPost]
+        [HttpPost("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(LessonCreateDto dto)
         {
@@ -53,7 +54,7 @@ namespace trSys.Controllers
         }
 
         // GET: Lessons/Details/5
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var lessonDto = await _lessonService.GetLessonByIdAsync(id);
@@ -61,7 +62,7 @@ namespace trSys.Controllers
         }
 
         // GET: Lessons/Edit/5
-        [HttpGet("{id}")]
+        [HttpGet("Edit/{id}")]
         public async Task<IActionResult> Edit(int id)
         {
             var lessonDto = await _lessonService.GetLessonByIdAsync(id);
@@ -78,7 +79,7 @@ namespace trSys.Controllers
         }
 
         // POST: Lessons/Edit/5
-        [HttpPost("{id}")]
+        [HttpPost("Edit/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, LessonUpdateDto dto)
         {
