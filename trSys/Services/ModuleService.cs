@@ -29,6 +29,23 @@ public class ModuleService : IModuleService
         return ModuleMapper.ToDto(module);
     }
 
+    public async Task<ModuleDetailsDto> UpdateModuleAsync(ModuleUpdateDto dto)
+    {
+        var module = await _moduleRepo.GetByIdAsync(dto.Id);
+        if (module == null)
+            throw new ArgumentException("Module not found");
+
+        if (!await _courseRepo.ExistsAsync(dto.CourseId))
+            throw new ArgumentException("Course not found");
+
+        module.Title = dto.Title;
+        module.Description = dto.Description;
+        module.CourseId = dto.CourseId;
+
+        await _moduleRepo.UpdateAsync(module);
+        return ModuleMapper.ToDetailsDto(module);
+    }
+
     public async Task<ModuleDetailsDto?> GetModuleDetailsAsync(int id)
     {
         var module = await _moduleRepo.GetWithLessonsAsync(id);

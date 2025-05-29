@@ -19,4 +19,9 @@ public class TestRepository : BaseRepository<Test>, ITestRepository
     public async Task<bool> ExistsAsync(int id)
     => await _context.Tests.AnyAsync(t => t.Id == id);
 
+    public async Task<IEnumerable<Test>> GetByModuleIdAsync(int moduleId)
+    => await _context.Tests
+        .Where(l => l.ModuleId == moduleId)
+        .AsNoTracking()
+        .ToListAsync();
 }

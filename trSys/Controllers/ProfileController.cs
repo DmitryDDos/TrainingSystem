@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using trSys.Models;
 
 namespace trSys.Controllers
 {
     public class ProfileController : Controller
     {
+        [Authorize]
         public IActionResult Profile()
         {
             var model = new Profile

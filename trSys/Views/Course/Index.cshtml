@@ -1,54 +1,72 @@
-@model List<Course>
-
+@model IEnumerable<trSys.Models.Course>
 @{
-    Layout = "_Layout";
+    ViewData["Title"] = "Все курсы";
 }
 
-<h1>Список курсов</h1>
+<link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
 
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        <a class="button" href="@Url.Action("CustomCreate")">Добавить новый курс</a>
-    </p>
-}
+<div class="main-wrapper">
+    <aside class="sidebar">
+        <h2 class="sidebar-title">Курсы</h2>
 
-<div class="courses-grid">
-    @foreach (var course in Model)
-    {
-        <article class="course-card">
-            <div class="card-image">
-                @if (course.CoverImageId.HasValue)
-                {
-                    <img src="@Url.Content($"/api/File/{course.CoverImageId.Value}")" alt="@course.Title" />
-                }
-                else
-                {
-                    <img src="/path/to/default/image.jpg" alt="Нет изображения" />
-                }
-            </div>
-            <div class="card-content">
-                <h2 class="card-title">@course.Title</h2>
-                <p class="card-description">@course.Description</p>
-                <div class="card-actions">
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="button button1">
+                <i class="fas fa-plus"></i> Создать новый курс
+            </a>
+        }
+
+        <nav class="course-list">
+            @foreach (var course in Model)
+            {
+                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="course-list-item">
+                    @course.Title
+                </a>
+            }
+        </nav>
+    </aside>
+
+    <main class="content-area">
+        <h2 class="mb-4">Доступные курсы</h2>
+
+        <div class="courses-grid">
+            @foreach (var course in Model)
+            {
+                <div class="course-card">
+                    <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="card-link text-decoration-none">
+                        @if (course.CoverImageId != null)
+                        {
+                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")"
+                                 class="card-img-top"
+                                 alt="Обложка курса" />
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center">
+                                <i class="fas fa-book-open text-white" style="font-size: 2rem;"></i>
+                            </div>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@course.Title</h5>
+                            <p class="card-text text-muted">
+                                @(course.Description?.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
+                            </p>
+                        </div>
+                    </a>
+
                     @if (User.IsInRole("Admin"))
                     {
-                        <a class="edit-button" href="@Url.Action("Edit", new { id = course.Id })">Редактировать</a>
-                        <form asp-action="Delete" method="post" onsubmit="return confirm('Удалить курс?')" class="delete-form">
-                            <input type="hidden" name="id" value="@course.Id" />
-                            <button type="submit" class="delete-button">Удалить</button>
-                        </form>
-                    }
-                    else if (User.Identity.IsAuthenticated) // авторизованный пользователь, не админ
-                    {
-                        <a class="button start-course" href="@Url.Action("StartCourse", new { id = course.Id })">Начать</a>
-                        <form asp-action="AddToFavorites" method="post" class="add-to-favorites-form" style="display:inline;">
-                            <input type="hidden" name="courseId" value="@course.Id" />
-                            <button type="submit" class="button add-to-favorites">В избранное</button>
-                        </form>
+                        <div class="course-actions">
+                            <a asp-action="Edit" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button1">
+                                <i class="fas fa-edit"></i> Редактировать
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button2">
+                                <i class="fas fa-trash"></i> Удалить
+                            </a>
+                        </div>
                     }
                 </div>
-            </div>
-        </article>
-    }
+            }
+        </div>
+    </main>
 </div>

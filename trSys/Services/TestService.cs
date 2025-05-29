@@ -35,4 +35,26 @@ public class TestService : ITestService
         return TestMapper.ToDtoWithQuestions(test);
     }
 
+    public async Task<TestDto> GetTestByIdAsync(int id)
+    {
+        var test = await _testRepo.GetByIdAsync(id);
+        return test != null ? TestMapper.ToDto(test) : null;
+    }
+
+    public async Task<TestDto> UpdateTestAsync(int id, TestUpdateDto dto)
+    {
+        var test = await _testRepo.GetByIdAsync(id);
+        if (test == null)
+            throw new ArgumentException("Test not found");
+
+        if (!await _moduleRepo.ExistsAsync(dto.ModuleId))
+            throw new ArgumentException("Module not found");
+
+        test.Title = dto.Title;
+        test.Description = dto.Description;
+        test.ModuleId = dto.ModuleId;
+
+        await _testRepo.UpdateAsync(test);
+        return TestMapper.ToDto(test);
+    }
 }

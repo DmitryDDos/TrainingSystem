@@ -14,8 +14,8 @@ public class LessonService : ILessonService
         ILessonRepository lessonRepo,
         IModuleRepository moduleRepo)
     {
-        _lessonRepo = lessonRepo ?? throw new ArgumentNullException(nameof(lessonRepo));
-        _moduleRepo = moduleRepo ?? throw new ArgumentNullException(nameof(moduleRepo));
+        _lessonRepo = lessonRepo;
+        _moduleRepo = moduleRepo;
     }
 
     public async Task<LessonDto> CreateLessonAsync(LessonCreateDto dto)
@@ -29,14 +29,32 @@ public class LessonService : ILessonService
         return LessonMapper.ToDto(lesson);
     }
 
-    public Task<int> GetLessonByIdAsync(int id)
+    public async Task<LessonDto> GetLessonByIdAsync(int id) // Обновлённая реализация
     {
-        throw new NotImplementedException();
+        var lesson = await _lessonRepo.GetByIdAsync(id);
+        return lesson != null ? LessonMapper.ToDto(lesson) : null;
     }
 
     public async Task<IEnumerable<LessonDto>> GetLessonsByModuleAsync(int moduleId)
     {
         var lessons = await _lessonRepo.GetByModuleIdAsync(moduleId);
         return lessons.Select(LessonMapper.ToDto);
+    }
+
+    public async Task<LessonDto> UpdateLessonAsync(int id, LessonUpdateDto dto) // Новая реализация
+    {
+        var lesson = await _lessonRepo.GetByIdAsync(id);
+        if (lesson == null)
+            throw new ArgumentException("Lesson not found");
+
+        if (!await _moduleRepo.ExistsAsync(dto.ModuleId))
+            throw new ArgumentException("Module not found");
+
+        lesson.Title = dto.Title;
+        lesson.Description = dto.Description;
+        lesson.ModuleId = dto.ModuleId;
+
+        await _lessonRepo.UpdateAsync(lesson);
+        return LessonMapper.ToDto(lesson);
     }
 }

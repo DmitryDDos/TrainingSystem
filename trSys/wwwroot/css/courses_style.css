@@ -26,134 +26,201 @@
 
 body {
     font-family: 'Ida', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    margin: 20px;
+    background-color: #E8F1F6;
+    margin: 0;
     color: #333;
+    height: 100vh;
+    overflow: hidden;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
+.main-wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* === Сайдбар === */
+.sidebar {
+    width: 280px;
+    background-color: #212121;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+    overflow-y: auto;
+}
+
+.sidebar-title {
     font-weight: 700;
-    color: #222;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #B99AF3;
+    padding-bottom: 10px;
+    user-select: none;
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #0078d7;
+    background-color: #00C0C9;
     color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.8s ease;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    display: inline-block;
 }
 
     .button:hover {
-        background-color: #005ea2;
+        background-color: #3F6578;
     }
 
+.button1 {
+    background-color: #B99AF3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.8s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .button1:hover {
+        background-color: #3F6578;
+    }
+
+.button2 {
+    background-color: #FF8769;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.8s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .button2:hover {
+        background-color: #3F6578;
+    }
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.course-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+.course-list-item {
+    color: #ccc;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+}
+
+    .course-list-item:hover,
+    .course-list-item.active {
+        background-color: #0078d7;
+        color: white;
+        cursor: pointer;
+    }
+
+/* === Основная область контента === */
+.content-area {
+    flex-grow: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+    background-color: #E8F1F6;
+}
+
+    .content-area h1 {
+        margin-bottom: 20px;
+        font-weight: 700;
+        color: #222;
+    }
+
+/* === Существующие стили карточек === */
 .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Расстояние между карточками */
 }
 
 .course-card {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Скрывает переполнение */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Занимает всю ширину контейнера */
+    max-width: 400px; /* Максимальная ширина карточки */
 }
 
     .course-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        transform: translateY(-5px); /* Поднимает карточку при наведении */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Добавляет тень */
     }
 
-.card-image {
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
-    background-color: #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-img-top {
+    height: 150px; /* Высота изображения */
+    object-fit: cover; /* Обрезает изображение, сохраняя пропорции */
 }
 
-    .card-image img {
+.card-body {
+    padding: 15px; /* Отступы внутри карточки */
+}
+
+/* Скроллбар для сайдбара (кроссбраузерно) */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #2b2b2b;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        box-shadow: none;
+        padding: 15px 10px;
     }
 
-.card-content {
-    padding: 15px 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    margin: 0 0 10px 0;
-    color: #0078d7;
-}
-
-.card-description {
-    flex-grow: 1;
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.card-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.edit-button,
-.delete-button {
-    padding: 6px 14px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-.edit-button {
-    background-color: #00c0c9;
-    color: white;
-    border: 1px solid #00c0c9;
-}
-
-    .edit-button:hover {
-        background-color: #3f6578;
-        border-color: #3f6578;
+    .content-area {
+        padding: 20px 15px;
     }
 
-.delete-button {
-    background-color: #ff8769;
-    color: white;
-    border: 1px solid #ff8769;
-}
-
-    .delete-button:hover {
-        background-color: #b99af3;
-        border-color: #b99af3;
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        max-width: 100%;
     }
-
-.delete-form {
-    margin: 0;
 }

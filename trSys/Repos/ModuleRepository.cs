@@ -19,5 +19,11 @@ public class ModuleRepository : BaseRepository<Module>, IModuleRepository
     public async Task<Module?> GetWithLessonsAsync(int id)
         => await _context.Modules
             .Include(m => m.Lessons)
+            .Include(m => m.Tests)
             .FirstOrDefaultAsync(m => m.Id == id);
+
+    //public async Task<Module?> GetWithTestsAsync(int id)
+    //    => await _context.Modules
+    //        .Include(m => m.Tests)
+    //        .FirstOrDefaultAsync(m => m.Id == id);
 }

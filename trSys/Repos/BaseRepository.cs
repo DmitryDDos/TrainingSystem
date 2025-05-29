@@ -4,7 +4,7 @@ using trSys.Data;
 using trSys.Interfaces;
 
 namespace trSys.Repos;
-public class BaseRepository<T> : IRepository<T>, IReadRepository<T> where T : class
+public class BaseRepository<T> : IRepository<T> where T : class
 {
     protected readonly AppDbContext _context;
 

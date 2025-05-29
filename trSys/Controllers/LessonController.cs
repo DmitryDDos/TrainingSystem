@@ -1,98 +1,103 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace trSys.Controllers
 {
-    public class LessonsController : Controller
+    [Authorize]
+    [Route("Lessons")]
+    public class LessonsController : BaseController<Lesson>
     {
         private readonly ILessonService _lessonService;
-        private readonly IFileService _fileService;
+        protected override string EntityName => "Lesson";
 
-        public LessonsController(ILessonService lessonService, IFileService fileService)
+        public LessonsController(
+            IRepository<Lesson> repository,
+            ILessonService lessonService) : base(repository)
         {
             _lessonService = lessonService;
-            _fileService = fileService;
+            RedirectAfterDelete = lesson =>
+                RedirectToAction("Details", "Modules", new { id = lesson.ModuleId });
         }
 
-        // GET: Lessons/Create
-        public IActionResult Create()
+        // GET: Lessons/Create?moduleId=5
+        [HttpGet("Create")]
+        public IActionResult Create(int moduleId)
         {
-            return View();
-        }
-
-        // POST: Lessons/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(LessonCreateDto dto)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _lessonService.CreateLessonAsync(dto);
-                return RedirectToAction(nameof(Details), new { id = result.Id });
-            }
+            var dto = new LessonCreateDto { ModuleId = moduleId };
             return View(dto);
         }
 
-        // GET: Lessons/ByModule/5
-        public async Task<IActionResult> ByModule(int moduleId)
+
+        // POST: Lessons/Create
+        [HttpPost("Create")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(LessonCreateDto dto)
         {
-            var lessons = await _lessonService.GetLessonsByModuleAsync(moduleId);
-            return View(lessons);
+            if (!ModelState.IsValid)
+                return View(dto);
+
+            try
+            {
+                var result = await _lessonService.CreateLessonAsync(dto);
+                return RedirectToAction("Details", "Modules", new { id = dto.ModuleId });
+            }
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
+            }
         }
 
         // GET: Lessons/Details/5
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
-            var lesson = await _lessonService.GetLessonByIdAsync(id);
-            if (lesson == null)
-            {
-                return NotFound();
-            }
-            return View(lesson);
+            var lessonDto = await _lessonService.GetLessonByIdAsync(id);
+            return lessonDto != null ? View(lessonDto) : NotFound();
         }
 
-        // GET: Lessons/Upload
-        public IActionResult Upload()
+        // GET: Lessons/Edit/5
+        [HttpGet("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var lessonDto = await _lessonService.GetLessonByIdAsync(id);
+            if (lessonDto == null)
+                return NotFound();
+
+            var editDto = new LessonUpdateDto(
+                lessonDto.Id,
+                lessonDto.Title,
+                lessonDto.Description,
+                lessonDto.ModuleId
+            );
+            return View(editDto);
         }
 
-        // POST: Lessons/Upload
-        [HttpPost]
+        // POST: Lessons/Edit/5
+        [HttpPost("Edit/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Upload(FileUploadDto fileDto)
+        public async Task<IActionResult> Edit(int id, LessonUpdateDto dto)
         {
+            if (!ModelState.IsValid)
+                return View(dto);
+
             try
             {
-                var fileId = await _fileService.UploadFileAsync(fileDto);
-                return RedirectToAction(nameof(Download), new { id = fileId });
+                var updatedLesson = await _lessonService.UpdateLessonAsync(id, dto);
+                return RedirectToAction("Details", "Modules", new { id = dto.ModuleId });
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
-                ModelState.AddModelError("", ex.Message);
-                return View(fileDto);
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(dto);
             }
         }
 
-        // GET: Lessons/Download/5
-        public async Task<IActionResult> Download(int id)
-        {
-            try
-            {
-                var fileDto = await _fileService.DownloadFileAsync(id);
-                return File(fileDto.Data, fileDto.ContentType, fileDto.FileName);
-            }
-            catch (FileNotFoundException)
-            {
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
+        // Убраны временно методы Upload/Download
     }
 }

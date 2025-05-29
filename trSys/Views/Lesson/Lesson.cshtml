@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Уроки";
+}
+
+<link rel="stylesheet" href="/css/lessons_style.css" />
+
+<aside class="sidebar">
+    <!-- Здесь можно вставить свою проверку -->
+    <button class="btn-create-lesson" onclick="location.href='@Url.Action("Create", "Lessons")'">Создать урок</button>
+</aside>
+
+<main class="main-content">
+    <h1 class="page-title">Уроки</h1>
+
+    <div class="courses-grid">
+        <!-- Заглушки карточек уроков -->
+        <article class="course-card">
+            <h3 class="course-title">Урок 1: Введение</h3>
+            <p class="course-description">Описание урока 1</p>
+            <a href="#" class="button1">Начать урок</a>
+        </article>
+        <article class="course-card">
+            <h3 class="course-title">Урок 2: Основы</h3>
+            <p class="course-description">Описание урока 2</p>
+            <a href="#" class="button1">Начать урок</a>
+        </article>
+        <article class="course-card">
+            <h3 class="course-title">Урок 3: Продвинутый уровень</h3>
+            <p class="course-description">Описание урока 3</p>
+            <a href="#" class="button1">Начать урок</a>
+        </article>
+    </div>
+</main>

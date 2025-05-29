@@ -3,64 +3,76 @@
     ViewData["Title"] = "Создание нового курса";
 }
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="~/css/coursecreate.css" />
-    <style>
-        .image-preview {
-            margin-top: 10px;
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #3f6578;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Добавить новый курс</h1>
-        <form asp-action="CustomCreate" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label asp-for="Title"></label>
-                <input asp-for="Title" type="text" />
-                <span asp-validation-for="Title" class="error-message"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description"></label>
-                <textarea asp-for="Description" rows="4"></textarea>
-                <span asp-validation-for="Description" class="error-message"></span>
-            </div>
-            <div class="form-group">
-                <label for="coverImage">Обложка курса</label>
-                <input type="file" name="coverImage" accept="image/*" onchange="previewImage(event)" />
-                <img id="imagePreview" class="image-preview" style="display:none;" />
-            </div>
-            <button type="submit">Добавить курс</button>
-        </form>
-    </div>
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <hr />
 
+    <form asp-action="CustomCreate" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="form-group mb-3">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Обложка курса</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label class="control-label">Изображение обложки</label>
+                            <input type="file" name="coverImage" class="form-control" accept="image/*" />
+                            <small class="form-text text-muted">Рекомендуемый размер: 800x450px</small>
+                        </div>
+
+                        <div class="preview-container mt-3 text-center" style="display: none;">
+                            <img id="imagePreview" src="#" alt="Предпросмотр обложки" class="img-thumbnail" style="max-height: 200px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group mt-4">
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Создать курс
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
     <script>
-        function previewImage(event) {
-            const imagePreview = document.getElementById('imagePreview');
-            const file = event.target.files[0];
-            const reader = new FileReader();
+        // Предпросмотр изображения перед загрузкой
+        document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+            const previewContainer = document.querySelector('.preview-container');
+            const previewImage = document.getElementById('imagePreview');
 
-            reader.onload = function() {
-                imagePreview.src = reader.result;
-                imagePreview.style.display = 'block'; // Показываем изображение
-            }
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
 
-            if (file) {
-                reader.readAsDataURL(file); // Читаем файл как Data URL
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+
+                reader.readAsDataURL(this.files[0]);
             } else {
-                imagePreview.src = '';
-                imagePreview.style.display = 'none'; // Скрываем изображение, если файл не выбран
+                previewContainer.style.display = 'none';
             }
-        }
+        });
     </script>
-</body>
-</html>
+}
