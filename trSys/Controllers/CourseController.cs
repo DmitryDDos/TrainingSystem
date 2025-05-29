@@ -19,6 +19,14 @@ public class CourseController : BaseController<Course>
         _service = service;
     }
 
+    // GET: /[controller]
+    [HttpGet()]
+    public async Task<IActionResult> Index()
+    {
+        var entities = await _repository.GetAllAsync();
+        return View(entities);
+    }
+
     // GET: /Course/Create
     [HttpGet]
     [Authorize(Policy = "AdminOnly")]

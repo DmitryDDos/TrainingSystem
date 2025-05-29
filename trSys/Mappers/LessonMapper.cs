@@ -10,4 +10,11 @@ public static class LessonMapper
         lesson.Title,
         lesson.Description,
         lesson.ModuleId);
+
+    public static LessonUpdateDto ToUpdateDto(Lesson lesson) => new(
+        lesson.Id,
+        lesson.Title,
+        lesson.Description,
+        lesson.ModuleId);
 }
+

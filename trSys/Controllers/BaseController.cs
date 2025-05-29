@@ -19,13 +19,6 @@ namespace trSys.Controllers
             RedirectAfterDelete = entity => RedirectToAction(nameof(Index));
         }
 
-        // GET: /[controller]
-        [HttpGet]
-        public virtual async Task<IActionResult> Index()
-        {
-            var entities = await _repository.GetAllAsync();
-            return View(entities);
-        }
 
         //// GET: /[controller]/Details/5
         //[HttpGet("{id}")]

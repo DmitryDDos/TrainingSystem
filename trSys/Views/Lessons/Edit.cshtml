@@ -1,0 +1,44 @@
+﻿@model trSys.DTOs.LessonUpdateDto
+
+@{
+    ViewData["Title"] = $"Редактирование урока: {Model.Title}";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+    <p class="text-muted">Модуль: @ViewData["ModuleTitle"]</p>
+    <hr />
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ModuleId" />
+
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Название урока</label>
+            <input asp-for="Title" class="form-control" required />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Краткое описание</label>
+            <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a asp-controller="Modules"
+               asp-action="Details"
+               asp-route-id="@Model.ModuleId"
+               class="btn btn-outline-secondary">
+                Отмена
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
