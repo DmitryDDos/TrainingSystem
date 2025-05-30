@@ -37,12 +37,16 @@
             @foreach (var course in Model)
             {
                 <article class="course-card">
-                    <h3 class="course-title">@course.Title</h3>
-                    <p class="course-description">@course.Description</p>
-                    <div class="course-meta">
-                        <span>Дата записи: @course.RegistrationDate.ToString("dd.MM.yyyy")</span>
+                    <h3>@course.Title</h3>
+
+                    <!-- Прогресс-бар -->
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: @course.ProgressPercentage%"></div>
                     </div>
-                    <a asp-controller="Course" asp-action="Details" asp-route-id="@course.CourseId"
+                    <p>Пройдено: @course.CompletedModules из @course.TotalModules модулей</p>
+
+                    <!-- Кнопка продолжения -->
+                    <a asp-controller="CourseLearning" asp-action="Index" asp-route-courseId="@course.CourseId"
                        class="button">Продолжить обучение</a>
                 </article>
             }

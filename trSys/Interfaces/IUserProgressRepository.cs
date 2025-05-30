@@ -7,4 +7,7 @@ public interface IUserProgressRepository
     Task<UserProgress?> GetByUserAndCourseAsync(int userId, int courseId);
     Task UpdateProgressAsync(int userId, int courseId, int completedModules);
     Task<int> GetCompletedModulesAsync(int userId, int courseId);
+    Task AddCompletedTestAsync(int userId, int testId);
+    Task<List<int>> GetCompletedTestsAsync(int userId);
+
 }

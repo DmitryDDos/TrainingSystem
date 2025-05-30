@@ -1,4 +1,5 @@
 ﻿using trSys.DTOs;
+using trSys.Enums;
 using trSys.Interfaces;
 using trSys.Mappers;
 using trSys.Models;
@@ -56,6 +57,43 @@ public class TestService : ITestService
 
         await _testRepo.UpdateAsync(test);
         return TestMapper.ToDto(test);
+    }
+    public async Task<(bool IsPassed, int Score)> EvaluateTest(int testId, Dictionary<int, List<int>> answers)
+    {
+        var test = await _testRepo.GetWithQuestionsAsync(testId);
+
+        if (test == null) throw new ArgumentException("Test not found");
+        if (test.Questions == null || !test.Questions.Any())
+            throw new InvalidOperationException("Test has no questions");
+
+        int correctAnswers = 0;
+        foreach (var question in test.Questions)
+        {
+            if (answers.TryGetValue(question.Id, out List<int> selectedAnswerIds))
+            {
+                // Для MultiChoice: все правильные ответы должны быть выбраны
+                if (question.Type == QuestionType.MultipleChoice)
+                {
+                    var correctIds = question.Answers.Where(a => a.IsCorrect).Select(a => a.Id);
+                    if (correctIds.All(id => selectedAnswerIds.Contains(id)) &&
+                        selectedAnswerIds.All(id => correctIds.Contains(id)))
+                    {
+                        correctAnswers++;
+                    }
+                }
+                // Для SingleChoice: один правильный ответ
+                else
+                {
+                    var selectedAnswer = question.Answers.FirstOrDefault(a => a.Id == selectedAnswerIds.FirstOrDefault());
+                    if (selectedAnswer != null && selectedAnswer.IsCorrect)
+                    {
+                        correctAnswers++;
+                    }
+                }
+            }
+        }
+
+        return (correctAnswers >= test.PassingScore, correctAnswers);
     }
 
 }

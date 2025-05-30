@@ -1,98 +1,50 @@
 ﻿@model trSys.DTOs.CourseCreateDto
+
 @{
     ViewData["Title"] = "Создание нового курса";
 }
 
-<link rel="stylesheet" href="~/css/courses_style.css" />
-
-<style>
-    .card {
-        border: 1px solid #ddd;
-        border-radius: 0.5rem;
-        margin-bottom: 1.5rem;
-        max-width: 100%; /* Ограничиваем ширину карточки */
-    }
-
-    .card-header {
-        background-color: #f8f9fa;
-        font-weight: bold;
-    }
-
-    .form-group label {
-        font-weight: 600;
-    }
-
-    .btn {
-        width: 30%;
-        padding: 10px;
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .preview-container {
-        margin-top: 1rem;
-        border: 1px dashed #ccc;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .form-text {
-        margin-top: 0.5rem;
-    }
-</style>
+<link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
 
 <div class="container mt-4">
-    <h2 class="text-center">@ViewData["Title"]</h2>
-    <hr />
+    <div class="form-container" style="max-width: 600px; margin: auto;">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        <hr />
 
-    <form asp-action="Create" method="post" enctype="multipart/form-data">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="card">
-                    <div class="card-header">
-                        Обложка курса
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group mb-3">
-                            <label asp-for="Title" class="control-label"></label>
-                            <input asp-for="Title" class="form-control" placeholder="Введите название курса" />
-                            <span asp-validation-for="Title" class="text-danger"></span>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label asp-for="Description" class="control-label"></label>
-                            <textarea asp-for="Description" class="form-control" rows="5" placeholder="Введите описание курса"></textarea>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label class="control-label">Изображение обложки</label>
-                            <input type="file" name="coverImage" class="form-control" accept="image/*" />
-                        </div>
-
-                        <div class="preview-container text-center" style="display: none;">
-                            <img id="imagePreview" src="#" alt="Предпросмотр обложки" class="img-thumbnail" style="max-height: 200px;" />
-                        </div>
-
-                        <small class="form-text text-muted">Рекомендуемый размер: 800x450px</small>
-                    </div>
-                </div>
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Название курса</label>
+                <input asp-for="Title" class="form-control" placeholder="Введите название курса" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
-            <div class="col-md-4">
-                <!-- Этот блок оставляем пустым или добавляем дополнительные элементы, если нужно -->
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Описание курса</label>
+                <textarea asp-for="Description" class="form-control" rows="5" placeholder="Введите описание курса" required></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-        </div>
 
-        <div class="form-group mt-4 text-center">
-            <button type="submit" class="btn button1">
-                <i class="fas fa-save"></i> Создать курс
-            </button>
-            <a asp-action="Index" class="btn button2">Отмена</a>
-        </div>
-    </form>
+            <div class="form-group mb-3">
+                <label class="form-label">Изображение обложки</label>
+                <input type="file" name="coverImage" class="form-control" accept="image/*" />
+            </div>
+
+            <div class="preview-container" style="display: none;">
+                <img id="imagePreview" src="#" alt="Предпросмотр обложки" class="img-thumbnail" style="max-height: 200px;" />
+            </div>
+
+            <small class="form-text text-muted">Рекомендуемый размер: 800x450px</small>
+
+            <div class="form-group mt-4 text-center">
+                <button type="submit" class="module-btn module-btn-primary">
+                    Создать курс
+                </button>
+                <a asp-action="Index" class="module-btn module-btn-secondary">Отмена</a>
+            </div>
+        </form>
+    </div>
 </div>
 
 @section Scripts {

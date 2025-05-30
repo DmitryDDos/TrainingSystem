@@ -44,4 +44,36 @@ public class UserProgressRepository : IUserProgressRepository
         var progress = await GetByUserAndCourseAsync(userId, courseId);
         return progress?.CompletedModules ?? 0;
     }
+
+    public async Task AddCompletedTestAsync(int userId, int testId)
+    {
+        var test = await _context.Tests
+            .Include(t => t.Module)
+            .FirstOrDefaultAsync(t => t.Id == testId);
+
+        if (test == null) return;
+
+        var progress = await GetByUserAndCourseAsync(userId, test.Module.CourseId);
+
+        if (progress == null)
+        {
+            progress = new UserProgress(userId, test.Module.CourseId, 0);
+            _context.UserProgresses.Add(progress);
+        }
+
+        if (!progress.CompletedTests.Contains(testId))
+        {
+            progress.CompletedTests.Add(testId);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task<List<int>> GetCompletedTestsAsync(int userId)
+    {
+        return await _context.UserProgresses
+            .Where(up => up.UserId == userId)
+            .SelectMany(up => up.CompletedTests)
+            .Distinct()
+            .ToListAsync();
+    }
 }

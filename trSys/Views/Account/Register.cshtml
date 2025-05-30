@@ -98,14 +98,15 @@
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Role"></label>
-                <select asp-for="Role" class="form-control">
-                    <option value="User ">Пользователь</option>
-                    <option value="Admin">Администратор</option>
-                </select>
-                <span asp-validation-for="Role" class="text-danger"></span>
-            </div>
+    <div class="form-group">
+        <label asp-for="Role"></label>
+        <select asp-for="Role" class="form-control">
+            <option value="User">Пользователь</option>
+            <option value="Manager">Менеджер</option>
+            <option value="Admin">Администратор</option>
+        </select>
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
 
             <div class="button-container">
                 <button type="submit" class="btn btn-primary">Зарегистрировать</button>

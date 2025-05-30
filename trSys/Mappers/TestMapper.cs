@@ -9,7 +9,8 @@ public static class TestMapper
         test.Id,
         test.Title,
         test.Description,
-        test.ModuleId);
+        test.ModuleId,
+        test.Order);
 
     public static TestWithQuestionsDto ToDtoWithQuestions(Test test) => new(
     test.Id,

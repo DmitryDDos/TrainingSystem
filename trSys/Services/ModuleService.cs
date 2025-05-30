@@ -1,4 +1,5 @@
-﻿using trSys.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using trSys.DTOs;
 using trSys.Interfaces;
 using trSys.Mappers;
 using trSys.Models;
@@ -23,11 +24,17 @@ public class ModuleService : IModuleService
         if (!await _courseRepo.ExistsAsync(dto.CourseId))
             throw new ArgumentException("Course not found");
 
-        var module = new Module(dto.Title, dto.Description, dto.CourseId);
-        await _moduleRepo.AddAsync(module);
+        int maxOrder = await _moduleRepo.GetMaxOrderForCourseAsync(dto.CourseId);
 
+        var module = new Module(dto.Title, dto.Description, dto.CourseId)
+        {
+            Order = maxOrder + 1
+        };
+
+        await _moduleRepo.AddAsync(module);
         return ModuleMapper.ToDto(module);
     }
+
 
     public async Task<ModuleDetailsDto> UpdateModuleAsync(ModuleUpdateDto dto)
     {

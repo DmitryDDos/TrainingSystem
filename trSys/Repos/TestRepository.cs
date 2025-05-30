@@ -25,5 +25,20 @@ public class TestRepository : BaseRepository<Test>, ITestRepository
         .AsNoTracking()
         .ToListAsync();
 
+    public async Task<IEnumerable<Test>> GetTestsWithQuestionsByModuleIdAsync(int moduleId)
+    {
+        return await _context.Tests
+            .Where(t => t.ModuleId == moduleId)
+            .Include(t => t.Questions)
+                .ThenInclude(q => q.Answers)
+            .OrderBy(t => t.Order)
+            .AsNoTracking()
+            .ToListAsync();
+    }
 
+    public async Task<IEnumerable<Test>> GetTestsByModuleIdAsync(int moduleId)
+        => await _context.Tests
+            .Where(l => l.ModuleId == moduleId)
+            .AsNoTracking()
+            .ToListAsync();
 }

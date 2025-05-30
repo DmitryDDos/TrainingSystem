@@ -4,7 +4,8 @@ public record UserProgressDto(
     int UserId,
     int CourseId,
     int CompletedModules,
-    int TotalModules
+    int TotalModules,
+    List<int> CompletedTests
 )
 {
     public double ProgressPercentage =>

@@ -4,37 +4,44 @@
     ViewData["Title"] = $"Редактирование урока: {Model.Title}";
 }
 
+<link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
 <div class="container mt-4">
-    <h2>@ViewData["Title"]</h2>
-    <p class="text-muted">Модуль: @ViewData["ModuleTitle"]</p>
-    <hr />
+    <div class="form-container" style="max-width: 600px; margin: auto;">
+        <h2>@ViewData["Title"]</h2>
+        <p class="text-muted">Модуль: @ViewData["ModuleTitle"]</p>
+        <hr />
 
-    <form asp-action="Edit" method="post">
-        <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="ModuleId" />
+        <form asp-action="Edit" method="post" class="module-form">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ModuleId" />
 
-        <div class="mb-3">
-            <label asp-for="Title" class="form-label">Название урока</label>
-            <input asp-for="Title" class="form-control" required />
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label">Название урока</label>
+                <input asp-for="Title" class="form-control" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
 
-        <div class="mb-3">
-            <label asp-for="Description" class="form-label">Краткое описание</label>
-            <textarea asp-for="Description" class="form-control" rows="2"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
-        </div>
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label">Краткое описание</label>
+                <textarea asp-for="Description" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
 
-        <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-primary">Сохранить</button>
-            <a asp-controller="Modules"
-               asp-action="Details"
-               asp-route-id="@Model.ModuleId"
-               class="btn btn-outline-secondary">
-                Отмена
-            </a>
-        </div>
-    </form>
+            <div class="d-flex gap-2">
+                <button type="submit" class="module-btn module-btn-primary">
+                    <i class="fas fa-save"></i> Сохранить
+                </button>
+                <a asp-controller="Modules"
+                   asp-action="Details"
+                   asp-route-id="@Model.ModuleId"
+                   class="module-btn module-btn-secondary">
+                    <i class="fas fa-times"></i> Отмена
+                </a>
+            </div>
+        </form>
+    </div>
 </div>
 
 @section Scripts {

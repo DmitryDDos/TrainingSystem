@@ -6,7 +6,8 @@ public record TestDto(
     int Id,
     string Title,
     string Description,
-    int ModuleId);
+    int ModuleId,
+    int Order);
 
 public record TestCreateDto(
     [Required][MaxLength(100)] string Title = "",

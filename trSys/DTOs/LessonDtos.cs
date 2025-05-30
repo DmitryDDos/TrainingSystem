@@ -6,7 +6,8 @@ public record LessonDto(
     int Id,
     string Title,
     string Description,
-    int ModuleId);
+    int ModuleId,
+    int Order);
 
 public record LessonCreateDto(
     [Required][MaxLength(100)] string Title = "",
