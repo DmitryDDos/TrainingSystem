@@ -11,13 +11,14 @@ namespace trSys.Controllers
         protected abstract string EntityName { get; }
 
 
-        protected Func<TEntity, IActionResult> RedirectAfterDelete { get; set; } 
+        protected Func<TEntity, IActionResult> RedirectAfterDelete { get; set; }
 
         public BaseController(IRepository<TEntity> repository)
         {
             _repository = repository;
             RedirectAfterDelete = entity => RedirectToAction(nameof(Index));
         }
+
 
         //// GET: /[controller]/Details/5
         //[HttpGet("{id}")]

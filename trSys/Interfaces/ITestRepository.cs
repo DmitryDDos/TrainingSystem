@@ -7,5 +7,6 @@ namespace trSys.Interfaces
     {
         Task<Test?> GetWithQuestionsAsync(int id);
         Task<bool> ExistsAsync(int id);
+
     }
 }

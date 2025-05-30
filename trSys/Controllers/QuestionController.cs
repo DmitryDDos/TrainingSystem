@@ -92,7 +92,7 @@ public class QuestionsController : Controller
             return View(dto);
         }
     }
-
+    
     [HttpPost("Delete/{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)

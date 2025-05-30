@@ -26,6 +26,4 @@ public class QuestionRepository : BaseRepository<Question>, IQuestionRepository
 
         return await query.FirstOrDefaultAsync(q => q.Id == id);
     }
-
-
 }

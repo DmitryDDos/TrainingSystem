@@ -18,3 +18,4 @@ public record LessonUpdateDto(
     [Required][MaxLength(100)] string Title,
     [MaxLength(500)] string Description,
     [Range(1, int.MaxValue)] int ModuleId);
+

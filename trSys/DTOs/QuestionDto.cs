@@ -20,3 +20,4 @@ public record QuestionUpdateDto(
     [MaxLength(500)] string? Text,
     QuestionType? Type,
     IEnumerable<AnswerUpdateDto> Answers);
+

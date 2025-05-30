@@ -114,3 +114,8 @@ namespace trSys.Controllers
 
     }
 }
+//    {
+//        var test = await _service.GetTestWithQuestionsAsync(id);
+//        return test != null ? Ok(test) : NotFound();
+//    }
+//}

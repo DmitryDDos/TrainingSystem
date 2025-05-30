@@ -17,3 +17,4 @@ public static class LessonMapper
         lesson.Description,
         lesson.ModuleId);
 }
+

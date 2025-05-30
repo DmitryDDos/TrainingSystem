@@ -46,7 +46,7 @@ public class CourseRegistrationController : Controller
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var result = await _service.CheckAccessAsync(userId, courseId);
-        return Json(result); // Для AJAX-запросов
+        return Json(result);
     }
 
     // GET: /CourseRegistration/UserCourses
@@ -55,7 +55,7 @@ public class CourseRegistrationController : Controller
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var courses = await _service.GetUserCoursesAsync(userId);
-        return View(courses); // Или Json(courses) для API
+        return View(courses);
     }
 
     // GET: /CourseRegistration/Stats/5
