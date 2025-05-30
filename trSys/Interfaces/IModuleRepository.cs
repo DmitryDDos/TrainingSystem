@@ -7,5 +7,7 @@ public interface IModuleRepository : IRepository<Module>
     Task<IEnumerable<Module>> GetByCourseIdAsync(int courseId);
     Task<bool> ExistsAsync(int id);
     Task<Module?> GetWithLessonsAsync(int id);
+    Task<int> GetMaxOrderForCourseAsync(int courseId);
+    Task<int> GetCountByCourseIdAsync(int courseId);
     //Task<Module?> GetWithTestsAsync(int id);
 }

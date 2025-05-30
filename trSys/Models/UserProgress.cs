@@ -27,6 +27,7 @@ public class UserProgress : IEntity
 
     public int CompletedModules { get; set; }
     public DateTime LastUpdated { get; set; }
+    public List<int> CompletedTests { get; set; } = new List<int>();
 
     public double ProgressPercentage =>
         Course?.Modules.Count == 0 ? 0 : (CompletedModules * 100.0) / Course!.Modules.Count;

@@ -26,10 +26,16 @@ public class Test : IEntity
 
     [Required]
     public int ModuleId { get; set; }
+    [Required]
+    [Range(1, int.MaxValue)]
+    public int Order { get; set; } = 1;
+    [Required]
+    [Range(0, int.MaxValue)]
+    public int PassingScore { get; set; } = 0;
 
     // Навигационные свойства
     public Module Module { get; private set; } = null!;
-    public ICollection<Question> Questions { get; private set; } = new List<Question>();
+    public ICollection<Question> Questions { get; set; } = new List<Question>();
     public void UpdateModuleId(int moduleId) => ModuleId = moduleId;
     public void AddQuestion(Question question)
     {

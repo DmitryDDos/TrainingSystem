@@ -18,4 +18,16 @@ public class CourseRepository : BaseRepository<Course>, ICourseRepository
 
     public async Task<bool> TitleExistsAsync(string title)
         => await _context.Courses.AnyAsync(c => c.Title == title);
+
+    public async Task<Course> GetByIdAsync(int id, bool includeModules = false)
+    {
+        var query = _context.Courses.AsQueryable();
+
+        if (includeModules)
+        {
+            query = query.Include(c => c.Modules);
+        }
+
+        return await query.FirstOrDefaultAsync(c => c.Id == id);
+    }
 }
