@@ -4,7 +4,7 @@ namespace trSys.Interfaces
 {
     public interface IUserService
     {
-        //Task<AuthDto> RegisterAsync(RegisterDto dto);
         Task<AuthDto> LoginAsync(LoginDto dto);
+        Task<AuthDto> RegisterUserAsync(RegisterDto dto, string adminId);
     }
 }

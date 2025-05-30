@@ -30,4 +30,43 @@ public class UserService : IUserService
             "Успешный вход",
             UserMapper.ToDto(user));
     }
+
+    public async Task<AuthDto> RegisterUserAsync(RegisterDto dto, string adminId)
+    {
+        try
+        {
+            if (await _userRepo.ExistsAsync(dto.Email))
+                return new AuthDto(false, "Пользователь с таким email уже существует");
+
+            // Хеширование пароля перед созданием объекта
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
+
+            // Используем публичный конструктор
+            var user = new User(
+                email: dto.Email,
+                pass: passwordHash, // Используем хешированный пароль
+                name: dto.FullName,
+                role: dto.Role
+            );
+
+            // Сохранение в БД
+            await _userRepo.AddAsync(user);
+
+            // Создание DTO для ответа
+            var userDto = new UserDto(
+                user.Id, // Преобразуем int в string
+                user.Email,
+                user.FullName,
+                user.Role
+            );
+
+            return new AuthDto(true, "Пользователь успешно зарегистрирован", userDto);
+        }
+        catch (Exception ex)
+        {
+            // Раскомментируйте если есть _logger
+            // _logger.LogError(ex, "Ошибка при регистрации пользователя");
+            return new AuthDto(false, "Ошибка при регистрации пользователя");
+        }
+    }
 }
