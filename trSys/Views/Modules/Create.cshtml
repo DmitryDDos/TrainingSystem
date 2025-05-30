@@ -5,7 +5,6 @@
 }
 
 <link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <div class="container mt-4">
     <div class="form-container" style="max-width: 600px; margin: auto;">
@@ -33,10 +32,12 @@
 
             <div class="d-flex gap-2">
                 <button type="submit" class="module-btn module-btn-primary">
-                    <i class="fas fa-plus"></i> Создать
+                    <span class="icon">+</span> Создать
                 </button>
                 <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId" class="module-btn module-btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Назад к курсу
+                    <svg class="arrow-icon" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="#ffffff" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg> Назад к курсу
                 </a>
             </div>
         </form>

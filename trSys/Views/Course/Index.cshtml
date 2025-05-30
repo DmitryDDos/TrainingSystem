@@ -4,7 +4,6 @@
 }
 
 <link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <div class="main-wrapper">
     <aside class="sidebar">
@@ -13,14 +12,14 @@
         @if (User.IsInRole("Admin"))
         {
             <a asp-action="Create" class="button button1 create-course-button" style="margin-bottom: 20px;">
-                <i class="fas fa-plus"></i> Создать новый курс
+                <span class="icon">+</span> Создать новый курс
             </a>
         }
 
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Поиск курсов..." class="search-input" />
             <button class="search-button">
-                <i class="fas fa-search"></i>
+                <span class="icon">⌕</span>
             </button>
         </div>
 
@@ -50,7 +49,7 @@
                         else
                         {
                             <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center">
-                                <i class="fas fa-book-open text-white" style="font-size: 2rem;"></i>
+                                <span class="icon" style="font-size: 2rem;">📚</span>
                             </div>
                         }
                         <div class="card-body">
@@ -65,10 +64,12 @@
                     {
                         <div class="course-actions">
                             <a asp-action="Edit" asp-route-id="@course.Id" class="btn button1 edit-button">
-                                <i class="fas fa-edit"></i> Редактировать
+                                <span class="icon">✎</span> Редактировать
                             </a>
                             <a asp-action="Delete" asp-route-id="@course.Id" class="btn button2">
-                                <i class="fas fa-trash"></i> Удалить
+                                <svg class="trash-icon" viewBox="2 1 20 16" width="18" height="18">
+                                    <path fill="#ffffff" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                </svg> Удалить
                             </a>
                         </div>
                     }
@@ -114,7 +115,7 @@
                         message.id = 'noResults';
                         message.className = 'no-results-message';
                         message.innerHTML = `
-                            <i class="fas fa-search"></i>
+                            <span class="icon">⌕</span>
                             <h3>Курсы не найдены</h3>
                             <p>Попробуйте изменить параметры поиска</p>
                         `;
