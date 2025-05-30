@@ -52,7 +52,9 @@
                         {
                             <div class="module-list-item">
                                 <div class="module-list-content">
-                                    <h6 class="module-list-title">@lesson.Title</h6>
+                                    <a asp-controller="Lessons" asp-action="Details" asp-route-id="@lesson.Id" class="module-list-title">
+                                        <h6>@lesson.Title</h6>
+                                    </a>
                                     <p class="module-list-description">@(lesson.Description ?? "Описание отсутствует")</p>
                                 </div>
                                 @if (User.IsInRole("Admin"))
@@ -99,7 +101,9 @@
                         {
                             <div class="module-list-item">
                                 <div class="module-list-content">
-                                    <h6 class="module-list-title">@test.Title</h6>
+                                    <a asp-controller="Tests" asp-action="Details" asp-route-id="@test.Id" class="module-list-title">
+                                        <h6>@test.Title</h6>
+                                    </a>
                                     <p class="module-list-description">@(test.Description ?? "Описание отсутствует")</p>
                                 </div>
                                 @if (User.IsInRole("Admin"))
@@ -133,6 +137,4 @@
        class="module-btn module-btn-secondary">
         <i class="fas fa-arrow-left"></i> Вернуться к курсу
     </a>
-</div>
-</div>
 </div>
