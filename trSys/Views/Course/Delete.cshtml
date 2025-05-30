@@ -33,10 +33,12 @@
 
             <div class="d-flex gap-2">
                 <button type="submit" class="module-btn module-btn-danger">
-                    Подтвердить удаление
+                    <svg class="trash-icon" viewBox="2 1 20 16" width="18" height="18">
+                        <path fill="#ffffff" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                    </svg> Подтвердить удаление
                 </button>
                 <a asp-action="Index" class="module-btn module-btn-secondary">
-                    Отмена
+                    <span class="icon">✕</span> Отмена
                 </a>
             </div>
         </form>
