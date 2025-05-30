@@ -1,27 +1,81 @@
 ﻿@model trSys.DTOs.ModuleUpdateDto
 
-<h2>Редактирование модуля</h2>
+@{
+    ViewData["Title"] = "Редактирование модуля";
+}
 
+<<<<<<< HEAD
+<link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <input type="hidden" asp-for="CourseId" /> <!-- Добавляем скрытое поле -->
+<div class="module-container">
+    <h2 class="module-header">@ViewData["Title"]</h2>
 
-    <div class="form-group">
-        <label asp-for="Title"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
+    <form asp-action="Edit" method="post" class="module-form">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CourseId" />
 
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
+        <div class="form-group">
+            <label asp-for="Title" class="form-label">Название модуля</label>
+            <div class="input-container">
+                <input asp-for="Title" class="form-control" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Сохранить</button>
-    <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId" class="btn btn-secondary">Отмена</a>
-</form>
+        <div class="form-group">
+            <label asp-for="Description" class="form-label">Описание</label>
+            <div class="input-container">
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="module-btn module-btn-primary">
+                <i class="fas fa-save"></i> Сохранить
+            </button>
+            <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId"
+               class="module-btn module-btn-secondary">
+                <i class="fas fa-times"></i> Отмена
+            </a>
+        </div>
+=======
+<link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
+
+<style>
+    .form-container {
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        /* Опционально, чтобы отделить от фона */
+        margin-top: 20px;
+    }
+</style>
+
+<div class="form-container">
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="CourseId" /> <!-- Добавляем скрытое поле -->
+
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn button1">Сохранить</button>
+        <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId" class="btn button2">Отмена</a>
+>>>>>>> 16b34ce930cfde52627522c85cb61acd7121044d
+    </form>
+</div>
 
 @section Scripts {
     @{

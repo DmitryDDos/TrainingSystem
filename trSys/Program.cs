@@ -31,8 +31,8 @@ builder.Services.AddAntiforgery(options =>
 {
     options.HeaderName = "X-CSRF-TOKEN";
     // В разработке разрешаем HTTP, в продакшене только HTTPS
-    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment() 
-        ? CookieSecurePolicy.SameAsRequest 
+    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment()
+        ? CookieSecurePolicy.SameAsRequest
         : CookieSecurePolicy.Always;
 });
 
@@ -62,12 +62,15 @@ builder.Services.AddAuthorization(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
-builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IModuleService, ModuleService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
 builder.Services.AddScoped<ICourseService, CourseService>();
+<<<<<<< HEAD
 builder.Services.AddScoped<IUserProgressRepository, UserProgressRepository>();
+=======
+>>>>>>> 5356a638c2f3a6ed43635aa8fd559b6f6df7a3d5
 
 /////////////////
 builder.Services.AddScoped<UserRepository>();
