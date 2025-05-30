@@ -25,6 +25,12 @@ public record UserCourseDto(
     int CourseId,
     string Title,
     string Description,
-    DateOnly RegistrationDate
-);
+    DateOnly RegistrationDate,
+    int TotalModules,
+    int CompletedModules
+)
+{
+    public double ProgressPercentage =>
+        TotalModules == 0 ? 0 : (CompletedModules * 100.0) / TotalModules;
+}
 

@@ -25,7 +25,8 @@ namespace trSys.Models
 
         [ForeignKey("CoverImageId")]
         public FileEntity CoverImage { get; set; }
-        public ICollection<Module> Modules { get; private set; } = new List<Module>();
+        // тестовое решение убрать приватный сеттер
+        public ICollection<Module> Modules { get; set; } = new List<Module>();
         public ICollection<CourseRegistration> Registrations { get; set; } = new List<CourseRegistration>();
     }
 }

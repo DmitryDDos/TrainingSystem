@@ -26,6 +26,9 @@ public class Lesson : IEntity
 
     [Required]
     public int ModuleId { get; set; }
+    [Required]
+    [Range(1, int.MaxValue)]
+    public int Order { get; set; } = 1;
 
     // Навигационные свойства
     public Module Module { get; set; } = null!;

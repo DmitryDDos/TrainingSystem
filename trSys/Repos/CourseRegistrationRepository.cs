@@ -36,7 +36,8 @@ public class CourseRegistrationRepository : BaseRepository<CourseRegistration>, 
         => await _context.CourseRegistrations
             .Where(cr => cr.UserId == userId)
             .Include(cr => cr.Course!)
-            .ThenInclude(c => c.Registrations)
+            .ThenInclude(c => c.Modules)
+            //.ThenInclude(c => c.Registrations)
             .Select(cr => cr.Course)
             .ToListAsync();
 

@@ -7,6 +7,8 @@ namespace trSys.Interfaces
     {
         Task<Test?> GetWithQuestionsAsync(int id);
         Task<bool> ExistsAsync(int id);
-
+        Task<IEnumerable<Test>> GetByModuleIdAsync(int moduleId);
+        Task<IEnumerable<Test>> GetTestsWithQuestionsByModuleIdAsync(int moduleId);
+        Task<IEnumerable<Test>> GetTestsByModuleIdAsync(int moduleId);
     }
 }

@@ -12,10 +12,14 @@ public static class ModuleMapper
         module.CourseId);
 
     public static ModuleDetailsDto ToDetailsDto(Module module) => new(
-        module.Id,
-        module.Title,
-        module.Description,
-        module.CourseId,
-        module.Lessons.Select(LessonMapper.ToDto),
-        module.Tests.Select(TestMapper.ToDto));
+    module.Id,
+    module.Title,
+    module.Description,
+    module.CourseId,
+    module.Lessons
+        .OrderBy(l => l.Order)
+        .Select(LessonMapper.ToDto),
+    module.Tests
+        .OrderBy(t => t.Order)
+        .Select(TestMapper.ToDto));
 }

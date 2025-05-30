@@ -1,0 +1,141 @@
+﻿@model trSys.Controllers.CourseLearningVM
+@using trSys.Models
+@using trSys.Enums
+@{
+    ViewData["Title"] = Model.Course.Title;
+}
+
+<div class="learning-container">
+    <aside class="course-structure">
+        <h3>@Model.Course.Title</h3>
+        <ul>
+            @foreach (var module in Model.Course.Modules.OrderBy(m => m.Order))
+            {
+                <li class="@(module.Id == Model.CurrentModule?.Id ? "active" : "")">
+                    <a asp-action="Index" asp-route-courseId="@Model.Course.Id" asp-route-moduleId="@module.Id">
+                        Модуль @(module.Order): @module.Title
+                    </a>
+                    @if (Model.Progress.CompletedModules >= module.Order)
+                    {
+                        <span class="completed-badge">✓</span>
+                    }
+                </li>
+            }
+        </ul>
+    </aside>
+
+    <main class="learning-content">
+        @if (Model.IsCourseCompleted)
+        {
+            <div class="course-completed">
+                <h2>Курс завершен! 🎉</h2>
+                <p>Ваш результат: @Model.Progress.ProgressPercentage.ToString("0.0")%</p>
+                <a asp-controller="Home" asp-action="Index" class="button">Вернуться на главную</a>
+            </div>
+        }
+        else if (Model.CurrentModule != null)
+        {
+            <div class="module-header">
+                <h2>@Model.CurrentModule.Title</h2>
+                <p class="module-description">@Model.CurrentModule.Description</p>
+
+                <!-- Прогресс модуля -->
+                <div class="module-progress">
+                    @{
+                        int completedTests = Model.CurrentModule.Tests.Count(t => Model.Progress.CompletedTests.Contains(t.Id));
+                    }
+                    <p>Прогресс: @completedTests из @Model.CurrentModule.Tests.Count тестов пройдено</p>
+                </div>
+            </div>
+
+            <!-- Уроки -->
+            @if (Model.CurrentModule.Lessons.Any())
+            {
+                <section class="lessons-section">
+                    <h3>Уроки модуля</h3>
+                    @foreach (var lesson in Model.OrderedLessons)
+                    {
+                        <div class="lesson card">
+                            <h4>Урок @(lesson.Order): @lesson.Title</h4>
+                            <div class="content">
+                                @Html.Raw(lesson.Description)
+                            </div>
+                        </div>
+                    }
+                </section>
+            }
+
+            <!-- Тесты -->
+            @if (Model.CurrentModule.Tests.Any())
+            {
+                <section class="tests-section">
+                    <h3>Проверка знаний</h3>
+                    @foreach (var test in Model.OrderedTests)
+                    {
+                        bool isTestCompleted = Model.Progress.CompletedTests.Contains(test.Id);
+
+                        <div class="test-container card" id="test-@test.Id">
+                            <div class="test-header">
+                                <h4>Тест @(test.Order): @test.Title</h4>
+                                <p>Вопросов: @test.Questions.Count | Проходной балл: @(test.PassingScore) из @test.Questions.Count</p>
+                                @if (isTestCompleted)
+                                {
+                                    <span class="badge bg-success">Пройден ✓</span>
+                                }
+                            </div>
+
+                            @if (!isTestCompleted)
+                            {
+                                <form asp-action="CompleteTest" method="post" class="test-form" data-test-id="@test.Id">
+                                    <input type="hidden" name="testId" value="@test.Id" />
+                                    <input type="hidden" name="courseId" value="@Model.Course.Id" />
+                                    <input type="hidden" name="moduleId" value="@Model.CurrentModule.Id" />
+
+                                    @foreach (var question in test.Questions.Cast<Question>())
+                                    {
+                                        <div class="question card">
+                                            <p class="question-text">@question.Text</p>
+                                            <div class="answers">
+                                                @if (question.Type == QuestionType.SingleChoice)
+                                                {
+                                                    <!-- Радиокнопки для одиночного выбора -->
+                                                    @foreach (var answer in question.Answers.Cast<Answer>())
+                                                    {
+                                                        <label class="answer-option">
+                                                            <input type="radio"
+                                                                   name="answers[@question.Id]"
+                                                                   value="@answer.Id"
+                                                                   required />
+                                                            <span>@answer.Text</span>
+                                                        </label>
+                                                    }
+                                                }
+                                                else if (question.Type == QuestionType.MultipleChoice)
+                                                {
+                                                    <!-- Чекбоксы для множественного выбора -->
+                                                    @foreach (var answer in question.Answers.Cast<Answer>())
+                                                    {
+                                                        <label class="answer-option">
+                                                            <input type="checkbox"
+                                                                   name="answers[@question.Id]"
+                                                                   value="@answer.Id" />
+                                                            <span>@answer.Text</span>
+                                                        </label>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <button type="submit" class="button">
+                                        Завершить тест
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    }
+                </section>
+            }
+        }
+    </main>
+</div>
