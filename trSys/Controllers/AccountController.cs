@@ -87,6 +87,10 @@ public class AccountController : Controller
     public IActionResult AccessDenied() => View();
 
     [HttpGet]
+<<<<<<< HEAD
+=======
+    [Authorize]
+>>>>>>> bfbc1eb6d618c9deec3af42379f369f40a9498b8
     public async Task<IActionResult> MyCourses()
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));

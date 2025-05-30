@@ -4,36 +4,40 @@
     ViewData["Title"] = $"Создание модуля для курса: {ViewData["CourseTitle"]}";
 }
 
-<div class="container mt-4">
-    <h2>@ViewData["Title"]</h2>
-    <hr />
+<link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
-    <form asp-action="Create" asp-controller="Modules" method="post" class="needs-validation" novalidate>
-        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+<div class="module-container">
+    <h2 class="module-header">@ViewData["Title"]</h2>
 
-        <!-- Скрытое поле для CourseId -->
+    <form asp-action="Create" asp-controller="Modules" method="post" class="module-form">
+        <div asp-validation-summary="ModelOnly" class="module-alert module-alert-danger"></div>
+
         <input type="hidden" asp-for="CourseId" />
 
-        <!-- Поле: Название -->
-        <div class="mb-3">
+        <div class="form-group">
             <label asp-for="Title" class="form-label">Название модуля</label>
-            <input asp-for="Title" class="form-control" placeholder="Введите название" required />
-            <span asp-validation-for="Title" class="text-danger"></span>
+            <div class="input-container">
+                <input asp-for="Title" class="form-control" placeholder="Введите название" required />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
         </div>
 
-        <!-- Поле: Описание -->
-        <div class="mb-3">
+        <div class="form-group">
             <label asp-for="Description" class="form-label">Описание</label>
-            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Введите описание"></textarea>
-            <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="input-container">
+                <textarea asp-for="Description" class="form-control" rows="3" placeholder="Введите описание"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
         </div>
 
-        <!-- Кнопки -->
-        <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-primary">Создать</button>
+        <div class="btn-group">
+            <button type="submit" class="module-btn module-btn-primary">
+                <i class="fas fa-plus"></i> Создать
+            </button>
             <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId"
-               class="btn btn-outline-secondary">
-                Назад к курсу
+               class="module-btn module-btn-secondary">
+                <i class="fas fa-arrow-left"></i> Назад к курсу
             </a>
         </div>
     </form>
