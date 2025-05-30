@@ -11,7 +11,7 @@ namespace trSys.Controllers
         protected abstract string EntityName { get; }
 
 
-        protected Func<TEntity, IActionResult> RedirectAfterDelete { get; set; } 
+        protected Func<TEntity, IActionResult> RedirectAfterDelete { get; set; }
 
         public BaseController(IRepository<TEntity> repository)
         {

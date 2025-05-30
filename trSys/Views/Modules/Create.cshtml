@@ -4,8 +4,28 @@
     ViewData["Title"] = $"Создание модуля для курса: {ViewData["CourseTitle"]}";
 }
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+=======
+<link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
+
+<style>
+    .form-container {
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        /* Опционально, чтобы отделить от фона */
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="form-container">
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+>>>>>>> 16b34ce930cfde52627522c85cb61acd7121044d
 
 <div class="module-container">
     <h2 class="module-header">@ViewData["Title"]</h2>
@@ -31,6 +51,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="btn-group">
             <button type="submit" class="module-btn module-btn-primary">
                 <i class="fas fa-plus"></i> Создать
@@ -38,9 +59,18 @@
             <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId"
                class="module-btn module-btn-secondary">
                 <i class="fas fa-arrow-left"></i> Назад к курсу
+=======
+        <!-- Кнопки -->
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn button1">Создать</button>
+            <a asp-controller="Course" asp-action="Details" asp-route-id="@Model.CourseId"
+               class="btn button2">
+                Назад к курсу
+>>>>>>> 16b34ce930cfde52627522c85cb61acd7121044d
             </a>
         </div>
     </form>
+    </div>
 </div>
 
 @section Scripts {

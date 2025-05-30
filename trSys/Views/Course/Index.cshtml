@@ -3,46 +3,70 @@
     ViewData["Title"] = "Все курсы";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">Доступные курсы</h2>
+<link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
 
-    @if (User.IsInRole("Admin"))
-    {
-        <div class="mb-4">
-            <a asp-action="Create" class="button">
+<div class="main-wrapper">
+    <aside class="sidebar">
+        <h2 class="sidebar-title">Курсы</h2>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="button button1">
                 <i class="fas fa-plus"></i> Создать новый курс
             </a>
-        </div>
-    }
+        }
 
-    <div class="courses-grid">
-        @foreach (var course in Model)
-        {
-            <div class="course-card">
-                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="text-decoration-none" style="color: inherit;">
-                    <div class="card-image">
+        <nav class="course-list">
+            @foreach (var course in Model)
+            {
+                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="course-list-item">
+                    @course.Title
+                </a>
+            }
+        </nav>
+    </aside>
+
+    <main class="content-area">
+        <h2 class="mb-4">Доступные курсы</h2>
+
+        <div class="courses-grid">
+            @foreach (var course in Model)
+            {
+                <div class="course-card">
+                    <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="card-link text-decoration-none">
                         @if (course.CoverImageId != null)
                         {
-                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")" alt="Обложка курса" style="height:160px; object-fit:cover; width:100%;" />
+                            <img src="@Url.Content($"/api/File/{course.CoverImageId}")"
+                                 class="card-img-top"
+                                 alt="Обложка курса" />
                         }
                         else
                         {
-                            <div style="height:160px; display:flex; align-items:center; justify-content:center; background-color:#6c757d;">
-                                <i class="fas fa-book-open text-white" style="font-size:3rem;"></i>
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center">
+                                <i class="fas fa-book-open text-white" style="font-size: 2rem;"></i>
                             </div>
                         }
-                    </div>
-                    <div class="card-content">
-                        <h5 class="card-title">@course.Title</h5>
-                        <p class="card-description">
-                            @(course.Description?.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
-                        </p>
-                        <div class="card-actions">
-                            <span class="btn btn-outline-primary">Подробнее</span>
+                        <div class="card-body">
+                            <h5 class="card-title">@course.Title</h5>
+                            <p class="card-text text-muted">
+                                @(course.Description?.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
+                            </p>
                         </div>
-                    </div>
-                </a>
-            </div>
-        }
-    </div>
+                    </a>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="course-actions">
+                            <a asp-action="Edit" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button1">
+                                <i class="fas fa-edit"></i> Редактировать
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button2">
+                                <i class="fas fa-trash"></i> Удалить
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </main>
 </div>

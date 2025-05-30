@@ -1,7 +1,7 @@
-@model trSys.DTOs.LessonCreateDto
+п»ї@model trSys.DTOs.LessonCreateDto
 
 @{
-    ViewData["Title"] = $"Создание урока для модуля: {ViewData["ModuleTitle"]}";
+    ViewData["Title"] = $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: {ViewData["ModuleTitle"]}";
 }
 
 <div class="container mt-4">
@@ -14,23 +14,23 @@
         <input type="hidden" asp-for="ModuleId" />
 
         <div class="mb-3">
-            <label asp-for="Title" class="form-label">Название урока</label>
-            <input asp-for="Title" class="form-control" placeholder="Введите название" required />
+            <label asp-for="Title" class="form-label">пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ</label>
+            <input asp-for="Title" class="form-control" placeholder="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" required />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
-            <label asp-for="Description" class="form-label">Краткое описание</label>
-            <textarea asp-for="Description" class="form-control" rows="2" placeholder="Введите описание"></textarea>
+            <label asp-for="Description" class="form-label">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ</label>
+            <textarea asp-for="Description" class="form-control" rows="2" placeholder="пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"></textarea>
             <span asp-validation-for="Description" class="text-danger"></span>
         </div>
         <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-primary">Создать</button>
+            <button type="submit" class="btn btn-primary">пїЅпїЅпїЅпїЅпїЅпїЅпїЅ</button>
             <a asp-controller="Modules"
                asp-action="Details"
                asp-route-id="@Model.ModuleId"
                class="btn btn-outline-secondary">
-                Назад к модулю
+                пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             </a>
         </div>
     </form>

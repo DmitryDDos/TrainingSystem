@@ -22,6 +22,7 @@
 /* Применение шрифта ко всему тексту */
 body {
     font-family: 'Ida', sans-serif; /* Примените шрифт ко всему тексту */
+    background-color: #E8F1F6; /* Задний фон */
 }
 
 /* Стили для боковой панели */
@@ -31,16 +32,13 @@ body {
     left: 0;
     height: calc(100vh - 75px); /* Высота панели без учёта шапки */
     width: 250px;
-    background-color: #2c3e50;
+    background-color: #212121; /* Цвет боковой панели */
     color: white;
     padding: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-}
-
-
 }
 
 .user-profile {
@@ -112,7 +110,7 @@ body {
 }
 
 .course-card {
-    background-color: #ecf0f1;
+    background-color: #FFFFFF; /* Цвет карточек с курсами */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
@@ -145,7 +143,7 @@ body {
 }
 
     .button:hover {
-        background-color: #008C94;
+        background-color: #3F6578;
     }
 
 /* Мобильная навигация */
