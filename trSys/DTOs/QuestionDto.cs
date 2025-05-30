@@ -18,4 +18,5 @@ public record QuestionCreateDto(
 
 public record QuestionUpdateDto(
     [MaxLength(500)] string? Text,
-    QuestionType? Type);
+    QuestionType? Type,
+    IEnumerable<AnswerUpdateDto> Answers);

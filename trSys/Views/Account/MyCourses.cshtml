@@ -1,57 +1,66 @@
-﻿@model trSys.Models.MyCourses
+﻿@model IEnumerable<trSys.DTOs.UserCourseDto>
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Мои курсы";
+    var userFullName = User.FindFirstValue(ClaimTypes.Name);
 }
 
-<!-- Подключение стилей (если не подключено в _Layout.cshtml) -->
-<link rel="stylesheet" href="/css/mycourses_style.css" />
-
-<!-- Боковая панель -->
 <aside class="sidebar">
     <div class="user-profile">
         <div class="user-avatar">
-            @* Условие для отображения аватара или текста "Нет фото" *@
-            @if (/* Условие для проверки наличия аватара, например, Model.HasAvatar() */ false) // Замените на ваше условие
-            {
-                <img src="path_to_avatar.jpg" alt="Аватар пользователя" /> <!-- Укажите путь к аватару -->
-            }
-            else
-            {
-                <div class="avatar-placeholder">Нет фото</div>
-            }
+            <div class="avatar-placeholder">@GetInitials(userFullName)</div>
         </div>
-        <h2 class="user-name">Евдоким Петров</h2>
+        <h2 class="user-name">@userFullName</h2>
     </div>
 
     <nav class="sidebar-nav">
-        <a href="#" class="sidebar-link">📚 Мои курсы</a>
+        <a asp-action="MyCourses" class="sidebar-link active">📚 Мои курсы</a>
         <a href="#" class="sidebar-link">📈 Прогресс</a>
         <a href="#" class="sidebar-link">⚙️ Настройки</a>
     </nav>
 </aside>
 
-<!-- Основной контент -->
 <main class="main-content">
     <h1 class="page-title">Мои курсы</h1>
 
-    <div class="courses-grid">
-        <!-- Карточка курса 1 -->
-        <article class="course-card">
-            <h3 class="course-title">Современная веб-разработка</h3>
-            <p class="course-description">Полный курс по JavaScript, React и Node.js</p>
-            <a href="#" class="button">Начать курс</a>
-        </article>
-
-        <!-- Карточка курса 2 -->
-        <article class="course-card">
-            <h3 class="course-title">Data Science с нуля</h3>
-            <p class="course-description">Python, машинное обучение и анализ данных</p>
-            <a href="#" class="button">Начать курс</a>
-        </article>
-    </div>
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <p>Вы пока не записаны ни на один курс</p>
+            <a asp-controller="Course" asp-action="Index" class="button">Найти курсы</a>
+        </div>
+    }
+    else
+    {
+        <div class="courses-grid">
+            @foreach (var course in Model)
+            {
+                <article class="course-card">
+                    <h3 class="course-title">@course.Title</h3>
+                    <p class="course-description">@course.Description</p>
+                    <div class="course-meta">
+                        <span>Дата записи: @course.RegistrationDate.ToString("dd.MM.yyyy")</span>
+                    </div>
+                    <a asp-controller="Course" asp-action="Details" asp-route-id="@course.CourseId"
+                       class="button">Продолжить обучение</a>
+                </article>
+            }
+        </div>
+    }
 </main>
 
-<!-- Мобильная навигация -->
-<div class="mobile-nav hidden">
-    <!-- Контент мобильного меню -->
-</div>
+@functions {
+    private string GetInitials(string fullName)
+    {
+        if (string.IsNullOrWhiteSpace(fullName))
+            return "??";
+
+        var parts = fullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return parts.Length switch
+        {
+            0 => "??",
+            1 => parts[0][0].ToString(),
+            _ => $"{parts[0][0]}{parts[^1][0]}"
+        };
+    }
+}

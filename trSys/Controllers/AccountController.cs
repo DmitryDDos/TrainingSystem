@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using trSys.DTOs;
@@ -9,15 +10,18 @@ namespace trSys.Controllers;
 
 public class AccountController : Controller
 {
+    private readonly ICourseRegistrationService _registrationService;
     private readonly IUserService _userService;
     private readonly ILogger<AccountController> _logger;
 
     public AccountController(
         IUserService userService,
-        ILogger<AccountController> logger)
+        ILogger<AccountController> logger,
+        ICourseRegistrationService registrationService)
     {
         _userService = userService;
         _logger = logger;
+        _registrationService = registrationService;
     }
 
     [HttpGet]
@@ -81,4 +85,52 @@ public class AccountController : Controller
 
     [HttpGet]
     public IActionResult AccessDenied() => View();
+
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> MyCourses()
+    {
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var courses = await _registrationService.GetUserCoursesAsync(userId);
+        return View(courses);
+    }
+
+    [HttpGet]
+    [Authorize(Roles = "Admin")]
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [Authorize(Roles = "Admin")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register(RegisterDto dto)
+    {
+        if (!ModelState.IsValid)
+            return View(dto);
+
+        try
+        {
+            // Получаем ID текущего администратора
+            var adminId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var result = await _userService.RegisterUserAsync(dto, adminId);
+
+            if (!result.Success)
+            {
+                ModelState.AddModelError(string.Empty, result.Message);
+                return View(dto);
+            }
+
+            TempData["SuccessMessage"] = "Пользователь успешно зарегистрирован";
+            return RedirectToAction("Users", "Admin"); // Перенаправление на список пользователей
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Ошибка регистрации пользователя");
+            ModelState.AddModelError(string.Empty, "Ошибка при регистрации");
+            return RedirectToAction("Register", "Account");
+        }
+    }
 }

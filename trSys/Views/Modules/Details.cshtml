@@ -6,8 +6,6 @@
     ViewData["Title"] = Model.Title;
 }
 
-<link rel="stylesheet" href="~/css/modules_style.css" asp-append-version="true" />
-
 <div class="container mt-4">
     <div class="card shadow">
         <!-- Шапка модуля -->
@@ -18,10 +16,10 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <div>
-                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn button1">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-sm btn-warning">
                             <i class="fas fa-edit"></i> Редактировать
                         </a>
-                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn button2">
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-sm btn-danger ml-2">
                             <i class="fas fa-trash"></i> Удалить
                         </a>
                     </div>
@@ -46,61 +44,120 @@
                     <a asp-controller="Lessons"
                        asp-action="Create"
                        asp-route-moduleId="@Model.Id"
-                       class="btn button1">
+                       class="btn btn-sm btn-success">
                         <i class="fas fa-plus"></i> Добавить урок
                     </a>
                 }
             </div>
+
+            @if (Model.Lessons.Any())
+            {
+                <div class="list-group mt-3">
+                    @foreach (var lesson in Model.Lessons)
+                    {
+                        <div class="list-group-item list-group-item-action p-0">
+                            <a asp-controller="Lessons"
+                               asp-action="Details"
+                               asp-route-id="@lesson.Id"
+                               class="d-block p-3 text-decoration-none text-dark">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6>@lesson.Title</h6>
+                                        <p class="mb-1 text-muted">@(lesson.Description ?? "Описание отсутствует")</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="lesson-actions bg-light p-2 border-top">
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-controller="Lessons"
+                                           asp-action="Edit"
+                                           asp-route-id="@lesson.Id"
+                                           class="btn btn-outline-primary">
+                                            <i class="fas fa-edit"></i> Редактировать
+                                        </a>
+                                        <a asp-controller="Lessons"
+                                           asp-action="Delete"
+                                           asp-route-id="@lesson.Id"
+                                           class="btn btn-outline-danger delete-lesson-btn">
+                                            <i class="fas fa-trash"></i> Удалить
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-info-circle"></i> В этом модуле пока нет уроков
+                </div>
+            }
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <h5 class="border-bottom pb-2 mb-0">Тесты модуля</h5>
-                @if (Model.Lessons.Any())
-                {
-                    <div class="list-group mt-3">
-                        @foreach (var lesson in Model.Lessons)
-                        {
-                            <div class="list-group-item list-group-item-action p-0">
-                                <a asp-controller="Lessons"
-                                   asp-action="Details"
-                                   asp-route-id="@lesson.Id"
-                                   class="d-block p-3 text-decoration-none text-dark">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div>
-                                            <h6>@lesson.Title</h6>
-                                            <p class="mb-1 text-muted">@(lesson.Description ?? "Описание отсутствует")</p>
-                                        </div>
-                                    </div>
-                                </a>
 
-                                @if (User.IsInRole("Admin"))
-                                {
-                                    <div class="lesson-actions bg-light p-2 border-top">
-                                        <div class="btn-group btn-group-sm">
-                                            <a asp-controller="Lessons"
-                                               asp-action="Edit"
-                                               asp-route-id="@lesson.Id"
-                                               class="btn button1">
-                                                <i class="fas fa-edit"></i> Редактировать
-                                            </a>
-                                            <a asp-controller="Lessons"
-                                               asp-action="Delete"
-                                               asp-route-id="@lesson.Id"
-                                               class="btn button2">
-                                                <i class="fas fa-trash"></i> Удалить
-                                            </a>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        }
-                    </div>
-                }
-                else
+                @if (User.IsInRole("Admin"))
                 {
-                    <div class="alert alert-info mt-3">
-                        <i class="fas fa-info-circle"></i> В этом модуле пока нет уроков
-                    </div>
+                    <a asp-controller="Tests"
+                       asp-action="Create"
+                       asp-route-moduleId="@Model.Id"
+                       class="btn btn-sm btn-success">
+                        <i class="fas fa-plus"></i> Добавить тест
+                    </a>
                 }
+            </div>
 
+            @if (Model.Tests.Any())
+            {
+                <div class="list-group mt-3">
+                    @foreach (var test in Model.Tests)
+                    {
+                        <div class="list-group-item list-group-item-action p-0">
+                            <a asp-controller="Tests"
+                               asp-action="Details"
+                               asp-route-id="@test.Id"
+                               class="d-block p-3 text-decoration-none text-dark">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6>@test.Title</h6>
+                                        <p class="mb-1 text-muted">@(test.Description ?? "Описание отсутствует")</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="lesson-actions bg-light p-2 border-top">
+                                    <div class="btn-group btn-group-sm">
+                                        <a asp-controller="Tests"
+                                           asp-action="Edit"
+                                           asp-route-id="@test.Id"
+                                           class="btn btn-outline-primary">
+                                            <i class="fas fa-edit"></i> Редактировать
+                                        </a>
+                                        <a asp-controller="Tests"
+                                           asp-action="Delete"
+                                           asp-route-id="@test.Id"
+                                           class="btn btn-outline-danger delete-test-btn">
+                                            <i class="fas fa-trash"></i> Удалить
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-info-circle"></i> В этом модуле пока нет тестов
+                </div>
+            }
         </div>
     </div>
 
@@ -108,7 +165,7 @@
     <a asp-controller="Course"
        asp-action="Details"
        asp-route-id="@Model.CourseId"
-       class="btn button2">
+       class="btn btn-secondary mt-3">
         <i class="fas fa-arrow-left"></i> Вернуться к курсу
     </a>
 </div>
