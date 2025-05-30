@@ -1,35 +1,117 @@
 ﻿@using trSys.DTOs
 @model RegisterDto
 
-<h2>Регистрация нового пользователя</h2>
+@{
+    ViewData["Title"] = "Регистрация нового пользователя";
+}
 
-<form asp-action="Register" method="post">
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            background-color: #E8F1F6;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        /* Стили для контейнера профиля и регистрации */
+        .profile-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .form-group input,
+            .form-group select {
+                width: calc(100% - 20px);
+                padding: 10px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+            }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .btn-primary {
+            background-color: #00C0C9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0097a7;
+            }
+
+        .btn-back {
+            margin-left: 10px; /* Отступ слева для кнопки "Назад" */
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Регистрация нового пользователя</h2>
+
+        <form asp-action="Register" method="post">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role"></label>
+                <select asp-for="Role" class="form-control">
+                    <option value="User ">Пользователь</option>
+                    <option value="Admin">Администратор</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Зарегистрировать</button>
+                <button class="btn btn-primary btn-back" onclick="location.href='@Url.Action("Profile", "Account")'">Назад</button>
+            </div>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label asp-for="FullName"></label>
-        <input asp-for="FullName" class="form-control" />
-        <span asp-validation-for="FullName" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Role"></label>
-        <select asp-for="Role" class="form-control">
-            <option value="User">Пользователь</option>
-            <option value="Admin">Администратор</option>
-        </select>
-        <span asp-validation-for="Role" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-3">Зарегистрировать</button>
-</form>
+</body>
+</html>

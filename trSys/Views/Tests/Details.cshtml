@@ -4,50 +4,175 @@
     ViewData["Title"] = "Детали теста";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div>
-    <h4>@Model.Title</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Название:</dt>
-        <dd class="col-sm-10">@Model.Title</dd>
-
-        <dt class="col-sm-2">Описание:</dt>
-        <dd class="col-sm-10">@Model.Description</dd>
-
-        <dt class="col-sm-2">ID модуля:</dt>
-        <dd class="col-sm-10">@Model.ModuleId</dd>
-    </dl>
-
-    <h5>Вопросы теста:</h5>
-    @if (Model.Questions.Any())
-    {
-        <ul class="list-group">
-            @foreach (var question in Model.Questions)
-            {
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    @question.Text
-                    @* <div>
-                        <a href="#" class="btn btn-sm btn-outline-secondary">Редактировать</a>
-                        <a href="#" class="btn btn-sm btn-outline-danger">Удалить</a>
-                    </div> *@
-                </li>
-            }
-        </ul>
+<style>
+    .details-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #FFFFFF; /* белый */
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
-    else
-    {
-        <div class="alert alert-warning">Вопросы отсутствуют</div>
+
+    .details-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #E8F1F6; /* светло-синий */
     }
+
+        .details-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3F6578; /* темно-синий */
+            margin: 0;
+        }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        color: #00C0C9; /* бирюзовый */
+    }
+
+    .details-content {
+        margin-bottom: 1.5rem;
+    }
+
+    .details-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #212121; /* черный */
+    }
+
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #E8F1F6; /* светло-синий */
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #D8FD51; /* светло-зеленый */
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .btn-primary-custom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #00C0C9; /* бирюзовый */
+        border: none;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 192, 201, 0.2);
+        cursor: pointer;
+    }
+
+        .btn-primary-custom:hover {
+            background: #3F6578; /* темно-синий */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(63, 101, 120, 0.3);
+        }
+
+    .btn-outline-secondary {
+        border: 1px solid #FF8769; /* оранжевый */
+        color: #FF8769; /* оранжевый */
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #FF8769; /* оранжевый */
+            color: white;
+        }
+
+    .alert-warning {
+        background-color: #E8F1F6; /* светло-синий */
+        color: #212121; /* черный */
+        border-color: #D8FD51; /* светло-зеленый */
+        border-radius: 0.25rem;
+        padding: 0.75rem 1.25rem;
+        margin: 1rem 0;
+    }
+</style>
+
+<div class="details-container">
+    <div class="details-header">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+        </svg>
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="details-content">
+        <h4 class="details-title">Название:</h4>
+        <p>@Model.Title</p>
+
+        <h4 class="details-title">Описание:</h4>
+        <p>@Model.Description</p>
+
+        <h4 class="details-title">ID модуля:</h4>
+        <p>@Model.ModuleId</p>
+
+        <h5 class="details-title">Вопросы теста:</h5>
+        @if (Model.Questions.Any())
+        {
+            <ul class="list-group">
+                @foreach (var question in Model.Questions)
+                {
+                    <li class="list-group-item">
+                        @question.Text
+                        @* Здесь можно добавить кнопки редактирования и удаления *@
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="alert alert-warning">Вопросы отсутствуют</div>
+        }
+    </div>
+
+    <div class="action-buttons">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-primary-custom">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;margin-right:8px;">
+                <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+            </svg>
+            Редактировать
+        </a>
+        <a asp-action="ManageQuestions" asp-route-id="@Model.Id" class="btn-primary-custom">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;margin-right:8px;">
+                <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+            </svg>
+            Управление вопросами
+        </a>
+        <a asp-controller="Modules"
+           asp-action="Details"
+           asp-route-id="@Model.ModuleId"
+           class="btn-outline-secondary">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;margin-right:8px;">
+                <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+            </svg>
+            Отмена
+        </a>
+    </div>
 </div>
-<div class="mt-4">
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Редактировать</a>
-    <a asp-action="ManageQuestions" asp-route-id="@Model.Id" class="btn btn-success">Управление вопросами</a>
-    <a asp-controller="Modules"
-       asp-action="Details"
-       asp-route-id="@Model.ModuleId"
-       class="btn btn-outline-secondary">
-        отмена
-    </a>
-</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

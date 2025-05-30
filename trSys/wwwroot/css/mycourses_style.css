@@ -150,3 +150,29 @@ body {
 .mobile-nav {
     display: none; /* Скрыть по умолчанию */
 }
+
+.user-profile {
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 2rem; /* Отступ снизу */
+}
+
+.user-avatar {
+    display: flex; /* Flexbox для центрирования */
+    align-items: center; /* Вертикальное центрирование */
+    justify-content: center; /* Горизонтальное центрирование */
+    margin: 0 auto; /* Автоматические отступы для центрирования */
+    width: 80px; /* Ширина аватара */
+    height: 80px; /* Высота аватара */
+    background-color: #34495e; /* Цвет фона аватара */
+    border-radius: 50%; /* Круглая форма */
+    font-size: 2rem; /* Размер шрифта */
+    color: white; /* Цвет текста */
+}
+
+.avatar-placeholder {
+    display: flex; /* Flexbox для центрирования текста внутри аватара */
+    align-items: center; /* Вертикальное центрирование текста */
+    justify-content: center; /* Горизонтальное центрирование текста */
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+}

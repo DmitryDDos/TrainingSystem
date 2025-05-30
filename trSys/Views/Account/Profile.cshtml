@@ -53,7 +53,7 @@
             align-items: center;
             color: #888;
             font-weight: bold;
-            background-color: #f0f0f0; /* Цвет фона для пустого аватара */
+            background-color: #FFFFFF; /* Цвет фона для пустого аватара */
         }
 
         .form-group {
@@ -71,6 +71,11 @@
                 border-radius: 6px;
                 border: 1px solid #ccc;
             }
+
+        .button-margin {
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -96,7 +101,13 @@
         </div>
         <button class="button" id="editButton">Редактировать данные</button>
         <button class="button" id="saveButton" style="display:none;">Сохранить</button>
-        <button class="button" onclick="location.href='/Home/Index'">Назад</button>
+        <button class="button" onclick="location.href='/Profile/Profile'">Назад</button>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <button class="button button-margin" onclick="location.href='/Account/Register'">Зарегистрировать нового сотрудника</button>
+        }
+
     </div>
 
     <script>

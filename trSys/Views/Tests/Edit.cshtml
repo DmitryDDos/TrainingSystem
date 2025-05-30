@@ -1,46 +1,217 @@
 ﻿@model trSys.DTOs.TestUpdateDto
-
 @{
     ViewData["Title"] = "Редактировать тест";
     var testId = ViewContext.RouteData.Values["id"];
 }
 
-<h1>@ViewData["Title"]</h1>
+<style>
+    .edit-test-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #FFFFFF; /* белый */
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Edit" asp-route-id="@testId">
+    .edit-test-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #E8F1F6; /* светло-синий */
+    }
+
+        .edit-test-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #3F6578; /* темно-синий */
+            margin: 0;
+        }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        color: #00C0C9; /* бирюзовый */
+    }
+
+    .form-card {
+        background: #E8F1F6; /* светло-синий */
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #E8F1F6; /* светло-синий */
+    }
+
+    .form-label {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        color: #212121; /* черный */
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control-custom {
+        border: 1px solid #E8F1F6; /* светло-синий */
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s;
+        width: 100%;
+        background-color: #FFFFFF; /* белый */
+    }
+
+        .form-control-custom:focus {
+            border-color: #00C0C9; /* бирюзовый */
+            box-shadow: 0 0 0 3px rgba(0, 192, 201, 0.15);
+            outline: none;
+        }
+
+    .btn-primary-custom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #00C0C9; /* бирюзовый */
+        border: none;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 192, 201, 0.2);
+        cursor: pointer;
+    }
+
+        .btn-primary-custom:hover {
+            background: #3F6578; /* темно-синий */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(63, 101, 120, 0.3);
+        }
+
+    .btn-outline-custom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #FF8769; /* оранжевый */
+        color: #FF8769; /* оранжевый */
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+
+        .btn-outline-custom:hover {
+            background-color: #FF8769; /* оранжевый */
+            color: white;
+            text-decoration: none;
+        }
+
+    .action-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .text-danger {
+        color: #FF8769; /* оранжевый */
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
+
+    .validation-summary {
+        background: #E8F1F6; /* светло-синий */
+        border-left: 4px solid #FF8769; /* оранжевый */
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0 4px 4px 0;
+    }
+
+        .validation-summary ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+</style>
+
+<div class="edit-test-container">
+    <div class="edit-test-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    @if (ViewContext.ViewData.ModelState.ErrorCount > 0)
+    {
+        <div class="validation-summary">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="ModuleId" />
+        </div>
+    }
 
-            <div class="form-group mb-3">
-                <label asp-for="Title" class="form-label">Название теста</label>
-                <input asp-for="Title" class="form-control" />
+    <form asp-action="Edit" asp-route-id="@testId">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ModuleId" />
+
+        <div class="form-card">
+            <div class="form-group mb-4">
+                <label asp-for="Title" class="form-label">
+                    <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:8px;">
+                        <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
+                    </svg>
+                    Название теста
+                </label>
+                <input asp-for="Title" class="form-control-custom" placeholder="Введите название теста" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
 
-            <div class="form-group mb-3">
-                <label asp-for="Description" class="form-label">Описание</label>
-                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            <div class="form-group mb-4">
+                <label asp-for="Description" class="form-label">
+                    <svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:8px;">
+                        <path fill="currentColor" d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z" />
+                    </svg>
+                    Описание
+                </label>
+                <textarea asp-for="Description" class="form-control-custom" rows="4" placeholder="Добавьте описание теста"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+        </div>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Сохранить</button>
-                <a asp-controller="Modules"
-                   asp-action="Details"
-                   asp-route-id="@Model.ModuleId"
-                   class="btn btn-outline-secondary">
-                    Назад к модулю
-                </a>
-            </div>
-        </form>
-    </div>
+        <div class="action-buttons">
+            <button type="submit" class="btn-primary-custom">
+                <svg viewBox="0 0 24 24" style="width:18px;height:18px;margin-right:8px;">
+                    <path fill="currentColor" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+                </svg>
+                Сохранить изменения
+            </button>
+            <a asp-controller="Modules"
+               asp-action="Details"
+               asp-route-id="@Model.ModuleId"
+               class="btn-outline-custom">
+                <svg viewBox="0 0 24 24" style="width:18px;height:18px;margin-right:8px;">
+                    <path fill="currentColor" d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" />
+                </svg>
+                Назад к модулю
+            </a>
+        </div>
+    </form>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        // Анимация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.edit-test-container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
 }

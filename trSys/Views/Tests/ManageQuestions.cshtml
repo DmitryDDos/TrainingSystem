@@ -3,53 +3,150 @@
     ViewData["Title"] = $"Управление вопросами теста: {ViewBag.TestTitle}";
 }
 
-<h2>@ViewData["Title"]</h2>
+<style>
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #FFFFFF; /* белый */
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
 
-<div class="mb-3">
-    <a asp-action="Create" asp-controller="Questions" asp-route-testId="@ViewBag.TestId"
-       class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Добавить вопрос
-    </a>
-    <a asp-action="Details" asp-route-id="@ViewBag.TestId" class="btn btn-secondary">
-        <i class="bi bi-arrow-left"></i> Назад к тесту
-    </a>
-</div>
+    h2 {
+        color: #3F6578; /* темно-синий */
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Текст вопроса</th>
-            <th>Тип</th>
-            <th>Ответов</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var question in Model)
-        {
-            <tr>
-                <td>@question.Text</td>
-                <td>@question.Type</td>
-                <td>@question.Answers.Count()</td>
-                <td>
-                    <div class="btn-group btn-group-sm">
-                        <a asp-action="Edit" asp-controller="Questions" asp-route-id="@question.Id"
-                           class="btn btn-primary">
-                            <i class="bi bi-pencil"></i> Редактировать
-                        </a>
-                        <form asp-action="Delete" asp-controller="Questions" asp-route-id="@question.Id"
-                              method="post" onsubmit="return confirm('Удалить этот вопрос?');">
-                            <button type="submit" class="btn btn-danger">
-                                <i class="bi bi-trash"></i> Удалить
-                            </button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
+    .btn-custom {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s;
+        text-decoration: none;
+        color: white;
+    }
+
+    .btn-success-custom {
+        background-color: #00C0C9; /* бирюзовый */
+    }
+
+        .btn-success-custom:hover {
+            background-color: #3F6578; /* темно-синий */
         }
-    </tbody>
-<<<<<<< HEAD
-</table>
-=======
-</table>
->>>>>>> bfbc1eb6d618c9deec3af42379f369f40a9498b8
+
+    .btn-secondary-custom {
+        background-color: #FF8769; /* оранжевый */
+    }
+
+        .btn-secondary-custom:hover {
+            background-color: #3F6578; /* темно-синий */
+        }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+    }
+
+        .table thead {
+            background-color: #E8F1F6; /* светло-синий */
+        }
+
+        .table th {
+            padding: 1rem;
+            text-align: left;
+            color: #3F6578; /* темно-синий */
+            font-weight: 600;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.3s;
+        }
+
+            .table tbody tr:hover {
+                background-color: #E8F1F6; /* светло-синий */
+            }
+
+        .table td {
+            padding: 1rem;
+            color: #212121; /* черный */
+        }
+
+    .btn-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+        .btn-group .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            color: white;
+        }
+
+    .btn-edit {
+        background-color: #00C0C9; /* бирюзовый */
+    }
+
+        .btn-edit:hover {
+            background-color: #3F6578; /* темно-синий */
+        }
+
+    .btn-delete {
+        background-color: #FF8769; /* оранжевый */
+    }
+
+        .btn-delete:hover {
+            background-color: #3F6578; /* темно-синий */
+        }
+</style>
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="mb-3">
+        <a asp-action="Create" asp-controller="Questions" asp-route-testId="@ViewBag.TestId" class="btn-custom btn-success-custom">
+            <i class="bi bi-plus-circle"></i> Добавить вопрос
+        </a>
+        <a asp-action="Details" asp-route-id="@ViewBag.TestId" class="btn-custom btn-secondary-custom">
+            <i class="bi bi-arrow-left"></i> Назад к тесту
+        </a>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Текст вопроса</th>
+                <th>Тип</th>
+                <th>Ответов</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var question in Model)
+            {
+                <tr>
+                    <td>@question.Text</td>
+                    <td>@question.Type</td>
+                    <td>@question.Answers.Count()</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a asp-action="Edit" asp-controller="Questions" asp-route-id="@question.Id" class="btn btn-edit">
+                                <i class="bi bi-pencil"></i> Редактировать
+                            </a>
+                            <form asp-action="Delete" asp-controller="Questions" asp-route-id="@question.Id" method="post" onsubmit="return confirm('Удалить этот вопрос?');">
+                                <button type="submit" class="btn btn-delete">
+                                    <i class="bi bi-trash"></i> Удалить
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

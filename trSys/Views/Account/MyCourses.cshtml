@@ -5,6 +5,8 @@
     var userFullName = User.FindFirstValue(ClaimTypes.Name);
 }
 
+<link rel="stylesheet" href="~/css/mycourses_style.css" />
+
 <aside class="sidebar">
     <div class="user-profile">
         <div class="user-avatar">
@@ -16,7 +18,6 @@
     <nav class="sidebar-nav">
         <a asp-action="MyCourses" class="sidebar-link active">📚 Мои курсы</a>
         <a href="#" class="sidebar-link">📈 Прогресс</a>
-        <a href="#" class="sidebar-link">⚙️ Настройки</a>
     </nav>
 </aside>
 
