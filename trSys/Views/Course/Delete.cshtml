@@ -4,54 +4,40 @@
     ViewData["Title"] = "Удаление курса";
 }
 
-<link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
-
-<style>
-    .delete-form-container {
-        background-color: #FFFFFF;
-        border-radius: 0.5rem;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        /* Опционально, чтобы отделить от фона */
-        margin-top: 20px;
-    }
-</style>
+<link rel="stylesheet" href="~/css/module_style.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <div class="container mt-4">
-    <h2>@ViewData["Title"]</h2>
-    <hr />
+    <div class="form-container" style="max-width: 600px; margin: auto;">
+        <h2>@ViewData["Title"]</h2>
+        <hr />
 
-    <div class="delete-form-container">
-        <div class="alert alert-danger">
-            <h5 class="mb-3">❗ Вы уверены, что хотите безвозвратно удалить курс?</h5>
-            <ul class="mb-0">
+        <div class="module-alert module-alert-danger mb-4">
+            <h5><i class="fas fa-exclamation-triangle"></i> Вы уверены, что хотите безвозвратно удалить курс?</h5>
+            <ul>
                 <li>Будет удалена вся связанная информация</li>
                 <li>Действие нельзя отменить</li>
             </ul>
         </div>
 
-        <div class="card border-danger mb-4">
-            <div class="card-body">
-                <dl class="row">
-                    <dt class="col-sm-4 text-muted">ID курса:</dt>
-                    <dd class="col-sm-8">@Model.Id</dd>
+        <dl class="row mb-4">
+            <dt class="col-sm-4 text-muted">ID курса:</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
 
-                    <dt class="col-sm-4 text-muted">Название:</dt>
-                    <dd class="col-sm-8">@Model.Title</dd>
-                </dl>
-            </div>
-        </div>
+            <dt class="col-sm-4 text-muted">Название:</dt>
+            <dd class="col-sm-8">@Model.Title</dd>
+        </dl>
 
         <form asp-action="Delete" asp-controller="Course" method="post">
-            <input type="hidden" asp-for="Id" />
             @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
 
-            <div class="d-flex gap-2 align-items-center">
-                <button type="submit" class="btn button1">
-                    <i class="bi bi-trash3 me-2"></i>Подтвердить удаление
+            <div class="d-flex gap-2">
+                <button type="submit" class="module-btn module-btn-danger">
+                    <i class="fas fa-trash-alt"></i> Подтвердить удаление
                 </button>
-                <a asp-action="Index" class="btn button2">
-                    <i class="bi bi-x-circle me-2"></i>Отмена
+                <a asp-action="Index" class="module-btn module-btn-secondary">
+                    <i class="fas fa-times"></i> Отмена
                 </a>
             </div>
         </form>

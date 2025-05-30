@@ -4,6 +4,7 @@
 }
 
 <link rel="stylesheet" href="~/css/courses_style.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
 <div class="main-wrapper">
     <aside class="sidebar">
@@ -11,15 +12,23 @@
 
         @if (User.IsInRole("Admin"))
         {
-            <a asp-action="Create" class="button button1">
+            <a asp-action="Create" class="button button1 create-course-button" style="margin-bottom: 20px;">
                 <i class="fas fa-plus"></i> Создать новый курс
             </a>
         }
 
-        <nav class="course-list">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Поиск курсов..." class="search-input" />
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <nav class="course-list" id="courseList">
             @foreach (var course in Model)
             {
-                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="course-list-item">
+                <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id"
+                   class="course-list-item" data-title="@course.Title.ToLower()">
                     @course.Title
                 </a>
             }
@@ -27,12 +36,10 @@
     </aside>
 
     <main class="content-area">
-        <h2 class="mb-4">Доступные курсы</h2>
-
-        <div class="courses-grid">
+        <div class="courses-grid" id="coursesGrid">
             @foreach (var course in Model)
             {
-                <div class="course-card">
+                <div class="course-card" data-title="@course.Title.ToLower()">
                     <a asp-action="Details" asp-controller="Course" asp-route-id="@course.Id" class="card-link text-decoration-none">
                         @if (course.CoverImageId != null)
                         {
@@ -47,8 +54,8 @@
                             </div>
                         }
                         <div class="card-body">
-                            <h5 class="card-title">@course.Title</h5>
-                            <p class="card-text text-muted">
+                            <h5 class="card-title course-title">@course.Title</h5>
+                            <p class="card-text course-description">
                                 @(course.Description?.Length > 100 ? course.Description.Substring(0, 100) + "..." : course.Description)
                             </p>
                         </div>
@@ -57,10 +64,10 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <div class="course-actions">
-                            <a asp-action="Edit" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button1">
+                            <a asp-action="Edit" asp-route-id="@course.Id" class="btn button1 edit-button">
                                 <i class="fas fa-edit"></i> Редактировать
                             </a>
-                            <a asp-action="Delete" asp-route-id="@course.Id" style="margin-top: 5px;" class="btn button2">
+                            <a asp-action="Delete" asp-route-id="@course.Id" class="btn button2">
                                 <i class="fas fa-trash"></i> Удалить
                             </a>
                         </div>
@@ -70,3 +77,59 @@
         </div>
     </main>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInputs = [document.getElementById('searchInput')];
+
+            function filterCourses(searchTerm) {
+                searchTerm = searchTerm.toLowerCase();
+
+                // Фильтрация списка в сайдбаре
+                document.querySelectorAll('#courseList .course-list-item').forEach(item => {
+                    const title = item.getAttribute('data-title');
+                    item.style.display = title.includes(searchTerm) ? 'block' : 'none';
+                });
+
+                // Фильтрация карточек
+                const cards = document.querySelectorAll('#coursesGrid .course-card');
+                let hasVisibleCards = false;
+
+                cards.forEach(card => {
+                    const title = card.getAttribute('data-title');
+                    if (title.includes(searchTerm)) {
+                        card.style.display = 'block';
+                        hasVisibleCards = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Сообщение "Ничего не найдено"
+                const noResults = document.getElementById('noResults');
+                if (!hasVisibleCards) {
+                    if (!noResults) {
+                        const message = document.createElement('div');
+                        message.id = 'noResults';
+                        message.className = 'no-results-message';
+                        message.innerHTML = `
+                            <i class="fas fa-search"></i>
+                            <h3>Курсы не найдены</h3>
+                            <p>Попробуйте изменить параметры поиска</p>
+                        `;
+                        document.getElementById('coursesGrid').appendChild(message);
+                    }
+                } else if (noResults) {
+                    noResults.remove();
+                }
+            }
+
+            searchInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    filterCourses(this.value);
+                });
+            });
+        });
+    </script>
+}

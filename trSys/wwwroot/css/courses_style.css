@@ -29,13 +29,12 @@ body {
     background-color: #E8F1F6;
     margin: 0;
     color: #333;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh; /* изменено с height на min-height */
 }
 
 .main-wrapper {
     display: flex;
-    height: 100vh;
+    min-height: 100vh; /* изменено с height на min-height */
 }
 
 /* === Сайдбар === */
@@ -113,6 +112,16 @@ body {
         background-color: #3F6578;
     }
 
+.edit-button {
+    background-color: #00c0c9 !important;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+    .edit-button:hover {
+        background-color: #00a8b0 !important;
+    }
+
 .course-list {
     display: flex;
     flex-direction: column;
@@ -120,10 +129,15 @@ body {
 }
 
 .course-actions {
-    margin-top: 10px;
     display: flex;
-    gap: 10px; /* Расстояние между кнопками */
+    justify-content: flex-start; /* Выравнивание кнопок в начале */
+    padding: 12px 17px;
+    margin-top: -23px; /* Увеличиваем отступ сверху для поднятия кнопок */
 }
+
+    .course-actions .btn {
+        margin-right: 10px; /* Отступ между кнопками */
+    }
 
 .course-list-item {
     color: #ccc;
@@ -142,12 +156,50 @@ body {
         cursor: pointer;
     }
 
+/* === Поиск === */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+    .search-input:focus {
+        border-color: #B99AF3;
+        outline: none;
+    }
+
+.search-button {
+    background-color: #B99AF3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+    .search-button:hover {
+        background-color: #3F6578;
+    }
+
 /* === Основная область контента === */
 .content-area {
     flex-grow: 1;
     padding: 30px 40px;
     overflow-y: auto;
     background-color: #E8F1F6;
+    min-height: 100vh; /* добавлено для гарантии минимальной высоты */
 }
 
     .content-area h1 {
@@ -156,38 +208,57 @@ body {
         color: #222;
     }
 
-/* === Существующие стили карточек === */
+/* === Карточки курсов === */
 .courses-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Расстояние между карточками */
+    gap: 20px;
+    padding-bottom: 20px;
 }
 
 .course-card {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden; /* Скрывает переполнение */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Занимает всю ширину контейнера */
-    max-width: 400px; /* Максимальная ширина карточки */
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
 }
 
     .course-card:hover {
-        transform: translateY(-5px); /* Поднимает карточку при наведении */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Добавляет тень */
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
 .card-img-top {
-    height: 150px; /* Высота изображения */
-    object-fit: cover; /* Обрезает изображение, сохраняя пропорции */
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
 .card-body {
-    padding: 15px; /* Отступы внутри карточки */
+    padding: 15px;
+    flex-grow: 1;
 }
 
-/* Скроллбар для сайдбара (кроссбраузерно) */
+.course-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.course-description {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Скроллбар для сайдбара */
 .sidebar::-webkit-scrollbar {
     width: 8px;
 }
@@ -220,7 +291,6 @@ body {
     }
 
     .courses-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         max-width: 100%;
     }
 }
